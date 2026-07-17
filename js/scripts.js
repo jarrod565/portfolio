@@ -113,6 +113,23 @@ function applyFilter() {
     }
   });
 
+  // Sync H1 role word opacity with active roles
+  const roleWords = {
+    designer: document.querySelector('#welcome h1 .designer'),
+    researcher: document.querySelector('#welcome h1 .researcher'),
+    strategist: document.querySelector('#welcome h1 .strategist')
+  };
+
+  validRoles.forEach(role => {
+    if (roleWords[role]) {
+      if (activeRoles.has(role)) {
+        roleWords[role].classList.remove('dimmed');
+      } else {
+        roleWords[role].classList.add('dimmed');
+      }
+    }
+  });
+
   // Show/hide case studies
   caseStudyCards.forEach(card => {
     const disciplines = card.getAttribute('data-discipline').split(' ');
