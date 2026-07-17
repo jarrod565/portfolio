@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/styles.css">
 	<script src="https://cdn.counter.dev/script.js" data-id="26424da4-b094-44ac-86be-e75e67dfbcd7" data-utcoffset="-4"></script>
 	<script src="js/modernizr.js" defer></script>
-	<title>Jarrod Murray | UX Designer</title>
+	<title>Jarrod W. Murray | Product Designer &amp; Strategist</title>
 </head>
 
 <body id="index">
@@ -19,56 +19,19 @@
 	<section class="halfPad" id="welcome">
 		<div></div>
 		<h1>Jarrod W. Murray</h1>
-		<h3>I help organizations build the right products, the right way.</h3>
-		<p>I&rsquo;m a product strategist who uses design as a tool to solve business problems&hellip; bridging executives, product teams, engineering, and end users to build the right products the right way.</p>
+		<h3>Design, product, and engineering each have their own language. I speak all three.</h3>
+		<p>AI is changing how products get built &mdash; and the gray areas between disciplines are where things get missed. I navigate those gaps with a consistent, iterative approach: Understand, Simplify, Align, and Validate.</p>
 	</section>
-	<!-- <h3 class="center">My user-centered, iterative approach:</h3> -->
-	<div class="panels">
-    <div class="panel panel1">
-      <div class="panelFlip">
-        <div class="front">
-          <h3>Understand</h3>
-        </div>
-        <div class="back">
-          <p>Researching users, workflows, operational pain points, and business constraints</p>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel2">
-      <div class="panelFlip">
-        <div class="front">
-          <h3>Simplify</h3>
-        </div>
-        <div class="back">
-          <p>Turning complex systems into scalable, understandable experiences</p>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel3">
-      <div class="panelFlip">
-        <div class="front">
-          <h3>Align</h3>
-        </div>
-        <div class="back">
-          <p>Bridging product, UX, engineering, and stakeholder priorities</p>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel4">
-      <div class="panelFlip">
-        <div class="front">
-          <h3>Validate</h3>
-        </div>
-        <div class="back">
-          <p>Testing assumptions, refining workflows, and measuring outcomes</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
+<div id="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="product-designer">Product Designer</button>
+  <button class="filter-btn" data-filter="ux-researcher">UX Researcher</button>
+  <button class="filter-btn" data-filter="product-strategist">Product Strategist</button>
+</div>
 <div id="case_studies">
 	<!-- <p>The portfolio is currently being updated to reflect recent work in enterprise systems, platform modernization, and operational design.</p> -->
-	<article class="case_study">
+	<article class="case_study" data-discipline="product-strategist">
 		<figure>
 			<div>
 				<img alt="Dinner Meets Tinder" src="./img/thumbs/dinder.jpg" />
@@ -77,11 +40,11 @@
 				</a>
 			</div>
 		</figure>
-		<h5>Case Study</h5>
+		<h5><span class="chip">Product Strategist</span></h5>
 		<h3><a href="./dinner-meets-tinder.html">Dinner Meets Tinder</a></h3>
 		<p>What one person can build with AI</p>
 	</article>
-	<article class="case_study">
+	<article class="case_study" data-discipline="product-strategist">
 		<figure>
 			<div>
 				<img alt="AI-Ready Backlog" src="./img/thumbs/ai-ready.png" />
@@ -90,11 +53,11 @@
 				</a>
 			</div>
 		</figure>
-		<h5>Case Study</h5>
+		<h5><span class="chip">Product Strategist</span></h5>
 		<h3><a href="./ai-ready-backlog.html">AI-Ready Backlog</a></h3>
 		<p>When user stories stopped being enough</p>
 	</article>
-	<article class="case_study">
+	<article class="case_study" data-discipline="product-strategist">
 		<figure>
 			<div>
 				<img alt="Beyond the Login" src="./img/thumbs/login.jpg" />
@@ -103,11 +66,11 @@
 				</a>
 			</div>
 		</figure>
-		<h5>Case Study</h5>
+		<h5><span class="chip">Product Strategist</span></h5>
 		<h3><a href="./beyond-the-login.html">Beyond the Login</a></h3>
 		<p>The login screen is the easy part</p>
 	</article>
-	<article class="case_study">
+	<article class="case_study" data-discipline="product-strategist">
 		<figure>
 			<div>
 				<img alt="Smart Launcher" src="./img/thumbs/launcher.png" />
@@ -116,11 +79,11 @@
 				</a>
 			</div>
 		</figure>
-		<h5>Case Study</h5>
+		<h5><span class="chip">Product Strategist</span></h5>
 		<h3><a href="./smart-launcher.html">Smart Launcher</a></h3>
 		<p>The front door to website conversations</p>
 	</article>
-	<article class="case_study">
+	<article class="case_study" data-discipline="ux-researcher">
 		<figure>
 			<div>
 				<img alt="Know Your Audience" src="./img/thumbs/audience.jpg" />
@@ -129,11 +92,11 @@
 				</a>
 			</div>
 		</figure>
-		<h5>Case Study</h5>
+		<h5><span class="chip">UX Researcher</span></h5>
 		<h3><a href="./audience.html">Know Your Audience</a></h3>
 		<p>The Value of UX through Rapid Iteration</p>
 	</article>
-	<article class="case_study">
+	<article class="case_study" data-discipline="ux-researcher">
 		<figure>
 			<div>
 				<img alt="Platform One" src="./img/thumbs/platform-one.jpg" />
@@ -142,11 +105,11 @@
 				</a>
 			</div>
 		</figure>
-    <h5>Case Study</h5>
+    <h5><span class="chip">UX Researcher</span></h5>
     <h3><a href="./platform-one.html">Platform One (P1)</a></h3>
     <p>Building a commercially-viable SaaS product</p>
 	</article>
-	<article class="case_study">
+	<article class="case_study" data-discipline="ux-researcher">
 		<figure>
 			<div>
 				<img alt="Carte Blanche UX" src="./img/thumbs/carte-blanche.jpg" />
@@ -155,11 +118,11 @@
 				</a>
 			</div>
 		</figure>
-    <h5>Case Study</h5>
+    <h5><span class="chip">UX Researcher</span></h5>
     <h3><a href="./carte-blanche-ux.html">Carte Blanche UX</a></h3>
     <p>Establishing a user-centered UX practice</p>
 	</article>
-	<article class="case_study">
+	<article class="case_study" data-discipline="product-designer">
 		<figure>
 			<div>
 				<img alt="High Risk Queue" src="./img/thumbs/highrisk.jpg" />
@@ -168,11 +131,11 @@
 				</a>
 			</div>
 		</figure>
-    <h5>Case Study</h5>
+    <h5><span class="chip">Product Designer</span></h5>
     <h3><a href="./highrisk.html">High Risk Queue</a></h3>
     <p>Information Hierarchy &amp; Data Visualization collide</p>
 	</article>
-	<article class="case_study">
+	<article class="case_study" data-discipline="product-designer">
 		<figure>
 			<div>
 				<img alt="Password Reset" src="./img/thumbs/password.jpg" />
@@ -181,11 +144,11 @@
 				</a>
 			</div>
 		</figure>
-    <h5>Case Study</h5>
+    <h5><span class="chip">Product Designer</span></h5>
     <h3><a href="./password.html">Password Reset</a></h3>
     <p>Problems with customers’ credentials</p>
 	</article>
-	<article class="case_study">
+	<article class="case_study" data-discipline="ux-researcher">
 		<figure>
 			<div>
 				<img alt="Online Claims" src="./img/thumbs/claims.jpg" />
@@ -194,7 +157,7 @@
 				</a>
 			</div>
 		</figure>
-		<h5>Case Study</h5>
+		<h5><span class="chip">UX Researcher</span></h5>
 		<h3><a href="./online-claims.html">Online Claims</a></h3>
 		<p>The struggles of establishing a UX practice</p>
 	</article>

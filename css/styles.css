@@ -1274,3 +1274,37 @@ blockquote.testimonial span {
   padding: 6vh 0;
 }
 }
+
+/* --------------------------- --------- --------------------------- */
+/* ----------------------------- Filter ---------------------------- */
+/* --------------------------- --------- --------------------------- */
+
+#filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 0 8px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 8px 24px;
+  border-radius: 24px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: calc(1em + .25vw);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.filter-btn:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+.filter-btn.active {
+  background: var(--primary);
+  color: var(--white);
+}
+.case_study.hidden {
+  display: none;
+}

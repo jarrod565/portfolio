@@ -76,4 +76,27 @@ function renderRelatedCaseStudies(currentSlug, containerSelector = ".flexTrio") 
   `).join('');
 }
 
+// Filter functionality
+const filterBtns = document.querySelectorAll('.filter-btn');
+const caseStudyCards = document.querySelectorAll('.case_study');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.getAttribute('data-filter');
+
+    // Update active button
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Show/hide case studies
+    caseStudyCards.forEach(card => {
+      if (filter === 'all' || card.getAttribute('data-discipline') === filter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
 window.addEventListener('scroll', debounce(checkSlide));
