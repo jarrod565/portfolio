@@ -141,3 +141,22 @@ filterBtns.forEach(btn => {
 applyFilter();
 
 window.addEventListener('scroll', debounce(checkSlide));
+
+// Hero photo pop into nav on scroll
+const heroPhoto = document.getElementById('hero-photo');
+const navIdentity = document.querySelector('.nav-identity');
+
+if (heroPhoto && navIdentity) {
+  function checkHeroScroll() {
+    const navHeight = document.querySelector('nav').offsetHeight;
+    const photoBottom = heroPhoto.getBoundingClientRect().bottom;
+
+    if (photoBottom <= navHeight) {
+      navIdentity.classList.add('visible');
+    } else {
+      navIdentity.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', debounce(checkHeroScroll, 10));
+}

@@ -112,48 +112,6 @@ blockquote p:after {
 }
 
 /* --------------------------- --------- --------------------------- */
-/* --------------------------- Navigation -------------------------- */
-/* --------------------------- --------- --------------------------- */
-
-nav {
-  display: grid;
-  grid-template-columns: 56px auto 1fr auto;
-  background: #1D9ED6;
-  background: var(--primary);
-  height: 64px;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  z-index: 9999;
-  box-shadow: 0px 3px 9px rgba(0,0,0,0.2);
-  align-items: center;
-  padding: 12px;
-}
-nav img {
-  grid-column: 1;
-  border: 2px solid white;
-  border-radius: 100%;
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.3);
-  max-width: 40px;
-  max-height: 40px;
-}
-nav h3 {
-  grid-column: 2;
-  color: #3A3A3A;
-  color: var(--charcoal);
-  font-size: calc(1em * 1.125);
-  font-weight: 400;
-}
-nav h3 span {padding: 0px 8px;}
-nav h3 a {
-  color: #fafafa;
-  color: var(--white);
-  text-decoration: none;
-}
-nav h3 a:hover {color: #3A3A3A; color: var(--charcoal);}
-
-
-/* --------------------------- --------- --------------------------- */
 /* ---------------------- Secondary Navigation --------------------- */
 /* --------------------------- --------- --------------------------- */
 
@@ -1333,4 +1291,141 @@ blockquote.testimonial span {
 .filter-btn[data-role="strategist"] { background-color: var(--strategist); }
 .case_study.hidden {
   display: none;
+}
+
+/* --------------------------- --------- --------------------------- */
+/* ------------------------------ Nav ------------------------------ */
+/* --------------------------- --------- --------------------------- */
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  padding: 0 24px;
+  background-color: var(--primary);
+}
+
+.nav-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 150ms ease, transform 150ms ease;
+  pointer-events: none;
+}
+
+.nav-identity.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.nav-identity img {
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--white);
+}
+
+.nav-identity h3 {
+  color: var(--white);
+  font-size: calc(0.8em + 0.3vw);
+  font-weight: 300;
+  margin: 0;
+}
+
+.nav-identity h3 a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: calc(0.75em + 0.2vw);
+  font-weight: 300;
+  opacity: 0.9;
+  transition: opacity 150ms ease;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+.nav-links .slash {
+  color: var(--white);
+  opacity: 0.4;
+}
+
+/* --------------------------- --------- --------------------------- */
+/* ----------------------------- Hero ------------------------------ */
+/* --------------------------- --------- --------------------------- */
+
+#welcome {
+  padding: 48px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero-content {
+  display: flex;
+  align-items: center;
+  gap: calc(2em + 2vw);
+  max-width: 1400px;
+  width: 100%;
+}
+
+#hero-photo {
+  border-radius: 50%;
+  width: calc(160px + 10vw);
+  height: calc(160px + 10vw);
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 4px solid var(--white);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+
+#hero-text {
+  flex: 1;
+}
+
+#hero-eyebrow {
+  font-size: calc(0.7em + 0.5vw);
+  font-weight: 300;
+  color: var(--textLight);
+  letter-spacing: 0.15em;
+  margin: 0 0 4px;
+}
+
+#welcome h1 {
+  font-size: calc(2em + 3vw);
+  font-weight: 300;
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+
+#welcome h1 .designer { color: var(--chip); }
+#welcome h1 .researcher { color: var(--primary); }
+#welcome h1 .strategist { color: var(--strategist); }
+#welcome h1 .amp { color: var(--baseThree); margin: 0 8px; }
+
+#hero-tagline {
+  font-size: calc(0.9em + 0.4vw);
+  font-weight: 300;
+  color: var(--textLight);
+  margin: 0;
+  max-width: 700px;
 }
