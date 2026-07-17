@@ -92,13 +92,16 @@ blockquote p:after {
 }
 .chip {
   color: var(--white);
-  font-size: calc(100% * .65);
-  padding: 3px 10px;
+  font-size: calc(100% * .55);
+  padding: 2px 8px;
   border-radius: 16px;
-  font-weight: 500;
+  font-weight: 600;
   margin: 2px 2px 2px 0;
   vertical-align: middle;
   display: inline-block;
+  opacity: 1 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 .chip-designer { background-color: var(--chip); }
 .chip-researcher { background-color: var(--primary); }
@@ -1291,30 +1294,34 @@ blockquote.testimonial span {
   flex-wrap: wrap;
 }
 .filter-btn {
-  background: var(--secondary);
-  border: 2px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
   color: var(--white);
-  padding: 6px 20px;
+  padding: 6px 16px;
   border-radius: 24px;
   font-family: 'Open Sans', sans-serif;
-  font-size: calc(1em + .1vw);
+  font-size: calc(.85em + .1vw);
   cursor: pointer;
   transition: all 0.2s ease;
   opacity: 1;
 }
+.filter-icon {
+  font-size: 1.1em;
+  vertical-align: middle;
+}
 .filter-btn.off {
-  background: var(--baseThree);
+  background-color: var(--baseThree) !important;
   color: var(--text);
-  opacity: 0.5;
+  opacity: 0.6;
+}
+.filter-btn.off .filter-icon::before {
+  content: 'hide_source';
 }
 .filter-btn[data-role="designer"] { background-color: var(--chip); }
 .filter-btn[data-role="researcher"] { background-color: var(--primary); }
 .filter-btn[data-role="strategist"] { background-color: var(--strategist); }
-.filter-btn[data-role="designer"].off,
-.filter-btn[data-role="researcher"].off,
-.filter-btn[data-role="strategist"].off {
-  background-color: var(--baseThree);
-}
 .case_study.hidden {
   display: none;
 }

@@ -98,6 +98,16 @@ function applyFilter() {
     }
   });
 
+  // Swap icons based on state
+  filterBtns.forEach(btn => {
+    const icon = btn.querySelector('.filter-icon');
+    if (btn.classList.contains('off')) {
+      icon.textContent = 'hide_source';
+    } else {
+      icon.textContent = 'check_circle';
+    }
+  });
+
   // Show/hide case studies
   caseStudyCards.forEach(card => {
     const disciplines = card.getAttribute('data-discipline').split(' ');
