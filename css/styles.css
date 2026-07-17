@@ -94,7 +94,7 @@ blockquote p:after {
 .chip {
   color: var(--white);
   font-size: calc(100% * .55);
-  padding: 4px 8px;
+  padding: 0 8px;
   border-radius: 16px;
   font-weight: 600;
   margin: 2px 2px 2px 0;
@@ -178,10 +178,8 @@ section {
   width: 100vw;
   line-height: 1.5;
 }
-section h1 {
-  color: #1D9ED6;
-  color: var(--primary);
-}
+section h1 { color: var(--primary); }
+#welcome h1 { color: inherit; }
 section h2 {
   line-height: 3;
   color: #04648E;
@@ -1239,13 +1237,14 @@ blockquote.testimonial span {
   font-size: 1.1em;
   vertical-align: middle;
 }
-.filter-btn.off {
-  background-color: var(--baseThree);
-  color: var(--text);
-}
 .filter-btn[data-role="designer"] { background-color: var(--chip); }
 .filter-btn[data-role="researcher"] { background-color: var(--primary); }
 .filter-btn[data-role="strategist"] { background-color: var(--strategist); }
+
+.filter-btn[data-role].off {
+  background-color: var(--baseThree);
+  color: var(--text);
+}
 .case_study.hidden {
   display: none;
 }
@@ -1332,7 +1331,7 @@ nav {
 /* --------------------------- --------- --------------------------- */
 
 #welcome {
-  padding: 16px 5vw 48px;
+  padding: 16px 5vw 16px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -1356,7 +1355,7 @@ nav {
   box-shadow: 0 4px 24px rgba(0,0,0,0.12);
   position: relative;
   z-index: 10;
-  margin-top: calc(-32px - 2vw);
+  margin-top: calc(-56px - 3vw);
   display: block;
 }
 
@@ -1398,5 +1397,5 @@ nav {
   font-weight: 300;
   color: var(--textLight);
   margin: 0;
-  max-width: 700px;
+  max-width: none;
 }
