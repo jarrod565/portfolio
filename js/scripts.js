@@ -107,9 +107,9 @@ function applyFilter() {
   filterBtns.forEach(btn => {
     const icon = btn.querySelector('.filter-icon');
     if (btn.classList.contains('off')) {
-      icon.textContent = 'hide_source';
+      icon.textContent = 'toggle_off';
     } else {
-      icon.textContent = 'check_circle';
+      icon.textContent = 'toggle_on';
     }
   });
 

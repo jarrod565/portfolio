@@ -1298,6 +1298,13 @@ blockquote.testimonial span {
   padding: 24px 0 8px;
   flex-wrap: wrap;
 }
+.filter-label {
+  font-size: calc(.85em + .1vw);
+  color: var(--text);
+  align-self: center;
+  opacity: .6;
+  white-space: nowrap;
+}
 .filter-btn {
   display: inline-flex;
   align-items: center;
