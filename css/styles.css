@@ -93,7 +93,7 @@ blockquote p:after {
 .chip {
   color: var(--white);
   font-size: calc(100% * .55);
-  padding: 2px 8px;
+  padding: 0 8px;
   border-radius: 16px;
   font-weight: 600;
   margin: 2px 2px 2px 0;
@@ -788,6 +788,7 @@ blockquote.testimonial span {
   align-content: center;
 }
 .case_study h5 {opacity:.5;}
+.case_study h5 .chip {opacity:1;}
 .case_study h3 {
   font-size: calc(1.66em + .25vw);
   margin: 8px 0px 4px 0px;
@@ -1315,9 +1316,6 @@ blockquote.testimonial span {
   background-color: var(--baseThree) !important;
   color: var(--text);
   opacity: 0.6;
-}
-.filter-btn.off .filter-icon::before {
-  content: 'hide_source';
 }
 .filter-btn[data-role="designer"] { background-color: var(--chip); }
 .filter-btn[data-role="researcher"] { background-color: var(--primary); }

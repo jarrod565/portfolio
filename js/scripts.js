@@ -85,7 +85,12 @@ const params = new URLSearchParams(window.location.search);
 const roleParam = params.get('role');
 
 // Determine initial active roles
-const activeRoles = new Set(roleParam ? [roleParam] : ['designer', 'researcher', 'strategist']);
+const validRoles = ['designer', 'researcher', 'strategist'];
+const activeRoles = new Set(
+  roleParam && validRoles.includes(roleParam)
+    ? [roleParam]
+    : ['designer', 'researcher', 'strategist']
+);
 
 function applyFilter() {
   // Update button states
