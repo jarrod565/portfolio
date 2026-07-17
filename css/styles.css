@@ -945,11 +945,6 @@ span i.material-icons {
     flex-wrap: nowrap;
   }
   .panel.open {flex: 0 0 50%;}
-  #welcome div:first-child {
-    width: 50%;
-    padding: 25% 0;
-    margin: 4vh;
-  }
   /* .case_study {
     width: calc(80vw / 2);
   } */
@@ -1012,15 +1007,6 @@ span i.material-icons {
     /* flex: 1 1 auto; */
     max-width: 92vw;
     margin: auto;
-  }
-  #welcome div:first-child {
-    width: 40%;
-    padding: 20% 0;
-    margin: 16px;
-  }
-  #welcome div:first-child img {
-    max-width: calc(50% - 64px);
-    max-height: calc(50% - 64px);
   }
   /* #case_studies {max-width: 100vw;} */
   .halfPad {padding: 48px 12%;}
