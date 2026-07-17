@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/modernizr.js" defer></script>
+	<script src="https://cdn.counter.dev/script.js" data-id="26424da4-b094-44ac-86be-e75e67dfbcd7" data-utcoffset="-4"></script>
+	<title>Smart Launcher | Jarrod W. Murray</title>
+</head>
+
+<body id="#">
+	<nav>
+		<img alt="Jarrod Murray" src="./img/new-profile.jpg" />
+		<h3><a href="/">Jarrod W. Murray</a> <span class="slash">/</span> Smart Launcher</h3>
+	</nav>
+
+	<main>
+		<section class="hero">
+		<figure>
+			<img alt="Log In Issues" src="./img/hero/launcher.jpg"/>
+		</figure>
+		<h1>Smart Launcher</h1>
+		<h3>Rethinking the front door to every conversation</h3>
+	</section>
+
+	<section class="cases halfPad_noTop">
+	<div>
+		<h4>The Challenge</h4>
+		<p>The existing website widget worked&hellip; in the way that a first version of something works. Clients installed a script on their site, website visitors picked an SMS or chat channel, and could send a message. Simple enough on the surface.</p>
+		<p>The platform was positioning itself as a conversation management tool. The entry point for every website-originated conversation needed to reflect that. It didn&rsquo;t.</p>
+		<h4>Role</h4>
+		<p>As Product Owner and UX Lead, I initiated the competitive analysis, drove the naming strategy, restructured the admin information architecture, and authored the Capability Briefs for Smart Launcher. I also began designing the new admin tabs in React before the project was shelved. The design files and briefs exist and are referenced throughout this case study.</p>
+	</div>
+	</section>
+
+	<a href="#" class="top_fab">
+	  <i class="material-icons">keyboard_arrow_up</i>
+	</a>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Un</i> Understand</h2>
+	</section>
+
+	<section class="white cases halfPad">
+	<div>
+		<h4>A Widget in Name Only</h4>
+		<p>The existing widget had one fundamental design flaw&hellip; no system model. Everything was coupled to everything else. &ldquo;Channel&rdquo; was doing five jobs at once&hellip; routing target, UI option, consent anchor, destination, and configuration object. That coupling produced predictable gaps.</p>
+		<p>There were stories in the backlog to improve it. But the more I looked at it, the clearer it became that incremental improvements weren&rsquo;t going to get us where we needed to go. This needed to be rethought from the ground up.</p>
+		<h4>Knowing the Competition</h4>
+		<p>Before designing anything, I wanted to understand where we stood. I initiated a competitive analysis across Intercom, LiveChat, and SlickText&hellip; mapping features, implementation patterns, and accessibility posture.</p>
+		<p>The analysis surfaced something useful. The market splits cleanly into chat-first and SMS-first products. Nobody cleanly owns the &ldquo;website visitor into a real, ongoing, compliant conversation&rdquo; space. That gap was ours to own&hellip; if we were intentional about it.</p>
+		<h4>The 41-Location Problem</h4>
+		<p>We had a real use case that made the routing gap impossible to ignore. A prospective client had 41 locations and a single website. Under the existing system, that would require all 41 locations to have a channel manually configured as an entry point, and the website visitor to select the right one themselves. On top of that, none of it was available through the API.</p>
+		<p>That&rsquo;s not a widget problem. That&rsquo;s a system design problem.</p>
+		<h4>A Compliance Gap I&rsquo;d Been Watching for Years</h4>
+		<p>I was also well aware that our product had gaps in how it handled consent and compliance. TCPA and TCR guidelines exist for good reasons&hellip; and when a website visitor hands over a mobile number, that consent needs to be captured and elevated to the right levels. It wasn&rsquo;t being done the way it needed to be. The Smart Launcher was an opportunity to fix that properly.</p>
+	</div>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Si</i> Simplify</h2>
+	</section>
+
+	<section class="reversed cases halfPad">
+	<div>
+		<h4>Naming It Right</h4>
+		<p>&ldquo;Widget&rdquo; was the first thing I wanted to fix. Not just cosmetically&hellip; the name was shaping how people thought about the product. A widget gets patched. A platform capability gets designed.</p>
+		<p>I worked through a handful of directions before landing on Smart Launcher. It&rsquo;s active, it&rsquo;s simple, and it scales to AI-assisted routing without overselling it. Marketing could get behind it. Engineers could build to it. And it accurately described what the product was becoming&hellip; a smart entry point into a conversation management platform.</p>
+		<h4>Restructuring the Admin</h4>
+		<p>The old admin tabs were called Settings, Custom Text, Design, and Installation. Those names reflected how the product was built&hellip; not what it actually needed to do.</p>
+		<p>I restructured the admin around the real system model:</p>
+		<ul>
+			<li>Availability &mdash; where and when the launcher appears</li>
+			<li>Experience &mdash; what the website visitor sees and does</li>
+			<li>Routing &mdash; where the conversation goes and how the system decides</li>
+			<li>Consent &mdash; what communication is permitted</li>
+			<li>Branding &mdash; how it looks within accessible constraints</li>
+			<li>Installation &mdash; how it gets deployed</li>
+		</ul>
+		<p>That restructuring wasn&rsquo;t cosmetic. Each tab represented a distinct layer of the system with its own rules and its own Capability Brief section. The information architecture was the system design made visible.</p>
+		<h4>API-First by Design</h4>
+		<p>The old widget was UI-first&hellip; configured manually, not accessible via API. I wanted to design Smart Launcher so that every configuration option could be handled through the API. Not because enterprise clients would set up launchers entirely through the API, but because building it that way meant building it once and building it right. UI-less integrations, webhooks, and APIs are where this platform is heading. Smart Launcher needed to reflect that.</p>
+		<h4>The Availability Rules Engine</h4>
+		<p>The most complex design problem was the Availability tab, specifically the rules engine that determined when and where the launcher button appeared. The existing system only supported a simple domain whitelist. That wasn&rsquo;t going to cut it.</p>
+		<p>I designed a rules engine around two simple concepts: Show when&hellip; and Hide when&hellip; with conditions based on URL path, UTM parameters, device type, geolocation, and time of day. Simple defaults for the majority of use cases, with an advanced rule builder available for enterprise needs. Hide rules always take priority. And every rule set generates a plain-English summary so admins understand what they&rsquo;ve configured without re-reading every condition.</p>
+		<p>I fully intended to reuse the core logic from the Availability rules engine for the Routing rules engine&hellip; build it once, apply it in multiple places.</p>
+	</div>
+		<figure>
+			<img alt="The hero element open" src="./img/cases/launcher/availability.jpg" class="caseImg slide-up"/>
+			<figcaption>A Figma mockup of the Availability rules engine</figcaption>
+		</figure>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Al</i> Align</h2>
+	</section>
+
+	<section class="cases halfPad">
+	<div>
+		<h4>Conversations with the Product, Not Just About It</h4>
+		<p>A lot of the thinking behind Smart Launcher was developed iteratively, working through edge cases, naming decisions, and system design in real time with AI. The Capability Briefs, the tab restructure, the naming, the token system&hellip; all of it was pressure-tested through that process before a single design decision was finalized.</p>
+		<p>That approach meant that by the time designs were started, the system model was already solid. The designs were translating decisions that had already been made&hellip; not making new ones on the fly.</p>
+		<h4>AI-Assisted Routing</h4>
+		<p>Routing was never going to be a one-way decision. I wanted AI to route confidently when it could&hellip; suggest a destination when it wasn&rsquo;t sure&hellip; and fall back to user selection when confidence was low. And if an agent felt a message was routed incorrectly, they could kick it back. The system would learn from those corrections over time.</p>
+		<p>That&rsquo;s a fundamentally different model than a dropdown. It reduces friction for the website visitor, reduces setup burden for the admin, and gets smarter the more it&rsquo;s used.</p>
+	</div>
+	</section>
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Va</i> Validate</h2>
+	</section>
+
+	<section class="white cases halfPad">
+	<div>
+		<h4>Where It Stands</h4>
+		<p>The Capability Briefs were started. Several admin tabs were designed, the Availability rules engine being the most developed. The project was shelved before it crossed the finish line.</p>
+		<p>But the thinking is documented. The designs exist. And the problems it was solving&hellip; manual routing, compliance gaps, API limitations, enterprise scale&hellip; haven&rsquo;t gone away.</p>
+		<p>Smart Launcher was designed to be a front door to conversations. That&rsquo;s still true whenever someone decides to open it.</p>
+	</div>
+	</section>
+
+	<section class="reversed centered eighthPad">
+		<h3 class="center">More Case Studies</h3>
+		<article class="flexTrio">
+		</article>
+	</section>
+
+		</main>
+
+		<footer>
+			<a href="https://www.linkedin.com/in/jarrodmurray/" title="LinkedIn" target="_blank"><svg class="linkedin" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+			<a href="https://www.jarrodmurray.com/jarrodmurray_resume.pdf" title="Résumé" target="_blank"><svg class="adobe" viewBox="0 0 384 512"><path d="M184 208c0-4.406-3.594-8-8-8S168 203.6 168 208c0 2.062 .2969 23.31 9.141 50.25C179.1 249.6 184 226.2 184 208zM256 0v128h128L256 0zM80 422.4c0 9.656 10.47 11.97 14.38 6.375C99.27 421.9 108.8 408 120.1 388.6c-14.22 7.969-27.25 17.31-38.02 28.31C80.75 418.3 80 420.3 80 422.4zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM292 312c24.26 0 44 19.74 44 44c0 24.67-18.94 44-43.13 44c-5.994 0-11.81-.9531-17.22-2.805c-20.06-6.758-38.38-15.96-54.55-27.39c-23.88 5.109-45.46 11.52-64.31 19.1c-14.43 26.31-27.63 46.15-36.37 58.41C112.1 457.8 100.8 464 87.94 464C65.92 464 48 446.1 48 424.1c0-11.92 3.74-21.82 11.18-29.51c16.18-16.52 37.37-30.99 63.02-43.05c11.75-22.83 21.94-46.04 30.33-69.14C136.2 242.4 136 208.4 136 208c0-22.05 17.95-40 40-40c22.06 0 40 17.95 40 40c0 24.1-7.227 55.75-8.938 62.63c-1.006 3.273-2.035 6.516-3.082 9.723c7.83 14.46 17.7 27.21 29.44 38.05C263.1 313.4 284.3 312.1 287.6 312H292zM156.5 354.6c17.98-6.5 36.13-11.44 52.92-15.19c-12.42-12.06-22.17-25.12-29.8-38.16C172.3 320.6 164.4 338.5 156.5 354.6zM292.9 368C299 368 304 363 304 356.9C304 349.4 298.6 344 292 344H288c-.3438 .0313-16.83 .9687-40.95 4.75c11.27 7 24.12 13.19 38.84 18.12C288 367.6 290.5 368 292.9 368z"/></svg></a>
+		</footer>
+
+	<script src="js/scripts.js" defer></script>
+	<script defer>
+	document.addEventListener('DOMContentLoaded', () => {
+		renderRelatedCaseStudies('smart-launcher');
+	});
+	</script>
+	</body>
+	</html>

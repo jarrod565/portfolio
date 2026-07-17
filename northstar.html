@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/modernizr.js" defer></script>
+	<title>Northstar | Jarrod W. Murray</title>
+</head>
+
+<body id="#">
+	<nav>
+		<img alt="Jarrod Murray" src="./img/new-profile.jpg" />
+		<h3><a href="/">Jarrod W. Murray</a> <span class="slash">/</span> Northstar</h3>
+	</nav>
+
+	<main>
+		<section class="hero">
+		<figure>
+			<img alt="Log In Issues" src="./img/hero/northstar.jpg"/>
+		</figure>
+		<h1>Northstar <span class='chip' data-tooltip="Improving the UX of existing apps.">Design Brief</span></h1>
+		<h3>Inheriting the UX of another Designer</h3>
+	</section>
+
+	<section class="cases halfPad_noTop">
+	<div>
+		<h4>The Challenge</h4>
+		<p>In March, 2020, I accepted a role as a Senior UX Consultant. I was assigned to an application as the designer&hellip; joining a UX Researcher. The app was nearing it&rsquo;s 2.0 release.</p>
+		<h4>Context</h4>
+		<p>This app is a data-visualize tool built for the executive team of a Fortune 500 pharmaceutical company. It allowed users to monitor the progress of ongoing research programs&hellip; and make informed decisions based on past performance and future budgets. &ldquo;Northstar&rdquo; was built to replace existing Excel spreadsheets and Tableau Reports.</p>
+	</div>
+	</section>
+
+	<a href="#" class="top_fab">
+	  <i class="material-icons">keyboard_arrow_up</i>
+	</a>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon">The WIP Chart</h2>
+	</section>
+
+	<section class="reversed cases halfPad">
+	<div>
+		<h4>Why is that upside down?</h4>
+		<p>The WIP Chart was the landing page/dashboard for most users. It displayed the current projects in a Kanban-style fashion. Users could hover over the individual cards to see additional information (or navigate to the project page).</p>
+	</div>
+		<figure>
+			<img alt="Flipping the world upside down" src="./img/cases/northstar/wip-before.png" class="caseImg slide-up"/>
+			<figcaption>Printed paper reports don&rsquo;t always translate into good interfaces</figcaption>
+		</figure>
+	<div>
+		<h4>My Concerns</h4>
+		<ul>
+			<li>Column headers were not visible</li>
+			<li>Shorter columns were not visible on the screen</li>
+			<li>The distance between filters and filtering results</li>
+		</ul>
+		<h4>My Proposal</h4>
+		<p>Using FireFox&rsquo;s Inspection Tools, I changed a few lines of CSS to reverse the column order, and set the flexbox alignment to the top. These simple updates made the WIP Chart more user-friendly.</p>
+	</div>
+		<figure>
+			<img alt="Giving users the ability to see more data" src="./img/cases/northstar/wip-after.png" class="caseImg slide-up"/>
+			<figcaption>A simple design change to increase usability</figcaption>
+		</figure>
+	<div>
+		<h4>Outcome</h4>
+		<p>This was an instance where changing minds was harder than changing the code. The business stakeholder said:</p><blockquote><p>I&rsquo;ll have to think about this. The WIP has looked like this for 20 years.</p></blockquote><p>I asked the Front-end Developer if it was possible to get these updates made in a dev environment. After interacting with the new design, and being able to see the changes side-by-side, the stakeholder agreed to push the changes to Production.</p>
+	</div>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon">Drawer over Card</h2>
+	</section>
+
+	<section class="cases halfPad">
+	<div>
+		<h4>The Project Overview Card</h4>
+		<p>The Project Overview was a collapsed hero component that housed additional data points and monthly summaries behind a &ldquo;View More&rdquo; button.</p>
+	</div>
+		<figure>
+			<img alt="The old design" src="./img/cases/northstar/old-closed.png" class="caseImg slide-up"/>
+			<figcaption>A tall, skinny page design increasing cognative load</figcaption>
+		</figure>
+	<div>
+		<h4>My Concerns</h4>
+		<ul>
+			<li>The body&rsquo;s main container had a max-width of 968px</li>
+			<li>Cluttering the UI by repeating the project name</li>
+			<li>Opening the overview pushed the cards below further down the page</li>
+		</ul>
+	</div>
+		<figure>
+			<img alt="The hero element open" src="./img/cases/northstar/old-open.png" class="caseImg slide-up"/>
+			<figcaption>These important details couldn&rsquo;t be viewed with the graphs</figcaption>
+		</figure>
+	<div>
+		<h4>My Proposal</h4>
+		<ul>
+			<li>Remove the hero card to raise the other cards on the screen</li>
+			<li>Display the Development Stage and Business Unit as chips next to the project name (where they are visible at all times)</li>
+			<li>Create a larger overview that slides-in as a drawer</li>
+		</ul>
+	</div>
+		<figure>
+			<img alt="A new layout approach" src="./img/cases/northstar/new-closed.png" class="caseImg slide-up"/>
+			<figcaption>Thinking outside the box</figcaption>
+		</figure>
+<div>
+	<p>Removing the max-width allowed more of the timelines to be seen. By moving the overview inside a drawer, users can read the important information while still being able to scroll the left side&hellip; allowing them to read the Summaries while viewing the financial charts at the very bottom of the page.</p>
+</div>
+		<figure>
+			<img alt="Improving the Information Hierarchy for users" src="./img/cases/northstar/new-open.png" class="caseImg slide-up"/>
+			<figcaption>Thinking outside the box</figcaption>
+		</figure>
+	<div>
+		<h4>Outcome</h4>
+		<p>The drawer was presented to users as a way to bring in additional information about clinical trials. It was implemented and became the pattern for drilling down for more information. Tabbed drawers allowed even more data to be displayed. The need to drill down any further would open a modal window.</p>
+	</div>
+	</section>
+
+	<section class="reversed centered eighthPad">
+		<h3 class="center">More Case Studies</h3>
+		<article class="flexTrio">
+		</article>
+	</section>
+
+		</main>
+
+		<footer>
+			<a href="https://www.linkedin.com/in/jarrodmurray/" title="LinkedIn" target="_blank"><svg class="linkedin" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+			<a href="https://www.jarrodmurray.com/jarrodmurray_resume.pdf" title="Résumé" target="_blank"><svg class="adobe" viewBox="0 0 384 512"><path d="M184 208c0-4.406-3.594-8-8-8S168 203.6 168 208c0 2.062 .2969 23.31 9.141 50.25C179.1 249.6 184 226.2 184 208zM256 0v128h128L256 0zM80 422.4c0 9.656 10.47 11.97 14.38 6.375C99.27 421.9 108.8 408 120.1 388.6c-14.22 7.969-27.25 17.31-38.02 28.31C80.75 418.3 80 420.3 80 422.4zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM292 312c24.26 0 44 19.74 44 44c0 24.67-18.94 44-43.13 44c-5.994 0-11.81-.9531-17.22-2.805c-20.06-6.758-38.38-15.96-54.55-27.39c-23.88 5.109-45.46 11.52-64.31 19.1c-14.43 26.31-27.63 46.15-36.37 58.41C112.1 457.8 100.8 464 87.94 464C65.92 464 48 446.1 48 424.1c0-11.92 3.74-21.82 11.18-29.51c16.18-16.52 37.37-30.99 63.02-43.05c11.75-22.83 21.94-46.04 30.33-69.14C136.2 242.4 136 208.4 136 208c0-22.05 17.95-40 40-40c22.06 0 40 17.95 40 40c0 24.1-7.227 55.75-8.938 62.63c-1.006 3.273-2.035 6.516-3.082 9.723c7.83 14.46 17.7 27.21 29.44 38.05C263.1 313.4 284.3 312.1 287.6 312H292zM156.5 354.6c17.98-6.5 36.13-11.44 52.92-15.19c-12.42-12.06-22.17-25.12-29.8-38.16C172.3 320.6 164.4 338.5 156.5 354.6zM292.9 368C299 368 304 363 304 356.9C304 349.4 298.6 344 292 344H288c-.3438 .0313-16.83 .9687-40.95 4.75c11.27 7 24.12 13.19 38.84 18.12C288 367.6 290.5 368 292.9 368z"/></svg></a>
+		</footer>
+
+	<script src="js/scripts.js" defer></script>
+	<script defer>
+	document.addEventListener('DOMContentLoaded', () => {
+		renderRelatedCaseStudies('carte-blanche-ux');
+	});
+	</script>
+
+	</body>
+	</html>

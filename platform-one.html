@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/modernizr.js" defer></script>
+	<script src="https://cdn.counter.dev/script.js" data-id="26424da4-b094-44ac-86be-e75e67dfbcd7" data-utcoffset="-4"></script>
+	<title>Platform One | Jarrod W. Murray</title>
+</head>
+
+<body id="#">
+	<nav>
+		<img alt="" src="./img/new-profile.jpg" />
+		<h3><a href="/">Jarrod W. Murray</a> <span class="slash">/</span> Platform One</h3>
+	</nav>
+
+	<main>
+
+	<section class="hero">
+		<figure>
+			<img alt="Platform One" src="./img/hero/platform-one.jpg"/>
+		</figure>
+		<h1>Platform One (P1)</h1>
+		<h3>Building a commercially-viable SaaS product from the ground up</h3>
+	</section>
+
+	<section class="cases halfPad_noTop">
+<div>
+		<h4>The Challenge</h4>
+		<p>Replace a 17-year old legacy application with a commercially-viable, modular platform. The primary goal was to retire a system that was simply stretched too thin. The secondary goal was to build a replacement that could be modularized and sold as a piecemeal solution.</p>
+		<h4>Pre-Kickoff Insights</h4>
+		<p>We planned to use a strangler pattern to replace the legacy system with new functionality. The Data Management module was chosen to be the first module built. This module bridged a gap in the legacy system and could be useful as a stand-alone app. At a very high level, this module would take data in&hellip; perform validations&hellip; transformations (as needed)&hellip; then output the data. Essentially a customizable ETL application.</p>
+		<h4>Role</h4>
+		<p>As UX Lead, I was tasked with designing the UI, establishing feedback channels, conducting user research, and validating solutions with users.</p>
+</div>
+</section>
+
+	<a href="#" class="top_fab">
+	  <i class="material-icons">keyboard_arrow_up</i>
+	</a>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Un</i> Understand</h2>
+	</section>
+
+	<section class="white cases halfPad">
+<div>
+		<h4>Hypothesis</h4>
+		<p>We can deliver a great product for ourselves (and potential customers) by establishing a user-centered, iterative UX practice.</p>
+		<h4>Defining the Problem</h4>
+		<p>The Biological Sample Storage industry is complex. Storing a sample seems relatively straightforward, but the data associated with that sample is equally valuable. A large storage facility has millions of samples&hellip; a single sample can have upwards of 80 data points associated with it. Clean, accurate data is vitally important.</p>
+		<p>A manifest containing these data points is provided with the samples. These spreadsheets vary greatly&hellip; requiring a manual process to review and/or manipulate the data. This creates the opportunity for human error and inaccurate data&hellip; which requires time/expense to fix.</p>
+		<p>The Product Owner&rsquo;s idea: allow User A to create a &ldquo;Profile&rdquo; containing &ldquo;Source File(s)&rdquo; that would map to &ldquo;Target Fields.&rdquo; User B would upload manifests into the appropriate Profile, outputting cleansed data.</p>
+		<h4>Defining the Users</h4>
+		<p>The Data Management Module was new functionality. This wasn&rsquo;t replacing a legacy application with known users. On top of that, there were no personas to reference as I was the first UX hire. I started interviewing and shadowing our users. These interviews were recorded using an audio recorder, transcribed, and added as feedback to an Airtable database. For some of the workflow-heavy interviews, I asked the participants to join a Microsoft Teams meeting and share their screen. I would then record the meeting through Teams so I could record the users&rsquo; workflows. These audio/video files were uploaded to the database as the &ldquo;Evidence&rdquo; field.</p>
+	</div>
+		<figure>
+			<img alt="Insights Database" src="./img/cases/practice/insights-database.jpg" class="caseImg slide-up"/>
+			<figcaption>Research findings were saved in the Insights Database</figcaption>
+		</figure>
+<div>
+		<p>With a better understanding of the roles, I used Microsoft Forms to create persona surveys. User A was identified as a Project Manager (PM) or possibly a Client Coordinator (CC) who supports the PM. During project creation in the legacy application, the PM/CC would enter the required data fields and desired formats. Essentially, this was defining the Target Fields needed for the Profile.</p>
+	</div>
+		<figure>
+			<img alt="Persona Survey Results" src="./img/cases/p1/persona-survey-form-results.jpg" class="caseImg slide-up"/>
+			<figcaption>Persona Survey results in Microsoft Forms</figcaption>
+		</figure>
+<div>
+		<p>I created personas using the data collected from these surveys. Get to know Patience the PM&hellip; view her <a href="./img/samples/persona.pdf" target="_blank">persona<i class="material-icons">launch</i></a> here.</p>
+	</div>
+		<figure>
+			<img alt="Persona" src="./img/cases/p1/persona-pm.jpg" class="caseImg slide-up"/>
+			<figcaption>The PM persona&hellip; identified as a potential User A</figcaption>
+		</figure>
+<div>
+		<p>Prior to samples being registered into the system, an Operations Tech is required to upload a manifest to the project. This process is known as &ldquo;Manifesting&rdquo;&hellip; a task performed by experienced Techs. Manifesting is a multi-step, manual process and can be time-consuming depending on the files provided. Someone trained in manifesting was identified as User B. The Data Management Module would be a new step for Ops Techs, but would save time and reduce errors.</p>
+		<h4>Pain Points Revealed</h4>
+		<p>Several questions were answered while speaking with the PMs, CCs and Ops Techs. Unanswered questions centered around the communication between the users and how this new tool would be incorporated into existing workflows.</p>
+		<ul>
+			<li>How does an Op Tech know a Profile exists for this manifest?</li>
+			<li>What&rsquo;s the most efficient way for PMs to input the Target Fields?</li>
+			<li>How often do example manifests (Source Files) get sent for a project?</li>
+			<li>Would the PMs or Ops Techs be tasked with Mapping the files?</li>
+			<li>How would Ops Techs communicate issues back to PMs?</li>
+		</ul>
+		<h4>Reframing the Problem</h4>
+		<p>The Ops Tech&rsquo;s workflow was dependent on PMs/CCs creating a Profile. For that reason, the team focused on addressing this workflow first. We narrowed the problem space to PMs and the creation of a Profile. A completed Profile would have Target Fields defined, Source File(s) uploaded, and those files would be mapped to the Target Fields. Future enhancements would cover the communication holes, Profile statuses, and more complex Source Files.</p>
+		<h4>Integrating UX into the Team</h4>
+		<p>For some teammates, this was the first time working with a UXer. As I got to know the team, I realized everyone had a different opinion of what P1 would be. In my experience, teams are more invested when they feel they have influence.</p>
+		<p>Using Microsoft Forms, I distributed a Semantic Differential Survey to the team. The goal was to see where there was agreement vs alignment, as well as define the product&rsquo;s attributes.</p>
+	</div>
+		<figure>
+			<img alt="Semantic Survey" src="./img/cases/p1/semantic-survey.jpg" class="caseImg slide-up"/>
+			<figcaption>I surveyed the team on several semantics to get alignment</figcaption>
+		</figure>
+<div>
+		<p>The results were collected and shared with the team. The team agreed P1 needed to be clear, organized, fast and straightforward. The areas that needed more alignment were Tailored vs Off-the-Shelf, Sufficient vs Perfect, Intuitive vs Logical. The results were posted on a team whiteboard to keep these attributes front-of-mind as we discussed features and design.</p>
+	</div>
+		<figure>
+			<img alt="Semantic Survey Results" src="./img/cases/p1/semantic-differiential-document.png" class="caseImg slide-up"/>
+			<figcaption>The team&rsquo;s vision for P1: Intuitive vs Logical.</figcaption>
+		</figure>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Si</i> Simplify</h2>
+	</section>
+
+	<section class="cases halfPad reversed">
+<div>
+		<h4>CodeFreeze Design System</h4>
+		<p>I created &lsquo;<a href="./img/samples/design-system.pdf" target="_blank">CodeFreeze<i class="material-icons">launch</i></a>&rsquo; before any P1 user stories were written. I recruited a Front-end Engineer I had previously worked with, who was hired to bring CodeFreeze to life. Knowing the UI was in a good spot allowed me to focus on user tasks and workflows.</p>
+	</div>
+		<figure>
+			<img alt="The CodeFreeze Design System" src="./img/cases/practice/sketch-design-system.jpg" class="caseImg slide-up"/>
+			<figcaption>Building themeable components in Sketch</figcaption>
+		</figure>
+<div>
+		<h4>Creating a Profile</h4>
+		<p>A profile consists of Target Fields, Source Files, and the mapping of Source to Targets. I worked very closely with the Product Owners to write user stories that were design agnostic. As a result, a lot of time was spent whiteboarding as a group. The first iteration can be seen below:</p>
+	</div>
+		<figure>
+			<img alt="A blank profile" src="./img/cases/p1/blank-profile.jpg" class="caseImg slide-up"/>
+			<figcaption>The initial mock-ups for creating a profile</figcaption>
+		</figure>
+<div>
+		<p>The output of a profile would be a clean data file, ready for upload into the legacy application. The Target Fields were essentially the column headers for the output file. Users can select the type of column needed (ie date, boolean, number, etc). The process of defining Target Fields would more than likely happen before receiving a manifest or example manifest from the client. Those spreadsheets will be uploaded to the profile as a Source File. A profile could have multiple Source Files and each would need to be mapped to the Target Fields.</p>
+	</div>
+		<figure>
+			<img alt="Mock up of a completed profile" src="./img/cases/p1/sketch-wireframe.jpg" class="caseImg slide-up"/>
+			<figcaption>A completed profile, with Target Fields defined and Source Files</figcaption>
+		</figure>
+<div>
+		<p>The final step of the profile creation process is completing the mapping. The system would read the .xlsx Source File and populate the dropdowns with the column headers (the first row of the data table).</p>
+	</div>
+		<figure>
+			<img alt="Mapping Source Files to Target Fields" src="./img/cases/p1/mapping.png" class="caseImg slide-up"/>
+			<figcaption>How users would map files to the Target Fields</figcaption>
+		</figure>
+<div>
+		<h4>Synopsis</h4>
+		<p>A Design System allowed me to produce high fidelity mock-ups to convey ideas to Product Owners and Developers. As I joined the project in the early stages, I was able to modify my existing files and be in a great spot as we started writing user stories.</p>
+	</div>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Al</i> Align</h2>
+	</section>
+
+	<section class="cases halfPad">
+<div>
+		<h4>Agile UX</h4>
+		<p>It&rsquo;s a bit of a chicken versus egg scenario… when is a feature designed? When the user stories are written? When a developer codes it? It's not always clear. In my opinion, UX should work closely with Product Owners to define features and write stories.</p>
+		<p>I&rsquo;ve seen companies struggle with injecting UX into the Agile Process. To combat this, I worked closely with Product Owners to write design agnostic user stories. I will admit this was bumpy at first as everyone got familiar with the idea… but in the end the product felt much more collaborative.</p>
+		<p>I had already established the design system… so by injecting UX earlier into the Agile process, I was able to influence the design of the solution. Working in tandem with Product Owners to write user stories allowed me to solicit user feedback or share sketches very early in the process. This effort helped keep solutions user-centered.</p>
+		<h4>Prototyping</h4>
+		<p>I am a big fan of Sketch and its integration with InVision. It has some shortcomings and limitations, but it does a good job of conveying workflows and overall look and feel. The auto-sync feature keeps the prototypes current with the design files for easy updating.</p>
+	</div>
+		<figure>
+			<img alt="A clickable Prototype" src="./img/cases/p1/prototype.jpg" class="caseImg slide-up"/>
+			<figcaption>Creating a prototype to test with users</figcaption>
+		</figure>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Va</i> Validate</h2>
+	</section>
+
+	<section class="cases halfPad white">
+<div>
+		<h4>User Testing</h4>
+		<p>After a few sprints, we had a fully functional application. I recruited six internal users to test the tool. Two participants were unable to sit with me, but I was able to schedule time with four individuals. I wrote a test script in which participants would perform a series of tasks twice… one simple mapping and another more difficult mapping.</p>
+	</div>
+		<figure>
+			<img alt="My Usability Lab" src="./img/cases/p1/usability-lab.jpg" class="caseImg slide-up"/>
+			<figcaption>My makeshift usability lab</figcaption>
+		</figure>
+<div>
+		<p>I wrote the script to help flush out answers to some of the team&rsquo;s lingering questions. Namely, &lsquo;who would be performing this task?&rsquo; and &lsquo;when might they have all of the files necessary to create a profile?&rsquo;</p>
+	</div>
+		<figure>
+			<img alt="The Testing Protocol" src="./img/cases/p1/test-script.jpg" class="caseImg slide-up"/>
+			<figcaption>The test script created to validate the prototype</figcaption>
+		</figure>
+	<div>
+		<p>For the testing session, I created an online meeting. I joined the meeting on both laptops, allowing me to record the screen and the participant&rsquo;s face.</p>
+	</div>
+	<figure>
+		<video src="img/media/profile-validation.mp4" controls></video>
+		<figcaption>One participant completing the simple mapping</figcapture>
+	</figure>
+	<div>
+		<h4>Synthesis</h4>
+		<p>Recording the sessions allowed me to re-watch the sessions and the tasks as they were performed. I took the recordings into Adobe Premiere and cut the sessions into smaller clips. These clips were combined into short videos that I shared with the larger team. The clips are also uploaded to the Airtable database for future reference.</p>
+	</div>
+<div>
+		<h4>Read-Out</h4>
+		<p>Once the synthesis is complete, I schedule a read-out meeting with the stakeholders and larger team. In my opinion, user research is incomplete without a read-out meeting or a plan of action. I use Adobe InDesign to create a PDF of my findings. <a href="./img/samples/Usability-Readout.pdf" target="_blank">This is the document<i class="material-icons">launch</i></a> I shared following this round of testing.</p>
+	</div>
+		<figure>
+			<img alt="The Readout Document" src="./img/cases/p1/usability-readout-document.jpg" class="caseImg slide-up"/>
+			<figcaption>The results of the usability tests were documented and shared</figcaption>
+		</figure>
+<div>
+		<p>The readout document along with video clips tell a powerful story. My next steps are to take the insights learned and create user stories. Another benefit of keeping an 'Insights Database' is being able to connect user stories with video clips of usability concerns.</p>
+	</div>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2>Takeaways…</h2>
+	</section>
+
+	<section class="cases halfPad">
+<div>
+		<h4>Things I Learned</h4>
+		<ul>
+			<li>How to incorporate UX into the Agile process earlier</li>
+			<li>How to set up a themable design system</li>
+			<li>New methods: slicing video clips together to tell a story</li>
+		</ul>
+		<h4>The Launch</h4>
+		<p>After only six months of development, the decision was made to &lsquo;buy not build&rsquo; when the company acquired another company along with their existing software suite.</p>
+	</div>
+	</section>
+
+	<section class="reversed centered eighthPad">
+		<h3 class="center">More Case Studies</h3>
+		<article class="flexTrio">
+		</article>
+	</section>
+
+</main>
+<footer>
+	<a href="https://www.linkedin.com/in/jarrodmurray/" title="LinkedIn" target="_blank"><svg class="linkedin" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+	<a href="https://www.jarrodmurray.com/jarrodmurray_resume.pdf" title="Résumé" target="_blank"><svg class="adobe" viewBox="0 0 384 512"><path d="M184 208c0-4.406-3.594-8-8-8S168 203.6 168 208c0 2.062 .2969 23.31 9.141 50.25C179.1 249.6 184 226.2 184 208zM256 0v128h128L256 0zM80 422.4c0 9.656 10.47 11.97 14.38 6.375C99.27 421.9 108.8 408 120.1 388.6c-14.22 7.969-27.25 17.31-38.02 28.31C80.75 418.3 80 420.3 80 422.4zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM292 312c24.26 0 44 19.74 44 44c0 24.67-18.94 44-43.13 44c-5.994 0-11.81-.9531-17.22-2.805c-20.06-6.758-38.38-15.96-54.55-27.39c-23.88 5.109-45.46 11.52-64.31 19.1c-14.43 26.31-27.63 46.15-36.37 58.41C112.1 457.8 100.8 464 87.94 464C65.92 464 48 446.1 48 424.1c0-11.92 3.74-21.82 11.18-29.51c16.18-16.52 37.37-30.99 63.02-43.05c11.75-22.83 21.94-46.04 30.33-69.14C136.2 242.4 136 208.4 136 208c0-22.05 17.95-40 40-40c22.06 0 40 17.95 40 40c0 24.1-7.227 55.75-8.938 62.63c-1.006 3.273-2.035 6.516-3.082 9.723c7.83 14.46 17.7 27.21 29.44 38.05C263.1 313.4 284.3 312.1 287.6 312H292zM156.5 354.6c17.98-6.5 36.13-11.44 52.92-15.19c-12.42-12.06-22.17-25.12-29.8-38.16C172.3 320.6 164.4 338.5 156.5 354.6zM292.9 368C299 368 304 363 304 356.9C304 349.4 298.6 344 292 344H288c-.3438 .0313-16.83 .9687-40.95 4.75c11.27 7 24.12 13.19 38.84 18.12C288 367.6 290.5 368 292.9 368z"/></svg></a>
+</footer>
+	<script src="js/scripts.js" defer></script>
+	<script defer>
+	document.addEventListener('DOMContentLoaded', () => {
+		renderRelatedCaseStudies('platform-one');
+	});
+	</script>
+</body>
+</html>

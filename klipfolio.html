@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/modernizr.js" defer></script>
+	<title>Klipfolio | Jarrod W. Murray</title>
+</head>
+
+<body id="#">
+	<nav>
+		<img alt="Jarrod Murray" src="./img/new-profile.jpg" />
+		<h3><a href="/">Jarrod W. Murray</a> <span class="slash">/</span> Klipfolio</h3>
+	</nav>
+
+	<main>
+		<section class="hero">
+		<figure>
+			<img alt="Log In Issues" src="./img/hero/klipfolio.jpg"/>
+		</figure>
+		<h1>Klipfolio <span class='chip' data-tooltip="Improving the UX of existing apps.">Design Brief</span></h1>
+		<h3>Information Overload</h3>
+	</section>
+
+	<section class="cases halfPad_noTop">
+	<div>
+		<h4>The Challenge</h4>
+		<p>In April, 2021, I joined an organization looking to build the next generation of tools. This also means I inherited the Gen-1 tool&hellip; an analytics dashboard built in Klipfolio.</p>
+		<h4>Context</h4>
+		<p>Giving Klipfolio a facelift was never a priority. However, the designer in me can&rsquo;t help but make a few improvements from time to time&hellip; all in an attempt to improve usability.</p>
+	</div>
+	</section>
+
+	<a href="#" class="top_fab">
+	  <i class="material-icons">keyboard_arrow_up</i>
+	</a>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon">Fonts</h2>
+	</section>
+
+	<section class="reversed cases halfPad">
+	<div>
+		<h4>If everything is important&hellip;</h4>
+		<p>then nothing is important. To improve the scannability and hierarchy of the dashboards, I made some styling updates.</p>
+		<h4>My Concerns</h4>
+		<ul>
+			<li>Everything was bold (and similar in size)</li>
+			<li>The orange text on white</li>
+			<li>Treatment of the Helper Text</li>
+		</ul>
+	</div>
+		<figure>
+			<img alt="The dashboards when I joined the team" src="./img/cases/klipfolio/old-design.png" class="caseImg slide-up"/>
+			<figcaption>The Marketing Tab at the time I started</figcaption>
+		</figure>
+	<div>
+		<h4>Pod Updates</h4>
+		<p>Klipfolio&rsquo;s WYSIWYG editor is somewhat limited&hellip; as an example, font-size is a dropdown list from XX-small to XX-large. I used the &lsquo;out-of-the-box&rsquo; options for font-weights, sizes and colors to create a visual hierarchy. I also took the opportunity to address the Helper Text&hellip; which used to be orange text on navy blue.</p>
+	</div>
+		<figure>
+			<img alt="The top pods" src="./img/cases/klipfolio/new-pods.png" class="caseImg slide-up"/>
+			<figcaption>Using weights, sizes and colors to create heirarchy</figcaption>
+		</figure>
+	<div>
+		<h4>Feedback</h4>
+		<blockquote><p>That&rsquo;s a million times better.</p></blockquote><blockquote><p>I think the numbers stick out to me a little bit more, which is good.</p></blockquote><blockquote><p>The coloring and the text&hellip; it&rsquo;s much easier to read.</p></blockquote>
+	</div>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon">Data Tables</h2>
+	</section>
+
+	<section class="cases halfPad">
+	<div>
+		<h4>My Concerns</h4>
+		<ul>
+			<li>The small font</li>
+			<li>The orange text as totals</li>
+			<li>The left-right scannability of individual line items</li>
+		</ul>
+		<h4>Zebra Striping and Hover Row</h4>
+		<p>The dashboard has many tables for displaying data. The first thing I did was bump the font-size up one size. Next, I opened FireFox&rsquo;s Inspection Tools and added a few lines of CSS to give the table zebra stripes and a hover row. Finally, I made the totals black and bold instead of orange.</p>
+	</div>
+		<figure>
+			<img alt="The hero element open" src="./img/cases/klipfolio/zebra-hover.png" class="caseImg slide-up"/>
+			<figcaption>Adding striping and a hover allows users to better track data left to right</figcaption>
+		</figure>
+	<div>
+		<h4>Feedback</h4>
+		<blockquote><p>Much better, yes. I like it. I like it a lot.</p></blockquote><blockquote><p>I think those are all valid. Making those changes would be beneficial.</p></blockquote>
+		<h4>Buffer</h4>
+		<p>Another improvement was the addition of the &rsquo;Change Threshold&lsquo; percentage dropdown. Instead of always displaying the percentage change in red or green, I proposed a &ldquo;buffer percentage&rdquo; that would be displayed as flat (or no change). Some users told me they only cared about large ups or downs&hellip; while others told me they wanted to see red or green every time. This solution accommodated both.</p>
+	</div>
+		<figure>
+			<img alt="A new layout approach" src="./img/cases/klipfolio/threshold.png" class="caseImg slide-up"/>
+			<figcaption>One size does not fit all</figcaption>
+		</figure>
+	<div>
+		<h4>Feedback</h4>
+		<blockquote><p>I guess that is interesting. If you took out a bunch of these where they&rsquo;re not necessary, you could then instantly highlight the ones that are necessary.</p></blockquote><blockquote><p>I can immediately look at the colors and my eyes would recognize that there&rsquo;s more red or green, or it&rsquo;s about the same.</p></blockquote><blockquote><p>I like the change arrows. I&rsquo;m a fan of those because I like rooting for all green.</p></blockquote>
+		<h4>Outcome</h4>
+		<p>The font and table styles were implemented across the entire dashboard. In November, 2021, I conducted an audit of the dashboards and all of the pods&hellip; and created this document, which I named <a href="./img/samples/the-podit.pdf" target="_blank">The Podit<i class="material-icons">launch</i></a>.</p>
+	</div>
+	</section>
+
+	<section class="reversed centered eighthPad">
+		<h3 class="center">More Case Studies</h3>
+		<article class="flexTrio">
+			<figure class="case_thumb">
+				<div>
+					<img alt="Know Your Audience" src="./img/thumbs/audience.jpg" />
+					<a href="./audience.html">
+						<i class="material-icons" id="white-XL">touch_app</i>
+					</a>
+				</div>
+				<figcaption><a href="./northstar.html">Know Your Audience</a></figcaption>
+			</figure>
+			<figure class="case_thumb">
+				<div>
+					<img alt="Northstar" src="./img/thumbs/northstar.png" />
+					<a href="./northstar.html">
+						<i class="material-icons" id="white-XL">touch_app</i>
+					</a>
+				</div>
+				<figcaption><a href="./northstar.html">Northstar <span class="chip">Design Brief</span></a></figcaption>
+			</figure>
+			<figure class="case_thumb">
+				<div>
+					<img alt="Platform One" src="./img/thumbs/platform-one.jpg" />
+					<a href="./platform-one.html">
+						<i class="material-icons" id="white-XL">touch_app</i>
+					</a>
+				</div>
+				<figcaption><a href="./platform-one.html">Platform One</a></figcaption>
+			</figure>
+		</article>
+	</section>
+
+		</main>
+
+		<footer>
+			<a href="https://www.linkedin.com/in/jarrodmurray/" title="LinkedIn" target="_blank"><svg class="linkedin" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+			<a href="https://www.jarrodmurray.com/jarrodmurray_resume.pdf" title="Résumé" target="_blank"><svg class="adobe" viewBox="0 0 384 512"><path d="M184 208c0-4.406-3.594-8-8-8S168 203.6 168 208c0 2.062 .2969 23.31 9.141 50.25C179.1 249.6 184 226.2 184 208zM256 0v128h128L256 0zM80 422.4c0 9.656 10.47 11.97 14.38 6.375C99.27 421.9 108.8 408 120.1 388.6c-14.22 7.969-27.25 17.31-38.02 28.31C80.75 418.3 80 420.3 80 422.4zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM292 312c24.26 0 44 19.74 44 44c0 24.67-18.94 44-43.13 44c-5.994 0-11.81-.9531-17.22-2.805c-20.06-6.758-38.38-15.96-54.55-27.39c-23.88 5.109-45.46 11.52-64.31 19.1c-14.43 26.31-27.63 46.15-36.37 58.41C112.1 457.8 100.8 464 87.94 464C65.92 464 48 446.1 48 424.1c0-11.92 3.74-21.82 11.18-29.51c16.18-16.52 37.37-30.99 63.02-43.05c11.75-22.83 21.94-46.04 30.33-69.14C136.2 242.4 136 208.4 136 208c0-22.05 17.95-40 40-40c22.06 0 40 17.95 40 40c0 24.1-7.227 55.75-8.938 62.63c-1.006 3.273-2.035 6.516-3.082 9.723c7.83 14.46 17.7 27.21 29.44 38.05C263.1 313.4 284.3 312.1 287.6 312H292zM156.5 354.6c17.98-6.5 36.13-11.44 52.92-15.19c-12.42-12.06-22.17-25.12-29.8-38.16C172.3 320.6 164.4 338.5 156.5 354.6zM292.9 368C299 368 304 363 304 356.9C304 349.4 298.6 344 292 344H288c-.3438 .0313-16.83 .9687-40.95 4.75c11.27 7 24.12 13.19 38.84 18.12C288 367.6 290.5 368 292.9 368z"/></svg></a>
+		</footer>
+
+		<script src="js/scripts.js" defer></script>
+	</body>
+	</html>

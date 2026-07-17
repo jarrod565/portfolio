@@ -1,0 +1,55 @@
+:root {
+  --green: #66cc33;
+  --orange: #ff9933;
+  --blue: #2caae1;
+  --gray: #777777;
+  --red: rgba(181, 29, 34, 1);
+  --hover: #1d3d8f;
+}
+
+
+/* General Button */
+.button {
+  position: relative;
+  margin: 0;
+  padding: 8px 16px;
+  background: #2caae1;
+  color: #ffffff;
+  font-size: 1em;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+}
+a.button {text-decoration: none;}
+
+.button:hover { background: var(--hover); color: #ffffff;}
+
+/* Arrow Buttons */
+.next::after, .prev::after { border-style: solid; }
+
+/* Next Button */
+.next::after {
+  right: -34px;
+  border-width: 17px;
+  border-color: transparent transparent transparent var(--blue);
+}
+
+.next:hover::after {
+  border-left-color: var(--hover);
+}
+
+/* Prev Button */
+.prev::after {
+  left: -34px;
+  border-color: transparent var(--blue) transparent transparent;
+  border-width: 17px;
+}
+
+.prev:hover::after {
+  border-right-color: var(--hover);
+}

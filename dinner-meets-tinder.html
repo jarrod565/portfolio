@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+	<link href=&rsquo;https://fonts.googleapis.com/css?family=Open+Sans:400,300,700&rsquo; rel=&rsquo;stylesheet&rsquo; type=&rsquo;text/css&rsquo;>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/modernizr.js" defer></script>
+	<script src="https://cdn.counter.dev/script.js" data-id="26424da4-b094-44ac-86be-e75e67dfbcd7" data-utcoffset="-4"></script>
+	<title>Dinner Meets Tinder | Jarrod W. Murray</title>
+</head>
+
+<body id="#">
+	<nav>
+		<img alt="Jarrod Murray" src="./img/new-profile.jpg" />
+		<h3><a href="/">Jarrod W. Murray</a> <span class="slash">/</span> Dinner Meets Tinder</h3>
+	</nav>
+
+	<main>
+	<section class="hero">
+		<figure>
+			<img alt="Log In Issues" src="./img/hero/dinder.jpg"/>
+		</figure>
+		<h1>Dinner Meets Tinder</h1>
+		<h3>What one person can build with AI</h3>
+	</section>
+
+	<section class="cases halfPad_noTop">
+	<div>
+		<h4>The Challenge</h4>
+		<p>Every week, my wife and I have the same conversation. &ldquo;What do you want for dinner this week?&rdquo; &ldquo;I don&rsquo;t know, what do you want?&rdquo; It&rsquo;s not a big problem. But it&rsquo;s a persistent one&hellip; and the kind of persistent, low-grade friction that a product person can&rsquo;t stop thinking about. I wanted to solve it. And I wanted to prove something to myself in the process: that I could take an idea from concept to deployed application, alone, using AI as my development partner.</p>
+		<h4>Role</h4>
+		<p>I was the Product Owner, the UX Designer, the Researcher, and the person writing specs for an AI to build from. This project was a deliberate attempt to learn AI-assisted development by doing it&hellip; and to walk away with something real to show for it.</p>
+	</div>
+	</section>
+
+	<a href="#" class="top_fab">
+	  <i class="material-icons">keyboard_arrow_up</i>
+	</a>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Un</i> Understand</h2>
+	</section>
+
+	<section class="white cases halfPad">
+		<div>
+			<h4>Dinner + Tinder</h4>
+			<p>The idea came to me pretty fast. What if picking meals for the week felt less like a chore and more like scrolling through a dating app? I&rsquo;ve never had a Tinder account, but everyone knows the concept. You see something, you swipe. Yes. No. Next. That simplicity was exactly what I was after. Two people, one app, swipe through meal ideas until you&rsquo;ve got a week&rsquo;s worth of dinners&hellip; then let the app figure out the grocery list.</p>
+			<p>I called it Dinder. Dinner + Tinder.</p>
+			<p>The concept clicked because it solved the real problem: the decision, not the cooking. The hard part was never knowing how to make dinner&hellip; it was agreeing on what to make. A swipe-based interface turns that negotiation into something almost fun. Dinder also has a third option that Tinder doesn&rsquo;t&hellip; &ldquo;I never want to see this meal again.&rdquo; Every household needs that button.</p>
+			<h4>Why Now</h4>
+			<p>Before AI-assisted development, I couldn&rsquo;t have built this. A full-stack PWA with authentication, a third-party recipe API, real-time ingredient aggregation, and a shopping list that syncs across devices&hellip; that was always a team effort. Or it required a level of engineering depth I didn&rsquo;t have.</p>
+			<p>AI changed the math. Not because it replaced the thinking&hellip; but because it extended what one person with the right thinking could actually ship.</p>
+		</div>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Si</i> Simplify</h2>
+	</section>
+
+	<section class="reversed cases halfPad">
+	<div>
+		<h4>Lock the Decisions First</h4>
+		<p>Before writing a single line of spec, I ran a structured Q&A process with Claude to lock every product decision. Not wireframes. Not a backlog. Just questions and answers, one decision at a time.</p>
+		<p>How do two people share the account? What happens when a meal gets dismissed permanently&hellip; is that per-user or per-household? When the swipe deck runs out, does it loop or reset? How smart does ingredient combining need to be? Should half a cup of chicken broth from one recipe and two cups from another combine into a single line item on the shopping list?</p>
+		<p>That process surfaced decisions that would have caused rework mid-build if I&rsquo;d skipped them. By the time I started writing specifications, the product was already fully defined. The briefs were documenting decisions, not making them.</p>
+		<h4>The Capability Brief</h4>
+		<p>I wrote eight Capability Briefs&hellip; structured markdown files that served as the single source of truth for every feature in the app. Each brief covered the problem, the intended outcome, functional rules, edge cases, constraints, and a section written specifically for Claude Code to consume.</p>
+	</div>
+		<figure>
+			<img alt="The Capability Brief framework" src="./img/cases/dinder/claude-code-cb.jpg" class="caseImg slide-up"/>
+			<figcaption>Working with Claude to define and write the capability briefs</figcaption>
+		</figure>
+	<div>
+		<p>AI coding tools are only as good as what you hand them. Feed a vague user story to an AI and you&rsquo;ll get vague code back. The Capability Brief format was my answer to that problem&hellip; structured, explicit, unambiguous. Written for a collaborator that reads everything literally and builds exactly what you describe. Not &ldquo;users can filter by dietary restrictions&rdquo;&hellip; but exactly which restrictions, how they get passed to the Spoonacular API, what happens when no results come back, and what&rsquo;s explicitly out of scope. That last part &mdash; the not-in-scope list &mdash; turned out to be just as important as the feature list. AI builds confidently in whatever direction you point it. A clear boundary is as valuable as a clear requirement.</p>
+		<p>The briefs covered everything from authentication and subscription tiers to the three-state swipe logic, ingredient aggregation with unit normalization and serving size scaling, a household default serving size you can override per meal, shopping list persistence, and a copy-to-clipboard export that works for pasting into a grocery app, reading aloud to Alexa, or just texting your spouse what to grab.</p>
+		<h4>The Build</h4>
+		<p>I handed the full set of briefs to Claude Code with one instruction: read everything, confirm your understanding, and ask questions before touching any code. It came back with four clarifying questions. All good ones. We resolved them and started building in dependency order&hellip; authentication first, then dietary preferences, then the swipe deck, and so on.</p>
+	</div>
+		<figure>
+			<img alt="Claude Code working through the briefs" src="./img/cases/dinder/building-cb03.jpg" class="caseImg slide-up"/>
+			<figcaption>Claude Code working through the briefs</figcaption>
+		</figure>
+	<div>
+		<p>The stack was chosen for documentation and community support. React, Vite, Supabase, Stripe, Spoonacular API, shadcn/ui, Tailwind, react-spring. Every technical decision was made in the briefs before implementation began. Claude Code handled the rest.</p>
+		<p>Honestly, it came together faster than I thought it would.</p>
+	</div>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Al</i> Align</h2>
+	</section>
+
+	<section class="cases halfPad">
+	<div>
+		<h4>Two Tools, One App</h4>
+		<p>Once the app was working, I started asking harder questions about the design. Claude Code got me most of the way there&hellip; layout, navigation, component structure. The bones were good. The personality wasn&rsquo;t there yet.</p>
+	</div>
+		<figure>
+			<img alt="The initial design by Claude" src="./img/cases/dinder/initial-design.png" class="caseImg slide-up"/>
+			<figcaption>Functional but not very pretty</figcaption>
+		</figure>
+	<div>
+		<p>I decided to compare tools. I gave Figma Make the same brief: here&rsquo;s the tech stack, here&rsquo;s what I want to change (settings should live behind the user avatar, not in two places; the shopping list icon shouldn&rsquo;t compete with the basket). Figma Make took more design freedoms than Claude Code did. Where Claude Code built conservatively, Figma Make had opinions about typography, spacing, and color. It was less of a code generator and more of a CSS layer &mdash; it made the components look better without restructuring what was already working.</p>
+	</div>
+		<figure>
+			<img alt="Figma Make takes a turn" src="./img/cases/dinder/figma-make.png" class="caseImg slide-up"/>
+			<figcaption>I shifted from Claude to Figma to fine tune the design</figcaption>
+		</figure>
+	<div>
+		<p>Neither tool was right or wrong. They approached the problem differently, and comparing them was part of the learning.</p>
+		<p>I took what I liked from the Figma exploration and prompted Claude Code to implement the changes. Warmer backgrounds. A more considered color palette with orange and amber as the primary action color. Cards that felt like they belonged in a food app rather than a starter template. The kind of changes that take a working app and make it feel like someone with taste had been involved.</p>
+		<h4>The Logo Moment</h4>
+		<p>It wasn&rsquo;t until the app was ready to deploy that I turned my attention to the logo. By then I&rsquo;d been living with "MealPlan App" as the placeholder name long enough to know it needed to go.</p>
+		<p>I asked Claude Code to generate logo concepts. Six attempts. None of them were good, but I drew inspiration from the fork and knife concept.</p>
+	</div>
+		<figure>
+			<img alt="Bad logo concepts from Claude" src="./img/cases/dinder/ai-logos.png" class="caseImg slide-up"/>
+			<figcaption>Claude Design won't be replacing people anytime soon</figcaption>
+		</figure>
+	<div>
+		<p>I tried Figma Make for icon design. Fork and knife concepts. Also not good.</p>
+	</div>
+		<figure>
+			<img alt="Figma Make attempts logos" src="./img/cases/dinder/figma-make-logos.png" class="caseImg slide-up"/>
+			<figcaption>Figma Make struggles to make basic shapes</figcaption>
+		</figure>
+	<div>
+		<p>AI is not replacing designers anytime soon. What it is doing is handling everything else&hellip; so designers can spend their time on the decisions that actually require taste. I designed the Dinder logo myself, dropped it in, and suddenly it felt like a real product.</p>
+	</div>
+		<figure>
+			<img alt="The final v1 app" src="./img/cases/dinder/finished-v1.png" class="caseImg slide-up"/>
+			<figcaption>Logo replaced the placeholder to give it a finished look</figcaption>
+		</figure>
+	<div>
+		<h4>It Ships</h4>
+		<p>The app is live at <a href="http://app.jarrodmurray.com" target="_blank">app.jarrodmurray.com</a>. Google authentication, real recipe data from Spoonacular, smart ingredient aggregation, a persistent shopping list, and a share sheet that works on any device. Built by one person, with AI, from a blank repo to a deployed application.</p>
+		<p>Some things didn&rsquo;t make it. Sending the grocery list directly to a shopping cart required paid API integrations that weren&rsquo;t worth pursuing for a learning project. Facebook SSO got cut&hellip; the developer account setup wasn&rsquo;t worth the return. The AI-powered Premium tier&hellip; meal suggestions based on swipe history, condition-aware filtering for things like Gout or Diabetes, natural language meal planning&hellip; is designed and documented but waiting for a reason to invest in the infrastructure.</p>
+		<p>Knowing when to stop is a product decision. The core loop works. The app is genuinely useful. The methodology is proven.</p>
+	</div>
+	</section>
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Va</i> Validate</h2>
+	</section>
+
+	<section class="white cases halfPad">
+	<div>
+		<h4>My Problem and Her Problem</h4>
+		<p>I built Dinder to solve my problem. I knew it intimately&hellip; I lived it every week. What I skipped was sitting down with my wife before I built anything and asking her what she actually needed. I just built. And v1 works. It solves the weekly decision problem for me every time I open it.</p>
+		<p>But a working app has a way of surfacing the problems you didn't know to ask about.</p>
+		<h4>What She Actually Wants</h4>
+		<p>My wife used it. She had thoughts.</p>
+		<p>Dinder shows her meals she&rsquo;s never seen before. That part she likes. But her version of &ldquo;what should we make this week?&rdquo; is more layered than mine. She has close to 200 recipes pinned on Pinterest&hellip; things she&rsquo;s already decided she wants to make someday. Meals she&rsquo;s cooked before that everyone loved. Ideas she&rsquo;s been quietly collecting for months. Dinder doesn&rsquo;t know any of that exists. It&rsquo;s pulling from a recipe API while her actual list of &ldquo;yes, that&rdquo; sits untouched in another app entirely.</p>
+		<p>That&rsquo;s the real problem. And it&rsquo;s a better one than the one I solved.</p>
+		<h4>What&rsquo;s Next</h4>
+		<p>My product mind went straight to it: what if I could pull her pinned recipes directly into Dinder? Paste a Pinterest board URL, parse the recipes, inject them into the swipe deck alongside the Spoonacular results. Her existing list, finally connected to the weekly planning process.</p>
+		<p>I don&rsquo;t know yet if that&rsquo;s technically possible. But I know how I&rsquo;d start figuring it out&hellip; a Q&A session with Claude, a new Capability Brief, and the same process that got v1 out the door. That&rsquo;s what v2 looks like.</p>
+		<p>Meal planning is still the lowlight of my wife&rsquo;s week. That&rsquo;s the real success metric. I haven&rsquo;t hit it yet. But I&rsquo;m closer than I was&hellip; and now I know exactly what to build next.</p>
+	</div>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2>Takeaways&hellip;</h2>
+	</section>
+	
+	<section class="cases halfPad">
+	<div>
+		<p>Locking decisions upstream before writing a single spec is the most valuable thing I did on this project. The Q&A process that produced the briefs saved more time than the briefs themselves.</p>
+		<p>Comparing tools taught me something too. Claude Code and Figma Make approach design problems differently. Neither is a replacement for a designer with taste&hellip; but together they cover a lot of ground that used to require a team.</p>
+		<p>And shipping something real matters more than shipping something perfect. My wife has a list of things she wants changed. That&rsquo;s not a failure. That&rsquo;s a product.</p>
+	</div>
+	</section>
+
+	<section class="reversed centered eighthPad">
+		<h3 class="center">More Case Studies</h3>
+		<article class="flexTrio">
+		</article>
+	</section>
+
+	</main>
+
+	<footer>
+		<a href="https://www.linkedin.com/in/jarrodmurray/" title="LinkedIn" target="_blank"><svg class="linkedin" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+		<a href="https://www.jarrodmurray.com/jarrodmurray_resume.pdf" title="Résumé" target="_blank"><svg class="adobe" viewBox="0 0 384 512"><path d="M184 208c0-4.406-3.594-8-8-8S168 203.6 168 208c0 2.062 .2969 23.31 9.141 50.25C179.1 249.6 184 226.2 184 208zM256 0v128h128L256 0zM80 422.4c0 9.656 10.47 11.97 14.38 6.375C99.27 421.9 108.8 408 120.1 388.6c-14.22 7.969-27.25 17.31-38.02 28.31C80.75 418.3 80 420.3 80 422.4zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM292 312c24.26 0 44 19.74 44 44c0 24.67-18.94 44-43.13 44c-5.994 0-11.81-.9531-17.22-2.805c-20.06-6.758-38.38-15.96-54.55-27.39c-23.88 5.109-45.46 11.52-64.31 19.1c-14.43 26.31-27.63 46.15-36.37 58.41C112.1 457.8 100.8 464 87.94 464C65.92 464 48 446.1 48 424.1c0-11.92 3.74-21.82 11.18-29.51c16.18-16.52 37.37-30.99 63.02-43.05c11.75-22.83 21.94-46.04 30.33-69.14C136.2 242.4 136 208.4 136 208c0-22.05 17.95-40 40-40c22.06 0 40 17.95 40 40c0 24.1-7.227 55.75-8.938 62.63c-1.006 3.273-2.035 6.516-3.082 9.723c7.83 14.46 17.7 27.21 29.44 38.05C263.1 313.4 284.3 312.1 287.6 312H292zM156.5 354.6c17.98-6.5 36.13-11.44 52.92-15.19c-12.42-12.06-22.17-25.12-29.8-38.16C172.3 320.6 164.4 338.5 156.5 354.6zM292.9 368C299 368 304 363 304 356.9C304 349.4 298.6 344 292 344H288c-.3438 .0313-16.83 .9687-40.95 4.75c11.27 7 24.12 13.19 38.84 18.12C288 367.6 290.5 368 292.9 368z"/></svg></a>
+	</footer>
+
+	<script src="js/scripts.js" defer></script>
+	<script defer>
+	document.addEventListener('DOMContentLoaded', () => {
+		renderRelatedCaseStudies('dinner-meets-tinder');
+	});
+	</script>
+</body>
+</html>

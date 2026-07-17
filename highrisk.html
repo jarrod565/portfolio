@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/modernizr.js" defer></script>
+	<script src="https://cdn.counter.dev/script.js" data-id="26424da4-b094-44ac-86be-e75e67dfbcd7" data-utcoffset="-4"></script>
+	<title>High Risk Queue | Jarrod W. Murray</title>
+</head>
+
+<body id="#">
+	<nav>
+		<img alt="" src="./img/new-profile.jpg" />
+		<h3><a href="/">Jarrod W. Murray</a> <span class="slash">/</span> High Risk Queue</h3>
+	</nav>
+
+	<main>
+		<section class="hero">
+		<figure>
+			<img alt="" src="./img/hero/highrisk.jpg"/>
+		</figure>
+		<h1>High Risk Queue</h1>
+		<h3>Where Information Hierarchy and Data Visualization meet</h3>
+	</section>
+
+	<section class="cases halfPad_noTop">
+	<div>
+		<h4>The Challenge</h4>
+		<p>A High Risk Analyst looks at current and historical data to determine if automotive dealers are demonstrating signs of risky or suspicious behavior. The analyst determines the appropriate next steps, up to and including terminating the relationship.</p>
+		<p>The tool they relied on was built by an analyst, for analysts&hellip; in Microsoft Access. It was maintained by one person, and the company was also moving from WebFOCUS to SSRS reporting. Building something better was overdue.</p>
+	</div>
+		<figure>
+			<img alt="The Database Built by Users" src="./img/cases/highrisk/access-db.jpg" class="caseImg slide-up"/>
+			<figcaption>The Access Database included five tabs. (Sensitive information redacted)</figcaption>
+		</figure>
+	<div>
+		<h4>Pre-Kickoff Insights</h4>
+		<p>June 26, 2018 I was approached by a Product Delivery Manager (PDM) who requested I mock-up a feature for the upcoming sprint. I was asked to present the mock-up to the dev team six days later.</p>
+		<h4>Role</h4>
+		<p>I was the lead researcher and designer on this accelerated project.</p>
+	</div>
+	</section>
+
+	<a href="#" class="top_fab">
+	  <i class="material-icons">keyboard_arrow_up</i>
+	</a>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Un</i> Understand</h2>
+	</section>
+
+	<section class="white cases halfPad">
+	<div>
+		<h4>Defining the Problem</h4>
+		<p>Working directly with internal users is extremely beneficial. I was able to shadow a High Risk Analyst, observe their workflows first-hand, and look at all of the existing data points across each tab.</p>
+		<p>My first step was documenting the existing data. I highlighted data displayed more than once. Duplication shows a lack of information hierarchy, common for a tool built by users solving their own problems without a design lens.</p>
+		<p>The most important data points became apparent by how often they were displayed. With an understanding of the data, the next thing I needed to solve was how to display it within the design system.</p>
+	</div>
+		<figure>
+			<img alt="The New Information Hierarcy" src="./img/cases/highrisk/data-for-proposed.jpg" class="caseImg slide-up"/>
+			<figcaption>I created a new information hierarchy based on the number of times (and how) a field was displayed</figcaption>
+		</figure>
+	<div>
+		<h4>Reframing the Problem</h4>
+		<p>To hit this queue, the dealership either has a high ARS (determined by an algorithm) or a large number of vehicles unaccounted for (offsite). Analysts must decide whether to create an incident&hellip; recommend a dealer consult&hellip; or accept this level of risk.</p>
+		<p>I created a Trello board to start mapping data to a design idea. I organized the data points around how the data would be presented. The hero component had room for eight data points about the dealer, ARS and Offsite as the focal point, supporting data points, and tieriary data points that could live behind a click.</p>
+	</div>
+		<figure>
+			<img alt="Visualizing the Data" src="./img/cases/highrisk/trello-board.jpg" class="caseImg slide-up"/>
+			<figcaption>I used Trello to start mapping data to a design idea</figcaption>
+		</figure>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Si</i> Simplify</h2>
+	</section>
+
+	<section class="cases halfPad reversed">
+	<div>
+		<h4>Proposed Solution</h4>
+		<p>I proposed a hero component that displayed dealer-specific data, to frame the information below. I used an “F” pattern layout to help highlight the major areas of concern. The two largest contributing factors&hellip; the ARS and Offsite graphs stacked on the left. The secondary data points were given next priority. I proposed a horizontal tab structure for digging deeper into trouble areas. Analysts would write their recommendations in a section anchored to the bottom.</p>
+	</div>
+		<figure>
+			<img alt="My Original Design" src="./img/cases/highrisk/initial-design.jpg" class="caseImg slide-up"/>
+			<figcaption>My initial mock-up for the High Risk Queue</figcaption>
+		</figure>
+	<div>
+		<h4>A New Component</h4>
+		<p>While I was happy with the design and direction, I knew the Design System was missing a component for the color-metric bar. I opened <a href="https://codepen.io/jarrod565/pen/aKxZYB" target="_blank">CodePen<i class="material-icons">launch</i></a> and built the missing component.</p>
+	</div>
+		<figure>
+			<img alt="The CodePen version of the missing Component" src="./img/cases/highrisk/codepen.jpg" class="caseImg slide-up"/>
+			<figcaption>This component would need to be built and added to the Design System</figcaption>
+		</figure>
+	</section>
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Al</i> Align</h2>
+	</section>
+
+	<section class="cases halfPad">
+	<div>
+		<h4>Early Validation</h4>
+		<p>I presented my design to the team on July 2nd. The reaction from the High Risk analysts was encouraging. Pointing to the color-metric bars, the manager said:</p>
+		<blockquote><p>I could make 80% of my decisions with this section right here.</p></blockquote>
+		<p>That&rsquo;s the kind of validation that matters. But the presentation also surfaced something I hadn&rsquo;t accounted for&hellip; the spec I was given was missing two attachments. Additional data points needed to be incorporated into the design.</p>
+		<h4>The Card Sort</h4>
+		<p>With new data points on the table and strong opinions across the team about what deserved the most prominence, I ran a card sorting exercise. Moving the data around without the pressure of a design conversation gave the team a cleaner way to express their priorities. The results helped me reprioritize the data, incorporate the missing pieces, and better understand the decision-making process of the analysts.</p>
+	</div>
+		<figure>
+			<img alt="Card Sorting Exercise" src="./img/cases/highrisk/cardsort.jpg" class="caseImg slide-up"/>
+			<figcaption>Trying to better understand how Analysts drill down to the info they need</figcaption>
+		</figure>
+	<div>
+		<h4>Revised Design</h4>
+		<p>With the new information and insights from the card sort, I revised the design. The ARS and Offsite graphs were still the focal point, but this iteration needed to include the dealer&rsquo;s inventory. The supporting data had to be reorganized to support the new information.</p>
+	</div>
+		<figure>
+			<img alt="The revised design" src="./img/cases/highrisk/prototype.jpg" class="caseImg slide-up"/>
+			<figcaption>The updated design with the additional data points</figcaption>
+		</figure>
+
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Va</i> Validate</h2>
+	</section>
+
+	<section class="cases halfPad white">
+	<div>
+		<h4>User Testing a Prototype</h4>
+		<p>With a revised design in hand, I built a clickable prototype in InVision. I scheduled time with four analysts and gave each one the same task&hellip; using historically accurate dealer data, they were asked to either &ldquo;Escalate&rdquo; or &ldquo;Pass&rdquo; a dealer. We found a few very minor issues and talked through some edge cases.</p>
+	</div>
+	<figure>
+		<video src="img/media/high-risk.mp4" controls></video>
+		<figcaption>Validating the design with users</figcaption>
+	</figure>
+	<div>
+		<h4>Takeaways</h4>
+		<p>The project was eventually cancelled after changes to the department made it obsolete. But the thinking behind it&hellip; understanding the data before touching the design, surfacing duplication as an information hierarchy problem, and validating priorities with a card sort&hellip; those are approaches I carry into every data-heavy interface I work on.</p>
+		<h4>Things I Learned</h4>
+		<ul>
+			<li>Always engage with users&hellip; make sure they&rsquo;re getting the solution they need</li>
+			<li>Articulating design decisions can be challenging</li>
+			<li>The benefit of understanding the data when no two users behave the same</li>
+		</ul>
+	</div>
+	</section>
+
+	<section class="reversed centered eighthPad">
+	<h3 class="center">More Case Studies</h3>
+		<article class="flexTrio">
+		</article>
+	</section>
+
+</main>
+
+<footer>
+	<a href="https://www.linkedin.com/in/jarrodmurray/" title="LinkedIn" target="_blank"><svg class="linkedin" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+	<a href="https://www.jarrodmurray.com/jarrodmurray_resume.pdf" title="Résumé" target="_blank"><svg class="adobe" viewBox="0 0 384 512"><path d="M184 208c0-4.406-3.594-8-8-8S168 203.6 168 208c0 2.062 .2969 23.31 9.141 50.25C179.1 249.6 184 226.2 184 208zM256 0v128h128L256 0zM80 422.4c0 9.656 10.47 11.97 14.38 6.375C99.27 421.9 108.8 408 120.1 388.6c-14.22 7.969-27.25 17.31-38.02 28.31C80.75 418.3 80 420.3 80 422.4zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM292 312c24.26 0 44 19.74 44 44c0 24.67-18.94 44-43.13 44c-5.994 0-11.81-.9531-17.22-2.805c-20.06-6.758-38.38-15.96-54.55-27.39c-23.88 5.109-45.46 11.52-64.31 19.1c-14.43 26.31-27.63 46.15-36.37 58.41C112.1 457.8 100.8 464 87.94 464C65.92 464 48 446.1 48 424.1c0-11.92 3.74-21.82 11.18-29.51c16.18-16.52 37.37-30.99 63.02-43.05c11.75-22.83 21.94-46.04 30.33-69.14C136.2 242.4 136 208.4 136 208c0-22.05 17.95-40 40-40c22.06 0 40 17.95 40 40c0 24.1-7.227 55.75-8.938 62.63c-1.006 3.273-2.035 6.516-3.082 9.723c7.83 14.46 17.7 27.21 29.44 38.05C263.1 313.4 284.3 312.1 287.6 312H292zM156.5 354.6c17.98-6.5 36.13-11.44 52.92-15.19c-12.42-12.06-22.17-25.12-29.8-38.16C172.3 320.6 164.4 338.5 156.5 354.6zM292.9 368C299 368 304 363 304 356.9C304 349.4 298.6 344 292 344H288c-.3438 .0313-16.83 .9687-40.95 4.75c11.27 7 24.12 13.19 38.84 18.12C288 367.6 290.5 368 292.9 368z"/></svg></a>
+</footer>
+
+	<script src="js/scripts.js" defer></script>
+	<script defer>
+	document.addEventListener('DOMContentLoaded', () => {
+		renderRelatedCaseStudies('highrisk');
+	});
+	</script>
+</body>
+</html>

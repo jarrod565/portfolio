@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<!-- <link rel="stylesheet" href="css/grid.css"> -->
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/modernizr.js"></script>
+	<script src="https://kit.fontawesome.com/997dd61797.js" crossorigin="anonymous"></script>
+
+	<title>Online Claims | Jarrod W. Murray</title>
+</head>
+
+<body id="#">
+	<nav>
+		<img alt="" src="./img/new-profile.jpg" />
+		<h3><a href="/">Jarrod W. Murray</a> <span class="slash">/</span> Online Claims</h3>
+	</nav>
+
+	<main>
+		<section class="hero">
+		<div>
+			<img alt="Trip Cancellation Claims" src="./img/hero/claims.jpg"/>
+		</div>
+		<h1>Online Claims</h1>
+		<h3>When a company knows they need UX, but is not sure how to begin</h3>
+	</section>
+
+	<section class="cases halfPad_noTop">
+		<h4>The Challenge</h4>
+		<p>Ideally, I would be working two or three sprints ahead of development and have a well-groomed backlog. At this insurance company, the stakeholders would meet every three weeks to make their case for stories they needed in the next sprint.<br><br>This way of prioritizing work turns developers into firefighters… and makes it nearly impossible to know what stories are truly the highest priority.<br><br>Rather than let this deter me, I searched the backlog to find a feature to own. I was looking for a feature that would be beneficial to multiple departments, was customer facing, and I could demonstrate the full UX process. Online Claim Submission checked all of those boxes.</p>
+		<h4>Pre-Kickoff Insights</h4>
+		<p>As part of onboarding, I job-shadowed with multiple departments to better understand the business, the various roles, and to meet some of the users of the products I was supporting. I observed many manual processes that could be improved with technology.<br><br>Filing an insurance claim is never a good thing. Members must download documents, fill them out, and submit them. Internally, those files are manually entered into the application, assigned to the correct department, and queued for processing by an analyst. If information is missing, the analyst must call or send an email to the member. It is a very manual process and takes weeks to process.<br><br>As the number of pain points piled up, I knew I could make this process better for both the customer and business.</p>
+		<h4>Role</h4>
+		<p>I was the lead researcher and designer on this project. The project kicked off in November of 2016 and I worked on it until I left the company in February of 2017.<br><br>In June 2018, over a year after I left the company, online claims submission launched.</p>
+	</section>
+
+	<a href="#" class="top_fab">
+	  <i class="material-icons">keyboard_arrow_up</i>
+	</a>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Di</i> Discovery Phase</h2>
+	</section>
+
+	<section class="white cases halfPad">
+		<h4>Hypothesis</h4>
+		<p>By submitting claims online, the time to process claims will greatly decrease because the current process creates opportunities for errors and delays.</p>
+		<h4>Defining the Problem</h4>
+		<p>I had seen the existing workflow and witnessed the inefficiencies in the process. Instead of jumping straight to solutioning, I conducted a series of stakeholder interviews. These interviews served a few purposes, mostly I was trying to gather requirements and metrics for success… but I also used the opportunity to evangelize the UX process.<br><br>I spoke with nine individuals, seeking clarity on business goals, technology requirements and user needs. I compiled the interviews into a single document for everyone to review.</p>
+		<div>
+			<img alt="Stakeholder Interview Document" src="./img/cases/claims/interviews.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>Stakeholder Interview Document</h6>
+		<h4>Pain Points Revealed</h4>
+		<p>Finding a “competitive advantage” was a reoccurring theme from the stakeholders. I purchased policies with two competitors and conducted a heuristic evaluation on both processes. One online experience was terrific while the other made me jump through hoops.<br><br>A little secret about insurance companies… they don’t like paying out claims… they are more profitable when they don’t. I was challenged with balancing the customer experience and the business goals</p>
+		<div>
+			<img alt="Heuristic Evaluation of a Competitor" src="./img/cases/claims/competitive-2.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>Competitive Analysis Document</h6>
+		<h4>Reframing the Problem</h4>
+		<p>Evaluating the competition allowed me to see first-hand the customer experience when filing a claim was easy… and when it was purposely cumbersome. I had to offset the cost of any additional claims being filed by eliminating manual steps in the processing and adjudication process. I wanted technology… not people… to be the buffer.</p>
+		<div>
+			<img alt="Mapping the Customer Journey" src="./img/cases/claims/journey.png" style="background-color: var(--white);" class="caseImg slide-up"/>
+		</div>
+		<h6>Journey Map</h6>
+		<h4>Discovery Synopsis</h4>
+		<p>I outlined my objectives and metrics for success in two Strategy Documents. The main objectives… improve the experience for both external members by making the claims submission process easier, while improving the experience for internal claims analyst by streamlining processes and bridging data gaps.</p>
+		<div class="horizontal">
+			<img alt="One of two Strategy Documents" src="./img/cases/claims/strategy-doc.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>Strategy Document</h6>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Id</i> Ideation Phase</h2>
+	</section>
+
+	<section class="cases halfPad reversed">
+		<h4>Data Mapping</h4>
+		<p>Before I could really put pen to paper and start exploring layout, I had to better understand the data gather aspects of filing a claim. Certain data is required for certain claim types. I began to reverse-engineer the current claim forms so I could build the new forms using progressive disclosure.</p>
+		<div>
+			<img alt="Building Dynamic Forms" src="./img/cases/claims/mapping.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>XMind Document</h6>
+		<h4>Wireframes</h4>
+		<p>In order to show the new interactive claim forms, I built a low fidelity prototype. I knew the style of the page/forms was going to follow the design of the Member Portal, so I was more concerned about whether we were capturing the right data and the right time. My goal was to have a claim form simple enough to fill out from the airport on a mobile device. So I started with the mobile experience.</p>
+		<h4>Low Fidelity Prototype</h4>
+		<p>To validate I was on the right path, I scheduled time with two internal users. The first was a Claims Analyst who would be receiving and processing these claims. I also met with the manager of the department to review the screens and to discuss the new workflows this process would create.<br><br>During my research I found the top-3, most filed claim types. I printed the three scenarios out and asked each participant how they would file this claim. I recorded each task using Silverback. Here is a short <a href="https://youtu.be/OmbZzRfywYo" target="_blank">video</a> of one of the sessions.</p>
+			<div>
+			<img alt="Early Wireframes" src="./img/cases/claims/wireframes-prototype.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>I used Sketch and InVision to create a Prototype of the Wireframes.</h6>
+		<h4>Ideation Synopsis</h4>
+		<p>After validating the wireframes with a small sample of my stakeholders, I was ready to increase the fidelity and moved it to a desktop experience.</p>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>De</i> Design Phase</h2>
+	</section>
+
+	<section class="cases halfPad">
+		<h4>Parameters</h4>
+		<p>The company launched a new marketing (and sales funnel) website in early 2016. In an effort to help drive traffic to the site, members would need to log in to their account to file a claim. This meant the wizard would be built in Sitefinity and adhere to the styles of the marketing site.</p>
+		<div>
+			<img alt="The Marketing Site" src="./img/cases/claims/sc-myaccount.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>Designing the forms to match the style of the marketing site.</h6>
+		<h4>High Fidelity Mock-Ups</h4>
+		<p>The next step was taking the low fidelity (mobile-first) prototype and creating a higher fidelity, desktop version. A color palette and most form elements were already styled, the challenge was creating logical steps in the wizard… built to be dynamic based on previous steps in the process.</p>
+		<div>
+			<img alt="A high fidelity mock-up of the desktop version." src="./img/cases/claims/high-res-mock.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>High Res Desktop Version</h6>
+	<h4>Proposed Solution</h4>
+		<p>In February, 2017 I left the company to persue other opportunities. I worked with the business and technology teams to transfer the knowledge I had gained. I provided both teams with the deliverables from the Discovery and Iteration Phases and the wireframe prototype I had built. By advancing the ball as far as I did, I hoped this feature would become prioritized and developed.</p>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Va</i> Validation Phase</h2>
+	</section>
+
+	<section class="cases halfPad white">
+		<h4>User Testing</h4>
+		<p>Before I could really put pen to paper and start exploring layout, I had to better understand the data gather aspects of filing a claim. Certain data is required for certain claim types. I began to reverse-engineer the current claim forms so I could build the new forms using progressive disclosure.</p>
+		<div>
+			<img alt="One scenario used to validate the claims form." src="./img/cases/claims/testing-scenario.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6><a href="https://youtu.be/OmbZzRfywYo" target="_blank">Watch a short clip of this scenario</a></h6>
+		<p>My plan was to complete the high resolution/desktop prototype and validate it with the other stakeholders. I had planned on taking the internal feedback, incorporating it, and validating the design with external people. I would have liked to have had three rounds of user testing before development.</p>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2>Takeaways…</h2>
+	</section>
+
+	<section class="cases halfPad">
+		<h4>Things I Learned</h4>
+		<ul>
+			<li>Business goals and user needs aren’t always in alignment</li>
+			<li>Being the first UX hire and solo practitioner in a company can be difficult</li>
+			<li>New software: Silverback and XMind</li>
+		</ul>
+		<h4>The Launch</h4>
+		<p>I built my prototype to include six claim types… Trip Cancellation, Travel Interruption, Trip Delay, Missed Connection, Baggage Loss, and Baggage Delay. To date, only Trip Cancellation, Trip Delay, and Baggage Delay have launched. To boot, these online claims are only available for newer policies. This means only 2-3% of claims today get submitted through the online portal.</p>
+		<h4>The Impact</h4>
+		<p>In November of 2018 I reached out to the CTO for an update:</p>
+		<blockquote><p>They are reporting that they are processing claims in 1/3 the time, and they are turning online claims around in 5 days, versus 30-45 days for paper/scanned claims.</p></blockquote>
+		<p>Reading that stat gives me great joy and a feeling of accomplishment. I would have loved the opportunity to see this project all the way through the UX process, but overall the project met the success metrics for both internal and external users. I hope they add the remaining claim types and see further success in the future.</p>
+	</section>
+
+	<section class="reversed centered quarterPad">
+		<div class="flexTrio">
+			<article class="case_thumb">
+				<div>
+					<img alt="Carte Blanche UX" src="./img/thumbs/carte-blanche.jpg" />
+					<a href="./carte-blanche-ux.html">
+						<i class="material-icons">touch_app</i>
+					</a>
+				</div>
+				<a href="./carte-blanche-ux.html"><h3>Carte Blanche UX</h3></a>
+			</article>
+			<article class="case_thumb">
+				<div>
+					<img alt="High Risk Queue" src="./img/thumbs/highrisk.jpg" />
+					<a href="./highrisk.html">
+						<i class="material-icons">touch_app</i>
+					</a>
+				</div>
+				<a href="./highrisk.html"><h3>High Risk Queue</h3></a>
+			</article>
+			<article class="case_thumb">
+				<div>
+					<img alt="Password Reset" src="./img/thumbs/password.jpg" />
+					<a href="./password.html">
+						<i class="material-icons">touch_app</i>
+					</a>
+				</div>
+				<a href="./password.html"><h3>Password Reset</h3></a>
+			</article>
+		</div>
+	</section>
+
+	</main>
+
+	<footer>
+		<a href="https://www.linkedin.com/in/jarrodmurray/" title="LinkedIn Profile" class="linkedin" target="_blank"><i class="linkedin fab fa-linkedin"></i></a><a href="./jarrodmurray_resume.pdf" title="Résumé" class="adobe" target="_blank"><i class="far fa-file-pdf"></i></a><a href="https://twitter.com/jarrod_ux" title="@jarrod_ux" class="twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+	</footer>
+
+	<script src="js/scripts.js"></script>
+</body>
+</html>

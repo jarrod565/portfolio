@@ -1,0 +1,189 @@
+:root {
+  --primary: rgba(29, 158, 214, 1);
+  --secondary: rgba(4, 100, 142, 1);
+  --alt: rgba(24, 126, 170, 1);
+  --charcoal: rgba(58, 58, 58, 1);
+  --danger: rgba(181, 29, 34, 1);
+  --light: rgba(0,0,0,0.1);
+  --white: rgba(250, 250, 250, 1);
+
+  --text: rgba(47,50,57,0.8);
+  --base: rgba(240, 240, 240, 1);
+  --baseOne: rgba(236, 236, 236, 1);
+  --baseTwo: rgba(227, 227, 227, 1);
+  --baseThree: rgba(222, 222, 222, 1);
+  --baseFour: rgba(208, 208, 208, 1);
+}
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+html {
+  font-size: 1em;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: calc(1.2em + .5vw);
+  background: var(--base);
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {font-size: calc(3em + .25vw);}
+h2 {font-size: calc(2.25em + .25vw); line-height: calc(1.1em + .4vw);}
+h3 {font-size: calc(1.25em + .25vw); font-weight: 300;}
+h4 {font-size: calc(1.5em + .125vw); font-weight: 300;}
+p, ul {font-size: calc(1em + .125vw); line-height: calc(1.2em + .5vw); max-width: 80ch;}
+p + p {margin-top: 24px;}
+a {color: var(--primary); text-decoration: underline;}
+a:hover {color: var(--secondary);}
+strong {font-weight: 800;}
+abbr {text-decoration: none; background-color: rgba(255,153,51,0.25);}
+ul {list-style: disc outside none;}
+ul li {
+  line-height: 1.5;
+  margin: 8px 0px 0px 24px;
+}
+
+header {
+  background-color: var(--baseTwo);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  width: 100vw;
+}
+header h4 {font-size: 1.25em; opacity: .6;}
+
+/* --------------------------- --------- --------------------------- */
+/* ------------------------- Page Structure ------------------------ */
+/* --------------------------- --------- --------------------------- */
+
+section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: 100vw;
+  line-height: 1.5;
+}
+.form {padding: 0px 24px;}
+.form h3 {text-align:center;}
+.form h6 {
+  font-weight: 400;
+  opacity: .7;
+}
+input {
+  height: 48px;
+  width: 80%;
+  margin: 8px;
+  font-size: 1.25em;
+  padding: 8px;
+  max-width: 400px;
+}
+input[type="submit"] {
+  height: 48px;
+  color: var(--white);
+  background: var(--primary);
+}
+input[type="submit"]:hover {
+  background: var(--secondary);
+  cursor: pointer;
+}
+
+/* --------------------------- --------- --------------------------- */
+/* --------------------------- Blog Style -------------------------- */
+/* --------------------------- --------- --------------------------- */
+
+.business_contact{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.business_contact h5 {font-size: 1em; font-weight: 400;}
+.business_contact h5 span {
+  opacity: .5;
+  font-style: italic;
+}
+.business_contact a {text-decoration:none;}
+div.avitar{
+  width: 80px;
+  height: 80px;
+  margin-right: 16px;
+}
+div.contact{
+  flex: 1 1;
+  flex-direction:column;
+}
+.avitar > figure {
+  margin: 0;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+  background-image: url("../img/avitar.jpg");
+  border: 2px solid white;
+  border-radius: 100%;
+}
+
+/* --------------------------- --------- --------------------------- */
+/* ----------------------------- Footer ---------------------------- */
+/* --------------------------- --------- --------------------------- */
+
+footer {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: row;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  font-size: .75em;
+}
+footer p {
+  opacity: .6;
+}
+footer > figure {
+  background-size: contain;
+  height: 28px;
+  width: 130px;
+  background-image: url("../img/logo1.png");
+  background-repeat:no-repeat;
+  margin-left: 8px;
+}
+
+/* --------------------------- --------- --------------------------- */
+/* ----------------------------- < 1200 ---------------------------- */
+/* --------------------------- --------- --------------------------- */
+
+@media only screen and (max-width: 1200px) {
+}
+
+/* --------------------------- --------- --------------------------- */
+/* ----------------------------- < 990 ----------------------------- */
+/* --------------------------- --------- --------------------------- */
+
+@media only screen and (max-width: 990px) {
+  }
+
+}
+
+/* --------------------------- --------- --------------------------- */
+/* ----------------------------- < 720 ----------------------------- */
+/* --------------------------- --------- --------------------------- */
+
+@media only screen and (max-width: 720px) {
+}
+
+/* --------------------------- --------- --------------------------- */
+/* ----------------------------- < 480 ----------------------------- */
+/* --------------------------- --------- --------------------------- */
+
+@media only screen and (max-width: 480px) {
+}

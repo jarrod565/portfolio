@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/modernizr.js"></script>
+	<script src="https://kit.fontawesome.com/997dd61797.js" crossorigin="anonymous"></script>
+
+	<title>High Risk Queue | Jarrod W. Murray</title>
+</head>
+
+<body id="#">
+	<nav>
+		<img alt="" src="./img/new-profile.jpg" />
+		<h3><a href="/">Jarrod W. Murray</a> <span class="slash">/</span> High Risk Queue</h3>
+	</nav>
+
+	<main>
+		<section class="hero">
+		<div>
+			<img alt="" src="./img/hero/highrisk.jpg"/>
+		</div>
+		<h1>High Risk Queue</h1>
+		<h3>Where Information Hierarchy and Data Visualization meet</h3>
+	</section>
+
+	<section class="cases halfPad_noTop">
+		<h4>The Challenge</h4>
+		<p>A High Risk Analyst looks at current and historical data to determine if automotive dealers are demonstrating signs of risky or suspicious behavior. The analyst determines the appropriate next steps, up to and including terminating the relationship.<br><br>With the help of one very knowledgable staff member, the High Risk Analysts built themselves an Access Database to visualize this data. The database was not implemented or supported by Technology, and was reliant on one person to maintain it. The company was also moving from WebFOCUS to SSRS reporting. Building a new application solved many issues.</p>
+		<div>
+			<img alt="The Database Built by Users" src="./img/cases/highrisk/access-db.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>The Access Database included five tabs. (Sensative information redacted)</h6>
+		<h4>Pre-Kickoff Insights</h4>
+		<p>June 26, 2018 I was approached by a Product Delivery Manager (PDM) who requested I mock-up a feature for the upcoming sprint. I was asked to present the mock-up to the dev team six days later.</p>
+		<h4>Role</h4>
+		<p>I was the lead researcher and designer on this accelerated project.</p>
+	</section>
+
+	<a href="#" class="top_fab">
+	  <i class="material-icons">keyboard_arrow_up</i>
+	</a>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Di</i> Discovery Phase</h2>
+	</section>
+
+	<section class="white cases halfPad">
+		<h4>Hypothesis</h4>
+		<p>By applying the <a href="./img/samples/redline.pdf" target="_blank">Design System <i class="fas fa-external-link-square-alt"></i></a> and it’s best practices to the Access Database, we can quickly move this department into a new solution… even with an accelerated timeline.</p>
+		<h4>Defining the Problem</h4>
+		<p>This is where working with internal users is extremely beneficial. I was able to walk over to the High Risk Analysts, introduce myself, and observe their workflows and tools. I asked an analyst to provide screenshots of each tab and began to look at the existing data points.</p>
+		<h4>Pain Points Revealed</h4>
+		<p>My first steps were to document the data on the five existing tabs. I found a lot of duplicate information… which I highlighted in yellow… data displayed more than twice, I darkened to orange. Data duplication shows a lack of information hierarchy… common for a tool built by users.</p>
+		<div>
+			<img alt="Access Database Fields" src="./img/cases/highrisk/data-fields.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>A heatmap of the data presented on each tab.</h6>
+		<p>The most important data points became apparent by the number of times it was displayed. With an understanding of the data, the next thing I needed to solve was how to display the data within the design system.</p>
+		<div>
+			<img alt="The New Information Hierarcy" src="./img/cases/highrisk/data-for-proposed.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>I created a new information hierarchy based on the number of times (and how) a field was displayed.</h6>
+		<h4>Reframing the Problem</h4>
+		<p>I converted my Excel document into a Trello board to more easily move the data around the screen. With existing components in mind, I organized the data points on how/where the data would be presented on the UI. For example, I knew the &lsquo;Hero&rsquo; component would hold no more than eight data points across the top.</p>
+		<div>
+			<img alt="Using Trello to orgaize the Data" src="./img/cases/highrisk/trello-board.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>Mapping the data to existing components and patterns.</h6>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Id</i> Ideation Phase</h2>
+	</section>
+
+	<section class="cases halfPad reversed">
+		<h4>Sketches</h4>
+		<p>As a result of the shortened timeline, I did not allot myself time for experimentation. I sketched out a few layouts on paper before moving into Sketch.</p>
+		<div>
+			<img alt="Sketching Ideas on Paper" src="./img/cases/highrisk/sketch.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>An early sketch on how to combine the Access data with design system layout.</h6>
+		<h4>Wireframes</h4>
+		<p>My first ideas were designed in a lower fidelity. I found I was spending too much time converting high fidelity components into low fidelity, so I pivoted.</p>
+		<div>
+			<img alt="The first rough idea in Sketch" src="./img/cases/highrisk/wireframes.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>I started designing in low fidelity before deciding high fidelity would save precious time.</h6>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>De</i> Design Phase</h2>
+	</section>
+
+	<section class="cases halfPad">
+		<h4>Parameters</h4>
+		<p>The design must be compliant with the <a href="./img/samples/redline.pdf" target="_blank">Redline Design System <i class="fas fa-external-link-square-alt"></i></a>, leveraging existing React components.</p>
+		<h4>Proposed Solution</h4>
+		<p>To hit this queue, the dealership either has a high ARS (determined by an algorithm) or a large number of vehicles unaccounted for (offsite). Analysts must decide whether to create an incident… recommend a dealer consult… or determine this level of risk as acceptable.<br><br>I proposed a hero (or jumbotron) component that displayed dealer-specific data, to frame the information below. I used an “F” pattern layout to help highlight the major areas of concern. The two largest contributing factors… the ARS and Offsite graphs stacked on the left. The secondary data points were given next priority. I proposed a vertical tab structure for digging deeper into trouble areas. Analysts would write their recommendations in a section anchored to the bottom.</p>
+		<div>
+			<img alt="My Original Design" src="./img/cases/highrisk/initial-design.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>My initial mock-up for the High Risk Queue.</h6>
+		<p>I asked the manager of the High Risk Analysts to validate the idea. She pointed to the color-metric bars and said</p> <blockquote><p>I could make 80% of my decisions with this section right here.</p></blockquote>
+		<h4>A New Component</h4>
+		<p>While I was happy with the design and direction, I knew the Design System was missing a component for the color-metric bar. I opened <a href="https://codepen.io/jarrod565/pen/aKxZYB" target="_blank">CodePen <i class="fas fa-external-link-square-alt"></i></a> and built the missing component.</p>
+		<div>
+			<img alt="The CodePen version of the missing Component" src="./img/cases/highrisk/codepen.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>This component would need to be built and added to the Design System.</h6>
+		<h4>A Few Curveballs</h4>
+		<p>I presented my design to the dev team on July 2nd. The PDM asked me about a few data points I was unaware of… it turned out the epic was missing two attachments. I revised the design to accommodate these requests before the July 4th holiday break.<br><br>July 10, 2018 a Software Engineer presented an alternate idea. He believed ARS and Offsite belong centered at the top of the page (since they are the most important pieces of data).<br><br>I tried, but failed, to properly demonstrate why the ARS and Offsite scores need the context provided by the hero. I was able to sell the users on my solution, but failed to get the Dev Team’s buy-in. It was a tough pill to swallow, but my role is in support of Technology… and if Technology decides to go in its own direction, I must support that. As far as I could tell, my engagement with this project was complete.</p>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Va</i> Validation Phase</h2>
+	</section>
+
+	<section class="cases halfPad white">
+		<h4>The Users Speak Up</h4>
+		<p>August 15, 2018 the High Risk Analysts invite me to a meeting to review the solution. I attended the meeting to record their feedback and offer suggestions (if asked). It was my first time seeing the deployed solution.</p>
+		<div>
+			<img alt="The first iteration of deployed code" src="./img/cases/highrisk/deployed.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>The solution presented to the team.</h6>
+		<p>September 13, 2018 I receive an email from the manager of the High Risk Analysts. It contains a brand new concept, designed by one of the users. This new concept has several similiarities to my original design, so the manager asks me to share my original design with the team.</p><blockquote><p>Your design gave me butterflies. I want to see if the team reacts the same way.</p></blockquote><p>I inform the PDM of the situation and ask how I should proceed.</p>
+		<div>
+			<img alt="A user-submitted design" src="./img/cases/highrisk/user-submitted.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>User-proposed solution… with enough similarities to mine to spark a conversation.</h6>
+		<h4>All Cards on the Table</h4>
+		<p>The conversation with the team went exceptionally well. All three designs were presented. The group discussed the pros and cons of each. It was decided I would update my original designs… incorporating things learned, new ideas, and the team’s feedback.</p>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Re</i> Re-Design Phase</h2>
+	</section>
+
+	<section class="cases halfPad">
+		<h4>A New Hierarchy</h4>
+		<p>More data points were added to the requirements. The biggest change meant displaying every vehicles… not a subset. This additional data meant the metric bars and the some of the hero data points were no longer needed. I conducted a card sorting exercise to re-prioritize the data and better understand their decision-making process.</p>
+		<div>
+			<img alt="Card Sorting Exercise" src="./img/cases/highrisk/cardsort.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>Trying to better understand how Analysts drill down to the info they need.</h6>
+		<h4>Updating the Solution</h4>
+		<p>I revised the data within the hero component and removed the metric bars. It was decided the logic to determine the green/yellow/red graph backgrounds would be added at a later iteration (if ever)… and the horizontal tabs where replaced with vertical tabs.</p>
+		<div>
+			<img alt="A new Solution" src="./img/cases/highrisk/prototype.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>The second iteration or the High Risk Queue.</h6>
+	</section>
+
+	<section class="primary eighthPad">
+		<h2 class="ccicon"><i>Va</i> Validation Phase</h2>
+	</section>
+
+	<section class="cases halfPad reversed">
+		<h4>User Testing a Prototype</h4>
+		<p>I made a clickable prototype with InVision. I asked four individuals to Escalate or Pass a dealer using historically accurate data. We found a few very minor issues and talked through some edge cases.</p>
+		<div>
+			<img alt="Validating the Layout with Users" src="./img/cases/highrisk/validation-user.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>Validating the design with users.</h6>
+		<h4>Story Writing and Grooming</h4>
+		<p>I worked with Product, Technology, and the High Risk Analysts to write user stories around the updated prototype. I created a Data Mapping document to ensure no data was missed.</p>
+		<div>
+			<img alt="Data Mapping" src="./img/cases/highrisk/data-mapping.jpg" class="caseImg slide-up"/>
+		</div>
+		<h6>A document mapping the Access Database to my prototype.</h6>
+	</section>
+
+
+	<section class="primary eighthPad">
+		<h2>Takeaways…</h2>
+	</section>
+
+	<section class="cases halfPad">
+		<h4>Things I Learned</h4>
+		<ul>
+			<li>Stay engaged with users… make sure they’re getting the solution they need</li>
+			<li>Articulating design decisions can be challenging</li>
+			<li>The benefit of understanding the data when no two users behave the same</li>
+		</ul>
+		<h4>The Launch</h4>
+		<p>This project was eventually cancelled after changes to the department made it obsolete.</p>
+	</section>
+
+	<section class="reversed centered quarterPad">
+		<div class="flexTrio">
+			<article class="case_thumb">
+				<div>
+					<img alt="Carte Blanche UX" src="./img/thumbs/carte-blanche.jpg" />
+					<a href="./carte-blanche-ux.html">
+						<i class="material-icons">touch_app</i>
+					</a>
+				</div>
+				<a href="./carte-blanche-ux.html"><h3>Carte Blanche UX</h3></a>
+			</article>
+			<article class="case_thumb">
+				<div>
+					<img alt="Password Reset" src="./img/thumbs/password.jpg" />
+					<a href="./password.html">
+						<i class="material-icons">touch_app</i>
+					</a>
+				</div>
+				<a href="./password.html"><h3>Password Reset</h3></a>
+			</article>
+			<article class="case_thumb">
+				<div>
+					<img alt="Online Claims" src="./img/thumbs/claims.jpg" />
+					<a href="./online-claims.html">
+						<i class="material-icons">touch_app</i>
+					</a>
+				</div>
+				<a href="./online-claims.html"><h3>Online Claims</h3></a>
+			</article>
+		</div>
+	</section>
+
+</main>
+
+<footer>
+	<a href="https://www.linkedin.com/in/jarrodmurray/" title="LinkedIn Profile" class="linkedin" target="_blank"><i class="linkedin fab fa-linkedin"></i></a><a href="./jarrodmurray_resume.pdf" title="Résumé" class="adobe" target="_blank"><i class="far fa-file-pdf"></i></a><a href="https://twitter.com/jarrod_ux" title="@jarrod_ux" class="twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+</footer>
+
+</body>
+<script src="js/scripts.js"></script>
+</html>
