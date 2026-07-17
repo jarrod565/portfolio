@@ -106,6 +106,10 @@ blockquote p:after {
 .chip-designer { background-color: var(--chip); }
 .chip-researcher { background-color: var(--primary); }
 .chip-strategist { background-color: var(--strategist); }
+.chips {
+  margin-bottom: 4px;
+  line-height: 1;
+}
 
 /* --------------------------- --------- --------------------------- */
 /* --------------------------- Navigation -------------------------- */
