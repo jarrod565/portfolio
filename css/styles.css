@@ -3,6 +3,7 @@
   --secondary: rgba(4, 100, 142, 1);
   --alt: rgba(24, 126, 170, 1);
   --chip: rgba(252, 129, 58, 1);
+  --strategist: rgba(20, 184, 166, 1);
   --charcoal: rgba(58, 58, 58, 1);
   --danger: rgba(181, 29, 34, 1);
   --light: rgba(0,0,0,0.1);
@@ -91,14 +92,17 @@ blockquote p:after {
 }
 .chip {
   color: var(--white);
-  font-size: calc(100% * .33);
-  background-color: var(--chip);
-  padding: 2px 12px;
+  font-size: calc(100% * .65);
+  padding: 3px 10px;
   border-radius: 16px;
   font-weight: 500;
-  margin-left: 4px;
+  margin: 2px 2px 2px 0;
   vertical-align: middle;
+  display: inline-block;
 }
+.chip-designer { background-color: var(--chip); }
+.chip-researcher { background-color: var(--primary); }
+.chip-strategist { background-color: var(--strategist); }
 
 /* --------------------------- --------- --------------------------- */
 /* --------------------------- Navigation -------------------------- */
@@ -1287,23 +1291,29 @@ blockquote.testimonial span {
   flex-wrap: wrap;
 }
 .filter-btn {
-  background: transparent;
-  border: 2px solid var(--primary);
-  color: var(--primary);
-  padding: 8px 24px;
+  background: var(--secondary);
+  border: 2px solid transparent;
+  color: var(--white);
+  padding: 6px 20px;
   border-radius: 24px;
   font-family: 'Open Sans', sans-serif;
-  font-size: calc(1em + .25vw);
+  font-size: calc(1em + .1vw);
   cursor: pointer;
   transition: all 0.2s ease;
+  opacity: 1;
 }
-.filter-btn:hover {
-  background: var(--primary);
-  color: var(--white);
+.filter-btn.off {
+  background: var(--baseThree);
+  color: var(--text);
+  opacity: 0.5;
 }
-.filter-btn.active {
-  background: var(--primary);
-  color: var(--white);
+.filter-btn[data-role="designer"] { background-color: var(--chip); }
+.filter-btn[data-role="researcher"] { background-color: var(--primary); }
+.filter-btn[data-role="strategist"] { background-color: var(--strategist); }
+.filter-btn[data-role="designer"].off,
+.filter-btn[data-role="researcher"].off,
+.filter-btn[data-role="strategist"].off {
+  background-color: var(--baseThree);
 }
 .case_study.hidden {
   display: none;

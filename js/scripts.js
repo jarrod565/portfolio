@@ -80,23 +80,49 @@ function renderRelatedCaseStudies(currentSlug, containerSelector = ".flexTrio") 
 const filterBtns = document.querySelectorAll('.filter-btn');
 const caseStudyCards = document.querySelectorAll('.case_study');
 
+// Read query param on load
+const params = new URLSearchParams(window.location.search);
+const roleParam = params.get('role');
+
+// Determine initial active roles
+const activeRoles = new Set(roleParam ? [roleParam] : ['designer', 'researcher', 'strategist']);
+
+function applyFilter() {
+  // Update button states
+  filterBtns.forEach(btn => {
+    const role = btn.getAttribute('data-role');
+    if (activeRoles.has(role)) {
+      btn.classList.remove('off');
+    } else {
+      btn.classList.add('off');
+    }
+  });
+
+  // Show/hide case studies
+  caseStudyCards.forEach(card => {
+    const disciplines = card.getAttribute('data-discipline').split(' ');
+    const visible = disciplines.some(d => activeRoles.has(d));
+    card.classList.toggle('hidden', !visible);
+  });
+}
+
+// Toggle on click
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    const filter = btn.getAttribute('data-filter');
-
-    // Update active button
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    // Show/hide case studies
-    caseStudyCards.forEach(card => {
-      if (filter === 'all' || card.getAttribute('data-discipline') === filter) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
+    const role = btn.getAttribute('data-role');
+    if (activeRoles.has(role)) {
+      // Don't allow all to be toggled off
+      if (activeRoles.size > 1) {
+        activeRoles.delete(role);
       }
-    });
+    } else {
+      activeRoles.add(role);
+    }
+    applyFilter();
   });
 });
+
+// Apply on load
+applyFilter();
 
 window.addEventListener('scroll', debounce(checkSlide));
