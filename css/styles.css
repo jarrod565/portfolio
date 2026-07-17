@@ -100,7 +100,7 @@ blockquote p:after {
   margin: 2px 2px 2px 0;
   vertical-align: middle;
   display: inline-block;
-  opacity: 1 !important;
+  opacity: 1;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -308,38 +308,6 @@ figure.horizontal img {
 }
 .timeline-entry.slide-up {transform: translateY(16px) scale(1);}
 
-
-/* --------------------------- --------- --------------------------- */
-/* ------------------------- welcome section ----------------------- */
-/* --------------------------- --------- --------------------------- */
-
-#welcome div:first-child {
-  display: flex;
-  align-self:center;
-  border: 1px solid white;
-  border-radius: 100%;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
-  width: 32%;
-  padding: 16% 0;
-  border-radius: 100%;
-  background: center / cover no-repeat url("../img/new-profile.jpg");
-  margin: 2vh;
-}
-#welcome h3 {
-  color: #3A3A3A;
-  color: var(--charcoal);
-  margin: 8px 0px;
-  text-align: center;
-}
-#welcome p {
-  max-width: 60ch;
-  align-self:center;
-  font-size: calc(1em + .33vw);
-  line-height: calc(1.5em + .33vw);
-  margin: 24px 0px 0px;
-  opacity: .8;
-}
-#welcome h1, #approach h2, #case_studies h2 {align-self:center;}
 
 /* --------------------------- --------- --------------------------- */
 /* ------------------------- panels section ----------------------- */
@@ -1114,12 +1082,6 @@ blockquote.testimonial {
   nav h3, .hero h3 {font-size: 1em}
   figure a h3 {font-size: calc(1em * 1.5);}
   h2.ccicon > i {margin-right: 16px;}
-
-  #welcome div:first-child {
-    width: 50%;
-    padding: 25% 0;
-    margin-top: 32px;
-  }
   .hero {padding: 48px 0px 24px 0px;}
   .hero figure {
     margin: 16px 0px;
@@ -1226,19 +1188,6 @@ blockquote.testimonial span {
   .noPad {padding: 24px 1%;}
   div.media{min-width: auto;}
   div.media figure {max-height: 180px;}
-  #welcome h3 {
-  margin: 8px 0px;
-}
-#welcome h3 {
-  font-size: calc(1.15em + .25vw);
-  line-height: calc(1.3em + .25vw);
-  margin: 4px 0px;
-}
-#welcome p {
-  font-size: calc(1em + .25vw);
-  line-height: calc(1.4em + .25vw);
-  margin: 16px 0px;
-}
 #experience {
   margin: 0 auto;
   width: 100vw;
@@ -1283,7 +1232,7 @@ blockquote.testimonial span {
   vertical-align: middle;
 }
 .filter-btn.off {
-  background-color: var(--baseThree) !important;
+  background-color: var(--baseThree);
   color: var(--text);
   opacity: 0.6;
 }
