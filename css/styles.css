@@ -1291,13 +1291,14 @@ nav {
   color: var(--white);
   text-decoration: none;
   font-size: calc(0.75em + 0.2vw);
-  font-weight: 300;
+  font-weight: 600;
   opacity: 0.9;
-  transition: opacity 150ms ease;
+  transition: opacity 150ms ease, text-decoration 150ms ease;
 }
 
 .nav-links a:hover {
   opacity: 1;
+  text-decoration: underline;
 }
 
 .nav-links .slash {
@@ -1310,10 +1311,11 @@ nav {
 /* --------------------------- --------- --------------------------- */
 
 #welcome {
-  padding: 48px 24px;
+  padding: 0 24px 48px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: -32px;
 }
 
 #hero-content {
@@ -1326,12 +1328,15 @@ nav {
 
 #hero-photo {
   border-radius: 50%;
-  width: calc(160px + 10vw);
-  height: calc(160px + 10vw);
+  width: calc(120px + 8vw);
+  height: calc(120px + 8vw);
   object-fit: cover;
   flex-shrink: 0;
   border: 4px solid var(--white);
   box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  position: relative;
+  z-index: 10;
+  margin-top: -32px;
 }
 
 #hero-text {
@@ -1347,10 +1352,11 @@ nav {
 }
 
 #welcome h1 {
-  font-size: calc(2em + 3vw);
+  font-size: calc(1.4em + 2.5vw);
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.15;
   margin: 0 0 16px;
+  white-space: nowrap;
 }
 
 #welcome h1 .designer { color: var(--chip); }
