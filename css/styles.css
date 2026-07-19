@@ -95,7 +95,7 @@ blockquote p:after {
 .chip {
   color: var(--white);
   font-size: calc(100% * .55);
-  padding: 0 8px;
+  padding: 4px 8px;
   border-radius: 16px;
   font-weight: 600;
   margin: 2px 2px 2px 0;
