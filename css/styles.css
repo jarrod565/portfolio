@@ -1364,7 +1364,7 @@ blockquote.testimonial {
     height: calc(80px + 10vw);
     margin: 0 auto 16px;
     justify-self: center;
-    z-index: auto;
+    z-index: 101;
   }
   #hero-text {
     grid-column: 1;
@@ -1433,6 +1433,18 @@ blockquote.testimonial span {
 }
 #case_studies {grid-template-columns: 1fr;}
 #deliverables {grid-template-columns: 1fr;}
+  #filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 16px 16px 8px;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  .filter-btn {
+    font-size: calc(.75em + .1vw);
+    padding: 5px 12px;
+    flex-shrink: 0;
+  }
 }
 
 /* --------------------------- --------- --------------------------- */
@@ -1498,4 +1510,9 @@ blockquote.testimonial span {
   width: 100vw;
   padding: 6vh 0;
 }
+  .filter-label:last-child {
+    display: none;
+  }
+  #welcome h1 { font-size: calc(1.4em + 3vw); }
+  #hero-tagline { font-size: calc(1em + 0.5vw); }
 }
