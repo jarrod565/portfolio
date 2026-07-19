@@ -1407,11 +1407,11 @@ nav {
 }
 
 #hero-eyebrow {
-  font-size: calc(0.7em + 0.5vw);
+  font-size: calc(1.25em + 0.5vw);
   font-weight: 300;
   color: var(--textLight);
   letter-spacing: 0.15em;
-  margin: 0 0 4px;
+  margin-bottom: -8px;
 }
 
 #welcome h1 {
@@ -1424,7 +1424,7 @@ nav {
 #welcome h1 .designer { color: var(--chip); }
 #welcome h1 .researcher { color: var(--primary); }
 #welcome h1 .strategist { color: var(--strategist); }
-#welcome h1 .amp { color: var(--baseThree); margin: 0 8px; }
+#welcome h1 .amp { color: var(--baseFour); margin: 0 4px; }
 
 #welcome h1 .designer,
 #welcome h1 .researcher,
