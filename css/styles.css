@@ -958,16 +958,47 @@ span i.material-icons {
 /* --------------------------- --------- --------------------------- */
 
 @media only screen and (max-width: 1200px) {
+  #hero-container {
+    margin: 0 calc(4% + 1vw);
+  }
+
+  #hero-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    padding: 32px 24px 24px;
+  }
+
   #hero-photo {
-    grid-column: 1 / 4;
-    grid-row: 1 / 4;
-    margin-top: calc(-24px - 1vw);
+    grid-column: 1;
+    grid-row: 1;
+    width: calc(200px + 6vw);
+    height: calc(200px + 6vw);
+    max-width: 284px;
+    max-height: 284px;
+    margin: 0 auto 24px;
+    justify-self: center;
+    align-self: center;
+    z-index: 101;
+    margin-top: 16px;
   }
+
   #hero-text {
-    grid-column: 4 / 13;
-    grid-row: 2 / 4;
+    grid-column: 1;
+    grid-row: 2;
+    text-align: left;
+    padding: 0 0 24px calc(2% + 1vw);
+    width: 100%;
   }
-  #welcome h1 { font-size: calc(1em + 2vw); }
+
+  #welcome h1 {
+    font-size: calc(1em + 2.5vw);
+    white-space: nowrap;
+  }
+
+  #hero-tagline {
+    max-width: 100%;
+  }
   h1 {font-size: calc(2.4em + .25vw);}
   h2 {font-size: calc(1.75em + .75vw);}
   .flexQuad {margin: 0px 6vw 56px;}
