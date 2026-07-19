@@ -1372,7 +1372,7 @@ blockquote.testimonial {
     text-align: center;
     padding: 0 0 24px;
   }
-  #welcome h1 { font-size: calc(1.2em + 3vw); }
+  #welcome h1 { font-size: calc(1.2em + 3vw); font-weight: 400; }
   #hero-tagline { max-width: 100%; }
   .panels {flex-direction: column;}
   .panel.open {flex: 4 1 auto;}
@@ -1437,7 +1437,7 @@ blockquote.testimonial span {
     flex-wrap: nowrap;
     overflow-x: auto;
     padding: 16px 16px 8px;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 8px;
   }
   .filter-btn {
