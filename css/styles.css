@@ -982,6 +982,7 @@ span i.material-icons {
   color: var(--textLight);
   letter-spacing: 0.15em;
   margin-bottom: -8px;
+  text-align: inherit;
 }
 
 #welcome h1 {
@@ -1199,8 +1200,8 @@ nav {
   #hero-text {
     grid-column: 1;
     grid-row: 2;
-    text-align: left;
-    padding: 0 0 24px calc(2% + 1vw);
+    text-align: center;
+    padding: 0 16px 24px;
     width: 100%;
   }
 
@@ -1267,8 +1268,8 @@ nav {
   #hero-text {
     grid-column: 1;
     grid-row: 2;
-    text-align: left;
-    padding: 0 0 16px calc(2% + 1vw);
+    text-align: center;
+    padding: 0 16px 16px;
     width: 100%;
   }
   #welcome h1 { font-size: calc(1em + 2.5vw); }
