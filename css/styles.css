@@ -1377,7 +1377,7 @@ nav {
   grid-template-rows: 32px auto auto 32px;
   gap: 10px;
   width: 100%;
-  padding: 0 24px;
+  padding: 32px 0;
 }
 
 #hero-photo {
