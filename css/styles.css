@@ -995,7 +995,7 @@ span i.material-icons {
 #welcome h1 .designer { color: var(--chip); }
 #welcome h1 .researcher { color: var(--primary); }
 #welcome h1 .strategist { color: var(--strategist); }
-#welcome h1 .amp { color: var(--baseFour); margin: 0 4px; }
+#welcome h1 .amp { color: var(--baseFour); margin: 0 4px; font-weight:400;}
 
 #welcome h1 .designer,
 #welcome h1 .researcher,
@@ -1194,7 +1194,7 @@ nav {
     justify-self: center;
     align-self: center;
     z-index: 101;
-    margin-top: -24px;
+    margin-top: -48px;
   }
 
   #hero-text {
