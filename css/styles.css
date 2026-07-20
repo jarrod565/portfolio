@@ -564,6 +564,30 @@ figure:hover > a h3, figure:hover a h3 span {
 	top: 25px;
 }
 
+/* Parallax timeline (entries detached from .slide-up): starts muted,
+   fills in with --primary as each entry is scrolled past. Scoped so
+   index.html's .slide-up timeline keeps its original always-primary
+   look, since it's excluded from the :not(.slide-up) match. */
+.timeline-entry:not(.slide-up) .timeline {
+	background-color: var(--baseThree);
+	transition: background-color .3s ease;
+}
+.timeline-entry:not(.slide-up) .timeline.filled {
+	background-color: var(--primary);
+}
+.timeline-entry:not(.slide-up) .timeline-bubble {
+	border-color: var(--baseThree);
+	transition: border-color .3s ease;
+}
+.timeline-entry:not(.slide-up) .timeline-bubble.filled {
+	border-color: var(--primary);
+}
+.current .timeline-bubble {
+	transform: translateX(-50%) scale(1.5);
+	box-shadow: 0 0 0 6px color-mix(in srgb, var(--primary) 25%, transparent);
+	transition: transform .3s ease, box-shadow .3s ease;
+}
+
 .timeline-entry {
 	display: flex;
 	.year {

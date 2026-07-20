@@ -185,3 +185,71 @@ if (heroPhoto && navIdentity) {
 
   window.addEventListener('scroll', debounce(checkHeroScroll, 10));
 }
+
+// Career timeline: depth parallax + active/filled state
+// :not(.slide-up) keeps this scoped to entries detached from the old
+// reveal system (about.html) - index.html's timeline keeps using
+// checkSlide()/.slide-up untouched.
+const timelineEntries = document.querySelectorAll('.timeline-entry:not(.slide-up)');
+
+if (timelineEntries.length) {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const YEAR_SPEED = 0.08;
+  const DESCRIPTION_SPEED = 0.03;
+  const TRIGGER_RATIO = 0.5; // viewport center; nudge down (e.g. 0.45) to trigger earlier
+
+  const timeline = Array.from(timelineEntries).map(entry => ({
+    entry,
+    year: entry.querySelector('.year'),
+    description: entry.querySelector('.description'),
+    line: entry.querySelector('.timeline'),
+    bubble: entry.querySelector('.timeline-bubble'),
+  }));
+
+  let ticking = false;
+
+  function updateTimeline() {
+    const triggerY = window.innerHeight * TRIGGER_RATIO;
+    let closest = null;
+    let closestDistance = Infinity;
+
+    timeline.forEach(({ entry, year, description, line, bubble }) => {
+      const bubbleRect = bubble.getBoundingClientRect();
+      const bubbleCenter = bubbleRect.top + bubbleRect.height / 2;
+      const distance = bubbleCenter - triggerY;
+
+      if (!prefersReducedMotion) {
+        year.style.transform = `translateY(${distance * YEAR_SPEED}px)`;
+        description.style.transform = `translateY(${distance * DESCRIPTION_SPEED}px)`;
+      }
+
+      const isFilled = bubbleCenter <= triggerY;
+      line.classList.toggle('filled', isFilled);
+      bubble.classList.toggle('filled', isFilled);
+
+      if (Math.abs(distance) < closestDistance) {
+        closestDistance = Math.abs(distance);
+        closest = entry;
+      }
+    });
+
+    timeline.forEach(({ entry }) => entry.classList.toggle('current', entry === closest));
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateTimeline);
+      ticking = true;
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateTimeline);
+      ticking = true;
+    }
+  });
+
+  updateTimeline();
+}
