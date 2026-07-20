@@ -782,8 +782,8 @@ div.media{
 #deliverables > h3 {
   text-align: center;
   width: 100%;
-  color: #fafafa;
-  color: var(--white);
+  /* color: #fafafa;
+  color: var(--white); */
   grid-column: 1 / -1;
 }
 /* .deliverable{
@@ -1250,10 +1250,10 @@ nav {
 }
 
 .deliverable h3 span.chip {
-  font-size: calc(100% * .33);
+  font-size: calc(100% * .5);
   padding: 2px 8px;
-  font-weight: 400;
-  margin-left: 16px;
+  font-weight: 500;
+  margin-left: 4px;
 }
 
 /* --------------------------- --------- --------------------------- */
