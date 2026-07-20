@@ -79,6 +79,7 @@ function renderRelatedCaseStudies(currentSlug, containerSelector = ".flexTrio") 
 // Filter functionality
 const filterBtns = document.querySelectorAll('.filter-btn');
 const caseStudyCards = document.querySelectorAll('.case_study');
+const deliverableCards = document.querySelectorAll('.deliverable');
 
 // Read query param on load
 const params = new URLSearchParams(window.location.search);
@@ -135,6 +136,13 @@ function applyFilter() {
     const disciplines = card.getAttribute('data-discipline').split(' ');
     const visible = disciplines.some(d => activeRoles.has(d));
     card.classList.toggle('hidden', !visible);
+  });
+
+  // Show/hide deliverables
+  deliverableCards.forEach(card => {
+    const discipline = card.getAttribute('data-discipline');
+    if (!discipline) return;
+    card.classList.toggle('hidden', !activeRoles.has(discipline));
   });
 }
 

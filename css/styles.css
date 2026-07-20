@@ -782,8 +782,8 @@ div.media{
 #deliverables > h3 {
   text-align: center;
   width: 100%;
-  /* color: #fafafa;
-  color: var(--white); */
+  color: #1D9ED6;
+  color: var(--primary);
   grid-column: 1 / -1;
 }
 /* .deliverable{
@@ -1068,7 +1068,8 @@ span i.material-icons {
   background-color: var(--baseThree);
   color: var(--text);
 }
-.case_study.hidden {
+.case_study.hidden,
+.deliverable.hidden {
   display: none;
 }
 
