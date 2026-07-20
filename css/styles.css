@@ -1039,6 +1039,10 @@ span i.material-icons {
   padding: 24px 0 8px;
   flex-wrap: wrap;
 }
+#filter-bar,
+#filter-bar * {
+  margin-bottom: 0;
+}
 .filter-label {
   font-size: calc(.85em + .1vw);
   color: var(--text);
@@ -1063,8 +1067,6 @@ span i.material-icons {
 .filter-icon {
   font-size: 1.1em;
   line-height: 1;
-  display: inline-flex;
-  align-items: center;
 }
 .filter-btn[data-role="designer"] { background-color: var(--chip); }
 .filter-btn[data-role="researcher"] { background-color: var(--primary); }
