@@ -1270,7 +1270,7 @@ nav {
     justify-self: center;
     align-self: center;
     z-index: 101;
-    margin-top: 16px;
+    margin-top: -48px;
   }
   #hero-text {
     grid-column: 1;
@@ -1359,9 +1359,9 @@ blockquote.testimonial {
   #hero-photo {
     grid-column: 1;
     grid-row: 1;
-    width: calc(80px + 10vw);
-    max-width: 200px;
-    height: calc(80px + 10vw);
+    width: calc(160px + 10vw);
+    max-width: 300px;
+    height: calc(160px + 10vw);
     margin: 0 auto 16px;
     justify-self: center;
     z-index: 101;
@@ -1370,10 +1370,10 @@ blockquote.testimonial {
     grid-column: 1;
     grid-row: 2;
     text-align: center;
-    padding: 0 64px 24px;
+    padding: 0 32px 24px;
     width: 100%;
   }
-  #welcome h1 { font-size: calc(1.2em + 3vw); font-weight: 400; }
+  #welcome h1 { font-size: calc(1.3em + 3vw); font-weight: 400; }
   #hero-tagline { max-width: 100%; font-size: calc(1em + 0.4vw); }
   .panels {flex-direction: column;}
   .panel.open {flex: 4 1 auto;}
