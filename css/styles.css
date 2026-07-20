@@ -1253,7 +1253,7 @@ nav {
 #about-hero-content {
   display: grid;
   grid-template-columns: calc(180px + 6vw) 1fr;
-  gap: calc(2em + 2vw);
+  gap: calc(4em + 2vw);
   align-items: center;
   max-width: 1200px;
   width: 100%;
@@ -1263,7 +1263,7 @@ nav {
 #about-photo {
   border-radius: 8px;
   width: calc(240px + 8vw);
-  height: calc(180px + 8vw);
+  height: calc(100px + 8vw);
   max-width: 320px;
   aspect-ratio: 1;
   object-fit: cover;
