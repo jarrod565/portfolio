@@ -912,7 +912,8 @@ span i.material-icons {
   color: var(--white);
   content: attr(data-tooltip);
   text-align: center;
-  font-size: .6em;
+  font-size: 13px;
+  white-space: normal;
 }
 
 /* Triangle hack to make tooltip look like a speech bubble */
@@ -1061,7 +1062,9 @@ span i.material-icons {
 }
 .filter-icon {
   font-size: 1.1em;
-  vertical-align: middle;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 .filter-btn[data-role="designer"] { background-color: var(--chip); }
 .filter-btn[data-role="researcher"] { background-color: var(--primary); }
