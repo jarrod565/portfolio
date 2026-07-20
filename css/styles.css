@@ -1123,7 +1123,7 @@ nav {
 .nav-identity h3 {
   color: var(--white);
   font-size: calc(0.8em + 0.3vw);
-  font-weight: 300;
+  font-weight: 400;
   margin: 0;
 }
 
