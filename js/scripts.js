@@ -186,115 +186,40 @@ if (heroPhoto && navIdentity) {
   window.addEventListener('scroll', debounce(checkHeroScroll, 10));
 }
 
-// Career Cliff Notes: horizontal depth-stacked card scroller
-const stackScroller = document.querySelector('.stack-scroller');
+// Career Cliff Notes: GSAP ScrollTrigger pinned card stack (about.html only -
+// gsap/ScrollTrigger are only loaded there, and this whole block is guarded
+// on .card-wrapper existing, so it never runs on index.html).
+const cardWrappers = document.querySelectorAll('.card-wrapper');
 
-if (stackScroller) {
-  const stackStage = stackScroller.closest('.stack-stage');
-  const experienceSection = stackScroller.closest('#experience');
-  const stackEntries = Array.from(stackScroller.querySelectorAll('.stack-entry'));
-  const prevBtn = stackStage.querySelector('.stack-nav.prev');
-  const nextBtn = stackStage.querySelector('.stack-nav.next');
-  const dots = Array.from(experienceSection.querySelectorAll('.stack-dot'));
+if (cardWrappers.length) {
+  const experienceSection = cardWrappers[0].closest('#experience');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const gsapAvailable = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
 
-  const SCALE_FALLOFF = 0.12; // scale lost per card-width of distance
-  const TRANSLATE_FALLOFF = 14; // px nudged down per card-width of distance
-  const VISIBLE_RANGE = 2; // card-widths beyond which entries are hidden
+  if (prefersReducedMotion || !gsapAvailable) {
+    // Static fallback: plain stacked list, no pin/scrub/fade/scale.
+    experienceSection.classList.add('no-scrolltrigger');
+  } else {
+    gsap.registerPlugin(ScrollTrigger);
 
-  let currentIndex = 0;
-  let ticking = false;
-
-  function scrollToIndex(index, smooth = true) {
-    const target = stackEntries[index];
-    if (!target) return;
-    const scrollerRect = stackScroller.getBoundingClientRect();
-    const targetRect = target.getBoundingClientRect();
-    const targetOffset = targetRect.left - scrollerRect.left + stackScroller.scrollLeft;
-    const centered = targetOffset - (stackScroller.clientWidth - target.clientWidth) / 2;
-    stackScroller.scrollTo({
-      left: centered,
-      behavior: smooth && !prefersReducedMotion ? 'smooth' : 'auto',
-    });
-  }
-
-  function updateStack() {
-    const scrollerRect = stackScroller.getBoundingClientRect();
-    const scrollerCenter = scrollerRect.left + scrollerRect.width / 2;
-    const cardWidth = stackEntries[0].getBoundingClientRect().width || 1;
-
-    let closestIndex = 0;
-    let closestDistance = Infinity;
-
-    stackEntries.forEach((entry, i) => {
-      const rect = entry.getBoundingClientRect();
-      const entryCenter = rect.left + rect.width / 2;
-      const relativeDistance = (entryCenter - scrollerCenter) / cardWidth;
-      const absDistance = Math.abs(relativeDistance);
-
-      if (absDistance < closestDistance) {
-        closestDistance = absDistance;
-        closestIndex = i;
-      }
-
-      if (absDistance > VISIBLE_RANGE) {
-        entry.style.opacity = '0';
-        entry.style.pointerEvents = 'none';
+    cardWrappers.forEach((wrapper, index) => {
+      const card = wrapper.querySelector('.card');
+      if (index === cardWrappers.length - 1) {
+        gsap.set(card, { opacity: 1, scale: 1 });
       } else {
-        const scaleFalloff = prefersReducedMotion ? SCALE_FALLOFF * 0.3 : SCALE_FALLOFF;
-        const translateFalloff = prefersReducedMotion ? 0 : TRANSLATE_FALLOFF;
-        const scale = Math.max(1 - absDistance * scaleFalloff, 0.6);
-        const translateY = absDistance * translateFalloff;
-        const opacity = Math.max(1 - absDistance * 0.4, 0);
-
-        entry.style.transform = `scale(${scale}) translateY(${translateY}px)`;
-        entry.style.opacity = String(opacity);
-        entry.style.pointerEvents = 'auto';
-        entry.style.zIndex = String(100 - Math.round(absDistance * 10));
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: wrapper,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+            pin: true,
+            pinSpacing: false,
+          }
+        })
+        .set(card, { opacity: 1, scale: 1 })
+        .to(card, { opacity: 0, scale: 0.6, ease: 'none' }, 0.01);
       }
     });
-
-    currentIndex = closestIndex;
-
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex === stackEntries.length - 1;
-
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
-
-    ticking = false;
   }
-
-  function requestUpdate() {
-    if (!ticking) {
-      requestAnimationFrame(updateStack);
-      ticking = true;
-    }
-  }
-
-  function step(direction) {
-    const nextIndex = Math.min(Math.max(currentIndex + direction, 0), stackEntries.length - 1);
-    scrollToIndex(nextIndex);
-  }
-
-  stackScroller.addEventListener('scroll', requestUpdate);
-  window.addEventListener('resize', requestUpdate);
-
-  prevBtn.addEventListener('click', () => step(-1));
-  nextBtn.addEventListener('click', () => step(1));
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => scrollToIndex(i));
-  });
-
-  stackScroller.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      step(-1);
-    } else if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      step(1);
-    }
-  });
-
-  updateStack();
 }
