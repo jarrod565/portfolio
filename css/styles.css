@@ -786,6 +786,9 @@ div.media{
   color: var(--primary);
   grid-column: 1 / -1;
 }
+#deliverables > #filter-bar {
+  grid-column: 1 / -1;
+}
 /* .deliverable{
   display: flex;
   flex-direction: column;
