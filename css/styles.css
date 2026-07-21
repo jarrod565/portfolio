@@ -533,7 +533,7 @@ figure:hover > a h3, figure:hover a h3 span {
 /* --------------------------- --------- --------------------------- */
 
 #experience {
-  margin: 2.5em auto 0;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -891,7 +891,7 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 24px;
-  padding: 32px 24px;
+  padding: 6vh;
   background-color: var(--secondary);
 }
 
