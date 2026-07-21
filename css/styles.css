@@ -1121,7 +1121,7 @@ span i.material-icons {
   grid-column: 1 / -1;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
   text-align: center;
   padding: 48px 24px;
 }
@@ -1129,15 +1129,15 @@ span i.material-icons {
   display: flex;
 }
 .filter-empty-state i.material-icons {
-  font-size: 7em;
+  font-size: 12em;
   color: var(--baseFour);
 }
 .filter-empty-state h4 {
-  color: var(--text);
+  color: var(--baseFour);
   margin: 0;
 }
 .filter-empty-state p {
-  color: var(--textLight);
+  color: var(--baseFour);
   font-size: calc(.85em + .1vw);
   max-width: 40ch;
   margin: 0;
