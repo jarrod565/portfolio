@@ -657,11 +657,11 @@ figure:hover > a h3, figure:hover a h3 span {
 }
 .card-wrapper:last-child {
   min-height: 450px;
-  padding-bottom: 60px;
+  padding-top: 40px;
 }
 .card {
   width: 100%;
-  max-width: 640px;
+  max-width: clamp(480px, 55vw, 860px);
   height: fit-content;
   background-color: var(--white);
   padding: 24px;
@@ -720,7 +720,7 @@ figure:hover > a h3, figure:hover a h3 span {
   }
   .card-wrapper:last-child {
     min-height: 400px;
-    padding-bottom: 40px;
+    padding-top: 24px;
   }
 }
 

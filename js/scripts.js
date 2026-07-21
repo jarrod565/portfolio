@@ -267,6 +267,14 @@ if (cardWrappers.length) {
     cardWrappers.forEach((wrapper, index) => {
       const card = wrapper.querySelector('.card');
       if (index === cardWrappers.length - 1) {
+        ScrollTrigger.create({
+          trigger: wrapper,
+          scroller: '.experience-stage',
+          start: 'top top',
+          end: 'bottom top',
+          pin: true,
+          pinSpacing: false,
+        });
         gsap.set(card, { opacity: 1, scale: 1 });
       } else {
         gsap.timeline({
