@@ -995,7 +995,7 @@ span i.material-icons {
   grid-template-rows: 32px auto auto 32px;
   gap: 10px;
   width: 100%;
-  padding: 32px 0;
+  padding: 32px 0 0;
 }
 
 #hero-photo {
@@ -1072,7 +1072,6 @@ span i.material-icons {
   display: flex;
   justify-content: center;
   gap: 12px;
-  padding: 24px 0 8px;
   flex-wrap: wrap;
 }
 .filter-pills {
