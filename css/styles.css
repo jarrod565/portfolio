@@ -1570,6 +1570,9 @@ nav {
 blockquote.testimonial {
   margin: 8px;
 }
+.testimonial:nth-child(3) {
+  display: none;
+}
 }
 
 /* --------------------------- --------- --------------------------- */
@@ -1670,6 +1673,9 @@ blockquote.testimonial p:before {
 }
 blockquote.testimonial span {
   font-size: 12px;
+}
+.testimonial:nth-child(2) {
+  display: none;
 }
 #case_studies {grid-template-columns: 1fr;}
 #deliverables {grid-template-columns: 1fr;}

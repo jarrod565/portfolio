@@ -76,6 +76,28 @@ function renderRelatedCaseStudies(currentSlug, containerSelector = ".flexTrio") 
   `).join('');
 }
 
+const testimonials = [
+  { quote: "If you're looking for a flexible UX powerhouse, Jarrod’s the one to call.  Any company would be fortunate to have him on their team. As an added bonus, he's one of the funniest humans I've ever worked with.", source: "Brandon C." },
+  { quote: "Jarrod Murray is not only one of the best UX guys in the biz but he’s also an awesome human.", source: "Zach H." },
+  { quote: "His unique strength is the ability to bridge executives, product teams, engineering, and end users, translating complex operational challenges into practical, scalable solutions.", source: "Glenn A." },
+  { quote: "If you're looking for a Product Designer or leader, I'd recommend talking with Jarrod.", source: "Wesley S." },
+  { quote: "The best UX leader I’ve ever had the pleasure to work with.", source: "Clay A." },
+  { quote: "I can't speak highly enough of him and his talent!", source: "Shane S." },
+];
+
+function renderTestimonials(containerSelector = "#testimonials") {
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
+  const shuffled = [...testimonials].sort(() => 0.5 - Math.random()).slice(0, 3);
+  container.innerHTML = shuffled.map(t => `
+    <blockquote class="testimonial">
+      <p>${t.quote} <span class="source">${t.source}</span></p>
+    </blockquote>
+  `).join('');
+}
+
+renderTestimonials();
+
 // Filter functionality
 const filterBtns = document.querySelectorAll('.filter-btn');
 const caseStudyCards = document.querySelectorAll('.case_study');
