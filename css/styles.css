@@ -1075,6 +1075,13 @@ span i.material-icons {
   padding: 24px 0 8px;
   flex-wrap: wrap;
 }
+.filter-pills {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 #filter-bar,
 #filter-bar * {
   margin-bottom: 0;
@@ -1685,10 +1692,15 @@ blockquote.testimonial span {
 #deliverables {grid-template-columns: 1fr;}
   #filter-bar {
     flex-wrap: nowrap;
-    overflow-x: auto;
-    padding: 16px 16px 8px;
     justify-content: center;
     gap: 8px;
+    padding: 16px 16px 8px;
+  }
+  .filter-pills {
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    min-width: 0;
   }
   .filter-btn {
     font-size: calc(.75em + .1vw);
