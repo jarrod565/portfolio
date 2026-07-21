@@ -189,18 +189,21 @@ if (heroPhoto && navIdentity) {
 // Mobile nav hamburger menu
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
+const mainNav = document.querySelector('nav');
 
 if (navToggle && navLinks) {
   const navToggleIcon = navToggle.querySelector('i');
 
   function openMenu() {
     navLinks.classList.add('open');
+    if (mainNav) mainNav.classList.add('menu-open');
     navToggle.setAttribute('aria-expanded', 'true');
     if (navToggleIcon) navToggleIcon.textContent = 'close';
   }
 
   function closeMenu() {
     navLinks.classList.remove('open');
+    if (mainNav) mainNav.classList.remove('menu-open');
     navToggle.setAttribute('aria-expanded', 'false');
     if (navToggleIcon) navToggleIcon.textContent = 'menu';
   }

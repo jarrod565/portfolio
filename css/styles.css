@@ -1172,6 +1172,10 @@ nav {
   background-color: var(--primary);
 }
 
+nav.menu-open {
+  z-index: 150;
+}
+
 .nav-identity {
   display: flex;
   align-items: center;
