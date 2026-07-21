@@ -1691,6 +1691,10 @@ blockquote.testimonial span {
     padding: 5px 12px;
     flex-shrink: 0;
   }
+  #about-photo {
+  width: min(420px, 80vw);
+  height: min(420px, 80vw);
+}
 }
 
 /* --------------------------- --------- --------------------------- */
