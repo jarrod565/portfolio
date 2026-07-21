@@ -1,5 +1,5 @@
 :root {
-  --textLight: #787878;
+  --textLight: rgba(120, 120, 120, 1);
   --primary: rgba(29, 158, 214, 1);
   --secondary: rgba(4, 100, 142, 1);
   --alt: rgba(24, 126, 170, 1);
@@ -1121,7 +1121,7 @@ span i.material-icons {
   grid-column: 1 / -1;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 2px;
   text-align: center;
   padding: 48px 24px;
 }
@@ -1133,14 +1133,16 @@ span i.material-icons {
   color: var(--baseFour);
 }
 .filter-empty-state h4 {
-  color: var(--baseFour);
+  color: var(--textLight);
   margin: 0;
+  opacity: .6;
 }
 .filter-empty-state p {
-  color: var(--baseFour);
+  color: var(--textLight);
   font-size: calc(.85em + .1vw);
   max-width: 40ch;
   margin: 0;
+  opacity: .6;
 }
 
 /* --------------------------- --------- --------------------------- */
