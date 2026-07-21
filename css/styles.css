@@ -1619,7 +1619,7 @@ blockquote.testimonial {
     width: 100%;
   }
 
-  #hero-container { margin: 0 16px; }
+  #hero-container { margin: -24px 0 16px; }
   #hero-content {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -1659,7 +1659,7 @@ blockquote.testimonial {
   h2.ccicon > i {margin-right: 16px;}
   .hero {padding: 0px 0px 24px 0px;}
   .hero figure {
-    margin: 16px 0px;
+    margin: 0px 0px 16px;
     max-height: 240px;
     width: 100vw;
 }
