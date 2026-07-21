@@ -186,6 +186,55 @@ if (heroPhoto && navIdentity) {
   window.addEventListener('scroll', debounce(checkHeroScroll, 10));
 }
 
+// Mobile nav hamburger menu
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (navToggle && navLinks) {
+  const navToggleIcon = navToggle.querySelector('i');
+
+  function openMenu() {
+    navLinks.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    if (navToggleIcon) navToggleIcon.textContent = 'close';
+  }
+
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    if (navToggleIcon) navToggleIcon.textContent = 'menu';
+  }
+
+  navToggle.addEventListener('click', () => {
+    if (navLinks.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  navLinks.addEventListener('click', (e) => {
+    if (e.target.closest('a')) closeMenu();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      closeMenu();
+      navToggle.focus();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (
+      navLinks.classList.contains('open') &&
+      !navToggle.contains(e.target) &&
+      !navLinks.contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+}
+
 // Career Cliff Notes: GSAP ScrollTrigger pinned card stack (about.html only -
 // gsap/ScrollTrigger are only loaded there, and this whole block is guarded
 // on .card-wrapper existing, so it never runs on index.html).

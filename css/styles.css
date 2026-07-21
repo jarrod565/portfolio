@@ -1176,13 +1176,14 @@ nav {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
   opacity: 0;
   transform: scale(0.85);
   transition: opacity 150ms ease, transform 150ms ease;
   pointer-events: none;
 }
 
-#about .nav-identity {
+.static-nav .nav-identity {
   opacity: 1;
   transform: scale(1);
   pointer-events: auto;
@@ -1197,6 +1198,7 @@ nav {
 .nav-identity img {
   height: 44px;
   width: 44px;
+  flex-shrink: 0;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--white);
@@ -1207,6 +1209,10 @@ nav {
   font-size: calc(0.8em + 0.3vw);
   font-weight: 400;
   margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .nav-identity h3 a {
@@ -1237,6 +1243,11 @@ nav {
 .nav-links .slash {
   color: var(--white);
   opacity: 0.4;
+}
+
+.nav-toggle {
+  display: none;
+  flex-shrink: 0;
 }
 
 /* --------------------------- --------- --------------------------- */
@@ -1572,6 +1583,41 @@ blockquote.testimonial {
 /* --------------------------- --------- --------------------------- */
 
 @media only screen and (max-width: 720px) {
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .nav-toggle i {
+    color: var(--white);
+    font-size: 28px;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background-color: var(--primary);
+    padding: 16px 24px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links .slash {
+    display: none;
+  }
+  .nav-links a {
+    padding: 10px 0;
+    width: 100%;
+  }
+
   #hero-container { margin: 0 16px; }
   #hero-content {
     grid-template-columns: 1fr;
