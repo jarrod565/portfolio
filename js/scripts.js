@@ -254,6 +254,16 @@ if (cardWrappers.length) {
   } else {
     gsap.registerPlugin(ScrollTrigger);
 
+    const experienceStage = experienceSection.querySelector('.experience-stage');
+    if (experienceStage) {
+      function checkStageBottom() {
+        const atBottom = experienceStage.scrollTop + experienceStage.clientHeight >= experienceStage.scrollHeight - 1;
+        experienceStage.classList.toggle('at-bottom', atBottom);
+      }
+      checkStageBottom();
+      experienceStage.addEventListener('scroll', debounce(checkStageBottom, 10));
+    }
+
     cardWrappers.forEach((wrapper, index) => {
       const card = wrapper.querySelector('.card');
       if (index === cardWrappers.length - 1) {
@@ -262,6 +272,7 @@ if (cardWrappers.length) {
         gsap.timeline({
           scrollTrigger: {
             trigger: wrapper,
+            scroller: '.experience-stage',
             start: 'top top',
             end: 'bottom top',
             scrub: true,
