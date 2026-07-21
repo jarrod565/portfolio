@@ -144,6 +144,11 @@ function applyFilter() {
     if (!discipline) return;
     card.classList.toggle('hidden', !activeRoles.has(discipline));
   });
+
+  const emptyState = document.querySelector('.filter-empty-state');
+  if (emptyState) {
+    emptyState.classList.toggle('visible', activeRoles.size === 0);
+  }
 }
 
 // Toggle on click
@@ -151,10 +156,7 @@ filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     const role = btn.getAttribute('data-role');
     if (activeRoles.has(role)) {
-      // Don't allow all to be toggled off
-      if (activeRoles.size > 1) {
-        activeRoles.delete(role);
-      }
+      activeRoles.delete(role);
     } else {
       activeRoles.add(role);
     }

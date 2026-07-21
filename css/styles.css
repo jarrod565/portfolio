@@ -303,7 +303,6 @@ figure.horizontal img {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
-.timeline-entry.slide-up {transform: translateY(16px) scale(1);}
 
 
 /* --------------------------- --------- --------------------------- */
@@ -542,81 +541,6 @@ figure:hover > a h3, figure:hover a h3 span {
   width: 100vw;
   padding: 6vh 0;
 }
-.timeline {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 2px;
-	top: 0;
-	height: 100%;
-	background-color : var(--primary);
-}
-
-.timeline-bubble {
-	width: 15px;
-	height: 15px;
-	border-radius: 50%;
-	border: 2px solid var(--primary);
-	background-color: var(--white);
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 25px;
-}
-
-.timeline-entry {
-	display: flex;
-	.year {
-		flex: 1;
-		position: relative;
-		text-align: right;
-		.datestamp {
-			position: absolute;
-			width: 100%;
-			line-height: 15px;
-			top: 25px;
-		}
-	}
-
-	.bubble {
-		flex: 1;
-		position: relative;
-	}
-
-	.description {
-		flex: 5;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
-    margin-bottom: 3em;
-		.details {
-      background-color: var(--baseOne);
-			padding: 24px;
-			border-radius: 4px;
-		}
-	}
-  .details p {
-    font-size: calc(.75em + .25vw);
-    line-height: calc(1em + .5vw);
-    max-width: 100%;
-    margin-top: 16px;
-    opacity: .66;
-  }
-  .details h4 {
-    font-size: calc(1em + .25vw);
-    margin-bottom: 8px;
-    color: var(--primary);
-  }
-
-	.background {
-		padding: 10px;
-		margin: 0 5px;
-	}
-}
-
-.timeline-container {
-	width: 80%;
-	margin: 50px auto;
-}
-
 /* --------------------------- --------- --------------------------- */
 /* ------------------ Career pinned stack (about.html) --------------- */
 /* --------------------------- --------- --------------------------- */
@@ -691,6 +615,7 @@ figure:hover > a h3, figure:hover a h3 span {
   line-height: calc(1em + .5vw);
   opacity: .66;
   max-width: 100%;
+  color: var(--textLight);
 }
 
 /* Reduced motion / no-JS fallback: plain static stacked list */
@@ -1190,6 +1115,17 @@ span i.material-icons {
 .case_study.hidden,
 .deliverable.hidden {
   display: none;
+}
+.filter-empty-state {
+  display: none;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--textLight);
+  font-size: calc(1em + .25vw);
+}
+.filter-empty-state.visible {
+  display: block;
 }
 
 /* --------------------------- --------- --------------------------- */
@@ -1714,31 +1650,6 @@ blockquote.testimonial p:before {
 }
 blockquote.testimonial span {
   font-size: 12px;
-}
-.timeline-entry {
-	display: flex;
-  margin-right: 16px;
-	.year {
-		flex: 1;
-    font-size: 10px;
-  }
-	.bubble {
-		flex: 1;
-	}
-	.description {
-		flex: 5;
-    margin-bottom: 1.5em;
-	}
-  .details p {
-    margin-top: 8px;
-  }
-  .details h4 {
-    font-size: calc(1em + .25vw);
-  }
-}
-.timeline-container {
-	width: 96%;
-	margin: 32px auto;
 }
 #case_studies {grid-template-columns: 1fr;}
 #deliverables {grid-template-columns: 1fr;}
