@@ -196,14 +196,14 @@ if (navToggle && navLinks) {
 
   function openMenu() {
     navLinks.classList.add('open');
-    if (mainNav) mainNav.classList.add('menu-open');
+    document.body.appendChild(navLinks);
     navToggle.setAttribute('aria-expanded', 'true');
     if (navToggleIcon) navToggleIcon.textContent = 'close';
   }
 
   function closeMenu() {
     navLinks.classList.remove('open');
-    if (mainNav) mainNav.classList.remove('menu-open');
+    mainNav.insertBefore(navLinks, navToggle);
     navToggle.setAttribute('aria-expanded', 'false');
     if (navToggleIcon) navToggleIcon.textContent = 'menu';
   }

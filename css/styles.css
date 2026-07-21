@@ -1172,10 +1172,6 @@ nav {
   background-color: var(--primary);
 }
 
-nav.menu-open {
-  z-index: 150;
-}
-
 .nav-identity {
   display: flex;
   align-items: center;
@@ -1601,7 +1597,7 @@ blockquote.testimonial {
 
   .nav-links {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 64px;
     right: 0;
     flex-direction: column;
@@ -1614,6 +1610,7 @@ blockquote.testimonial {
   }
   .nav-links.open {
     display: flex;
+    z-index: 150;
   }
   .nav-links .slash {
     display: none;
