@@ -225,10 +225,9 @@ section div * {margin-bottom: 8px;}
 .hero figure {
   display: flex;
   flex-shrink: 1;
-  width: calc(100vw - 128px);
-  max-width: 1200px;
+  width: 100vw;
   box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
-  margin: 64px 0px;
+  margin: 0px 0px 64px;
 }
 .hero figure img {
   flex: 1 1;
@@ -1461,7 +1460,6 @@ nav {
   figure {margin: 16px;}
   /* .deliverable{flex: 0 0 33%;} */
   #deliverables {grid-template-columns: repeat(2, 1fr);}
-  .hero figure {max-width: 1080px;}
   .cases figure img {
     max-width: 72vw;
     max-height: 400px;
@@ -1562,7 +1560,6 @@ nav {
   figure.horizontal {max-height: 1200px;}
   figure.horizontal img {max-height: 1200px;}
   .reversed {height: auto;}
-  .hero figure {max-width: 960px;}
   .hero h3 {font-size: calc(1.125em + .25vw);}
   .top_fab {
     top: 2em;
