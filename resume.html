@@ -253,6 +253,36 @@
     .sheet { max-width: none; padding: 0 0.4in; }
     a { color: var(--ink) !important; text-decoration: none; }
     section { break-inside: avoid-page; }
+
+    section {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    h2.section {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    .role {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* Tighten spacing in print to reduce orphaned whitespace */
+    section {
+      margin-bottom: 0.75rem;
+    }
+
+    .sheet {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    /* Prevent large gap between competencies and experience */
+    .competencies {
+      margin-bottom: 0.5rem;
+    }
   }
 
   @page {
