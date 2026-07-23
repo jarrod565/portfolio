@@ -102,18 +102,68 @@ renderTestimonials();
 const filterBtns = document.querySelectorAll('.filter-btn');
 const caseStudyCards = document.querySelectorAll('.case_study');
 const deliverableCards = document.querySelectorAll('.deliverable');
+const filterIndicator = document.querySelector('.filter-indicator');
+const filterIndicatorText = document.querySelector('.filter-indicator-text');
+const filterIndicatorClear = document.querySelector('.filter-indicator-clear');
+
+const ROLE_STORAGE_KEY = 'portfolioRoleFilter';
+const validRoles = ['designer', 'researcher', 'strategist'];
+const roleLabels = { designer: 'Designer', researcher: 'Researcher', strategist: 'Strategist' };
+
+function readStoredRoles() {
+  let stored = null;
+  try { stored = sessionStorage.getItem(ROLE_STORAGE_KEY); } catch (e) {}
+  if (!stored) return null;
+  const roles = stored.split(',').filter(r => validRoles.includes(r));
+  return roles.length ? roles : null;
+}
+
+function writeStoredRoles(roles) {
+  try { sessionStorage.setItem(ROLE_STORAGE_KEY, roles.join(',')); } catch (e) {}
+}
+
+function clearStoredRoles() {
+  try { sessionStorage.removeItem(ROLE_STORAGE_KEY); } catch (e) {}
+}
 
 // Read query param on load
 const params = new URLSearchParams(window.location.search);
 const roleParam = params.get('role');
 
-// Determine initial active roles
-const validRoles = ['designer', 'researcher', 'strategist'];
-const activeRoles = new Set(
-  roleParam && validRoles.includes(roleParam)
-    ? [roleParam]
-    : ['designer', 'researcher', 'strategist']
-);
+// Determine initial active roles. Priority: explicit ?role= param, then a
+// filter carried over from another page via sessionStorage (only shown as
+// a carryover when it's a real subset, not the all-roles default), then
+// the default of everything active.
+let activeRoles;
+let showIndicator = false;
+
+if (roleParam && validRoles.includes(roleParam)) {
+  activeRoles = new Set([roleParam]);
+  writeStoredRoles([roleParam]);
+} else {
+  const storedRoles = readStoredRoles();
+  if (storedRoles && storedRoles.length < validRoles.length) {
+    activeRoles = new Set(storedRoles);
+    showIndicator = true;
+  } else {
+    activeRoles = new Set(validRoles);
+  }
+}
+
+function updateIndicator() {
+  if (!filterIndicator) return;
+  if (showIndicator) {
+    if (filterIndicatorText) {
+      const labels = validRoles.filter(r => activeRoles.has(r)).map(r => roleLabels[r]);
+      filterIndicatorText.textContent = labels.length
+        ? `Showing ${labels.join(' + ')}-focused work`
+        : 'Showing filtered work';
+    }
+    filterIndicator.classList.add('visible');
+  } else {
+    filterIndicator.classList.remove('visible');
+  }
+}
 
 function applyFilter() {
   // Update button states
@@ -171,6 +221,8 @@ function applyFilter() {
   if (emptyState) {
     emptyState.classList.toggle('visible', activeRoles.size === 0);
   }
+
+  updateIndicator();
 }
 
 // Toggle on click
@@ -182,9 +234,24 @@ filterBtns.forEach(btn => {
     } else {
       activeRoles.add(role);
     }
+    showIndicator = false;
+    writeStoredRoles(Array.from(activeRoles));
     applyFilter();
   });
 });
+
+// "Show everything" indicator control
+if (filterIndicatorClear) {
+  filterIndicatorClear.addEventListener('click', () => {
+    clearStoredRoles();
+    const url = new URL(window.location.href);
+    url.searchParams.delete('role');
+    history.replaceState(null, '', url);
+    activeRoles = new Set(validRoles);
+    showIndicator = false;
+    applyFilter();
+  });
+}
 
 // Apply on load
 applyFilter();

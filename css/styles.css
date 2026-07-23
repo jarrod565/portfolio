@@ -827,6 +827,9 @@ div.media{
 #deliverables > #filter-bar {
   grid-column: 1 / -1;
 }
+#deliverables > .filter-indicator {
+  grid-column: 1 / -1;
+}
 /* .deliverable{
   display: flex;
   flex-direction: column;
@@ -1151,6 +1154,33 @@ span i.material-icons {
   max-width: 40ch;
   margin: 0;
   opacity: .6;
+}
+.filter-indicator {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 8px 16px 0;
+  font-size: calc(.8em + .1vw);
+  color: var(--textLight);
+  opacity: .75;
+}
+.filter-indicator.visible {
+  display: flex;
+}
+.filter-indicator-clear {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--primary);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.filter-indicator-clear:hover {
+  color: var(--text);
 }
 #case_studies,
 #deliverables {
@@ -1704,6 +1734,10 @@ blockquote.testimonial span {
     font-size: calc(.75em + .1vw);
     padding: 5px 12px;
     flex-shrink: 0;
+  }
+  .filter-indicator {
+    padding: 4px 16px 0;
+    font-size: calc(.7em + .1vw);
   }
   #about-photo {
   width: min(420px, 60vw);

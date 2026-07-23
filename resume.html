@@ -459,11 +459,26 @@
     // Persona filtering via ?role= param, matching the pattern used
     // elsewhere on jarrodmurray.com. No param = show everything.
     (function () {
+      var ROLE_STORAGE_KEY = 'portfolioRoleFilter';
       var params = new URLSearchParams(window.location.search);
       var role = (params.get('role') || '').toLowerCase();
       var lensMap = { designer: 'design', researcher: 'research', strategist: 'strategy' };
+
+      if (!lensMap.hasOwnProperty(role)) {
+        // No explicit ?role= on this load: fall back to a filter carried
+        // over from index.html/about.html via sessionStorage. This page
+        // has no filter UI of its own (read-only consumer), and only
+        // applies the carryover when it resolves to a single, unambiguous
+        // role — there's no way to represent "designer + researcher" in
+        // this page's single-lens bullet filtering.
+        var stored = null;
+        try { stored = sessionStorage.getItem(ROLE_STORAGE_KEY); } catch (e) {}
+        var storedRoles = stored ? stored.split(',').filter(function (r) { return lensMap.hasOwnProperty(r); }) : [];
+        role = storedRoles.length === 1 ? storedRoles[0] : '';
+      }
+
       var lens = lensMap[role];
-      if (!lens) return; // no param, or unrecognized value: show everything
+      if (!lens) return; // no param, no unambiguous stored filter, or unrecognized value: show everything
 
       document.querySelectorAll('.role').forEach(function (roleEl) {
         var bullets = roleEl.querySelectorAll('li[data-lens]');
