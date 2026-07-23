@@ -464,17 +464,38 @@
       var role = (params.get('role') || '').toLowerCase();
       var lensMap = { designer: 'design', researcher: 'research', strategist: 'strategy' };
 
+      // Same-origin-referrer check, mirrored from js/scripts.js: distinguishes
+      // genuine internal navigation (sessionStorage carryover intended) from
+      // a direct URL load with no ?role= (bookmark, typed/edited address bar,
+      // new tab), which should be respected as an explicit clear.
+      function hasSameOriginReferrer() {
+        if (!document.referrer) return false;
+        try {
+          return new URL(document.referrer).origin === window.location.origin;
+        } catch (e) {
+          return false;
+        }
+      }
+
       if (!lensMap.hasOwnProperty(role)) {
-        // No explicit ?role= on this load: fall back to a filter carried
-        // over from index.html/about.html via sessionStorage. This page
-        // has no filter UI of its own (read-only consumer), and only
-        // applies the carryover when it resolves to a single, unambiguous
-        // role — there's no way to represent "designer + researcher" in
-        // this page's single-lens bullet filtering.
-        var stored = null;
-        try { stored = sessionStorage.getItem(ROLE_STORAGE_KEY); } catch (e) {}
-        var storedRoles = stored ? stored.split(',').filter(function (r) { return lensMap.hasOwnProperty(r); }) : [];
-        role = storedRoles.length === 1 ? storedRoles[0] : '';
+        if (hasSameOriginReferrer()) {
+          // No explicit ?role= on this load, but it came from internal
+          // navigation: fall back to a filter carried over from
+          // index.html/about.html via sessionStorage. This page has no
+          // filter UI of its own (read-only consumer), and only applies
+          // the carryover when it resolves to a single, unambiguous role
+          // — there's no way to represent "designer + researcher" in this
+          // page's single-lens bullet filtering.
+          var stored = null;
+          try { stored = sessionStorage.getItem(ROLE_STORAGE_KEY); } catch (e) {}
+          var storedRoles = stored ? stored.split(',').filter(function (r) { return lensMap.hasOwnProperty(r); }) : [];
+          role = storedRoles.length === 1 ? storedRoles[0] : '';
+        } else {
+          // Direct load with no ?role=: respect it as an explicit clear
+          // and drop the stale value so it can't resurface later.
+          try { sessionStorage.removeItem(ROLE_STORAGE_KEY); } catch (e) {}
+          role = '';
+        }
       }
 
       var lens = lensMap[role];

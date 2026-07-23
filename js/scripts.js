@@ -126,21 +126,36 @@ function clearStoredRoles() {
   try { sessionStorage.removeItem(ROLE_STORAGE_KEY); } catch (e) {}
 }
 
+// True only when this page load was reached via a link/navigation from
+// elsewhere on the same site. Empty (direct URL entry, bookmark, new tab)
+// or cross-origin referrers don't count — used to distinguish genuine
+// internal navigation (sessionStorage carryover is intended) from an
+// explicit ?role=-less load (should be respected as a real clear).
+function hasSameOriginReferrer() {
+  if (!document.referrer) return false;
+  try {
+    return new URL(document.referrer).origin === window.location.origin;
+  } catch (e) {
+    return false;
+  }
+}
+
 // Read query param on load
 const params = new URLSearchParams(window.location.search);
 const roleParam = params.get('role');
 
 // Determine initial active roles. Priority: explicit ?role= param, then a
 // filter carried over from another page via sessionStorage (only shown as
-// a carryover when it's a real subset, not the all-roles default), then
-// the default of everything active.
+// a carryover when it's a real subset, not the all-roles default, and only
+// when this load came from internal same-site navigation), then the
+// default of everything active.
 let activeRoles;
 let showIndicator = false;
 
 if (roleParam && validRoles.includes(roleParam)) {
   activeRoles = new Set([roleParam]);
   writeStoredRoles([roleParam]);
-} else {
+} else if (hasSameOriginReferrer()) {
   const storedRoles = readStoredRoles();
   if (storedRoles && storedRoles.length < validRoles.length) {
     activeRoles = new Set(storedRoles);
@@ -148,6 +163,9 @@ if (roleParam && validRoles.includes(roleParam)) {
   } else {
     activeRoles = new Set(validRoles);
   }
+} else {
+  clearStoredRoles();
+  activeRoles = new Set(validRoles);
 }
 
 function updateIndicator() {
