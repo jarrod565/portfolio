@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jarrod W. Murray | Resume</title>
+
+<!--
+  HOW TO USE THIS FILE
+  =====================
+  1. TOKENS: Every color and font lives in the :root block below as a CSS
+     variable. Swap these for your portfolio's exact values and this will
+     match jarrodmurray.com automatically. Nothing else needs to change.
+
+  2. FLAVORS: This is populated with your Strategy/PM-leaning content
+     (leads with roadmap ownership, Capability Briefs, Scrum). To make a
+     Design-heavy or Research-heavy version:
+       - Duplicate this file (resume-design.html / resume-research.html)
+       - Swap the <p class="summary"> text
+       - Swap which bullets are shown per role, pulling from the
+         "Bullet Bank" spreadsheet filtered by Primary Lens
+     Everything else (structure, styling) stays identical across flavors.
+
+  3. LENS TAGS: The small pills next to each role (Design / Research /
+     Strategy) come straight from the bullet bank's tagging system, not
+     decoration. Update them if you change which bullets are shown.
+
+  4. EXPORTING TO PDF: Click "Save as PDF" (top right, screen only) or
+     just use your browser's normal Print > Save as PDF. Print styles are
+     already tuned: single page target, no orphaned headings, hairline
+     rules instead of heavy borders.
+
+  5. NO BUILD STEP: This is one file. Open it directly in a browser, or
+     drop it in the portfolio repo. Nothing to compile.
+-->
+
+<style>
+  :root {
+    /* ---- REPLACE THESE WITH YOUR PORTFOLIO'S EXACT TOKENS ---- */
+    --ink: #1a1a1a;         /* primary text */
+    --ink-soft: #4a4a4a;    /* secondary text */
+    --muted: #767676;       /* meta text: dates, labels */
+    --paper: #fafaf8;       /* page background */
+    --card: #ffffff;        /* subtle surface, unused in print */
+    --accent: #3b5f7d;      /* links, lens-tag fills, rule accents */
+    --accent-soft: #e8eef2; /* lens-tag background */
+    --line: #dfdfdc;        /* hairline dividers */
+    /* ------------------------------------------------------------ */
+
+    --font-body: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+    --step-0: clamp(0.9rem, 0.86rem + 0.2vw, 0.98rem);
+    --step-1: clamp(1rem, 0.95rem + 0.25vw, 1.1rem);
+    --step-2: clamp(1.2rem, 1.1rem + 0.5vw, 1.4rem);
+    --step-3: clamp(1.8rem, 1.6rem + 1vw, 2.3rem);
+
+    --space-1: calc(0.25rem + 0.1vw);
+    --space-2: calc(0.5rem + 0.2vw);
+    --space-3: calc(1rem + 0.3vw);
+    --space-4: calc(1.75rem + 0.4vw);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: var(--step-0);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 47rem;
+    margin: 0 auto;
+    padding: var(--space-4) var(--space-3) calc(var(--space-4) * 2);
+  }
+
+  /* ---------- Utility toolbar (screen only) ---------- */
+  .toolbar {
+    max-width: 47rem;
+    margin: 0 auto;
+    padding: var(--space-2) var(--space-3) 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .toolbar button {
+    font-family: var(--font-body);
+    font-size: var(--step-0);
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    cursor: pointer;
+  }
+  .toolbar button:hover { background: var(--accent); }
+  .toolbar button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- Header ---------- */
+  header.identity {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-2);
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+  h1 {
+    font-size: var(--step-3);
+    margin: 0;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+  .contact {
+    text-align: right;
+    font-size: var(--step-0);
+    color: var(--ink-soft);
+  }
+  .contact a { color: var(--accent); text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+  .contact .sep { color: var(--line); margin: 0 0.4em; }
+
+  .positioning {
+    font-size: var(--step-2);
+    color: var(--ink-soft);
+    margin: 0 0 var(--space-3);
+    font-weight: 500;
+    max-width: 40rem;
+  }
+
+  .summary {
+    margin: 0 0 var(--space-4);
+    color: var(--ink-soft);
+    max-width: 42rem;
+  }
+
+  /* ---------- Section headings ---------- */
+  h2.section {
+    font-size: var(--step-1);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: var(--space-1);
+    margin: 0 0 var(--space-2);
+  }
+
+  section { margin-bottom: var(--space-4); }
+
+  /* ---------- Competencies ---------- */
+  .competencies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-2);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .competencies li {
+    font-size: var(--step-0);
+    color: var(--ink-soft);
+  }
+  .competencies li:not(:last-child)::after {
+    content: "\2022";
+    color: var(--line);
+    margin-left: var(--space-2);
+  }
+
+  /* ---------- Experience ---------- */
+  .role {
+    margin-bottom: var(--space-3);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .role-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-1);
+  }
+  .role-title-line {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  .role-title { font-weight: 700; font-size: var(--step-1); }
+  .role-company { color: var(--ink-soft); }
+  .role-dates {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .lenses {
+    display: flex;
+    gap: 0.4em;
+    margin: var(--space-1) 0;
+  }
+  .lens {
+    font-family: var(--font-mono);
+    font-size: 0.72em;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 3px;
+    padding: 0.15em 0.5em;
+  }
+
+  ul.bullets {
+    margin: var(--space-1) 0 0;
+    padding-left: 1.1em;
+  }
+  ul.bullets li {
+    margin-bottom: 0.35em;
+    color: var(--ink-soft);
+  }
+  ul.bullets li::marker {
+    color: var(--accent);
+  }
+
+  /* ---------- Earlier experience (condensed) ---------- */
+  .earlier-role {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-1);
+    padding: 0.4em 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .earlier-role:last-child { border-bottom: none; }
+  .earlier-role .role-title { font-size: var(--step-0); }
+  .earlier-role .role-dates { font-size: 0.8em; }
+
+  /* ---------- Independent project ---------- */
+  .project-name { font-weight: 700; }
+  .project-link { color: var(--accent); font-size: 0.85em; text-decoration: none; }
+  .project-link:hover { text-decoration: underline; }
+
+  /* ---------- Education ---------- */
+  .edu-item { margin-bottom: var(--space-1); }
+  .edu-item .cred { color: var(--ink-soft); }
+  .edu-item .meta { color: var(--muted); font-size: 0.85em; }
+
+  /* ---------- Print ---------- */
+  @media print {
+    .toolbar { display: none; }
+    body { background: #fff; }
+    .sheet { max-width: none; padding: 0 0.4in; }
+    a { color: var(--ink) !important; text-decoration: none; }
+    .lens { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    section { break-inside: avoid-page; }
+  }
+
+  @page {
+    size: letter;
+    margin: 0.5in;
+  }
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button onclick="window.print()">Save as PDF</button>
+  </div>
+
+  <main class="sheet">
+
+    <header class="identity">
+      <h1>Jarrod W. Murray</h1>
+      <div class="contact">
+        317-331-7798<span class="sep">|</span><a href="mailto:jarrod@jarrodmurray.com">jarrod@jarrodmurray.com</a><br>
+        <a href="https://jarrodmurray.com">jarrodmurray.com</a><span class="sep">|</span><a href="https://www.linkedin.com/in/jarrodmurray/">linkedin.com/in/jarrodmurray</a>
+      </div>
+    </header>
+
+    <p class="positioning">Bridging UX, product strategy, and technical modernization for complex software platforms</p>
+
+    <p class="summary">
+      Senior product and UX leader with 15+ years building B2B SaaS, life sciences, financial services, and healthcare products.
+      I work across the gaps between design, research, and engineering, most recently designing the documentation and
+      workflow patterns that let a team build with AI instead of just talking about it. Certified Usability Analyst (CUA).
+      Full case studies at <a href="https://jarrodmurray.com">jarrodmurray.com</a>.
+    </p>
+
+    <section>
+      <h2 class="section">Core Competencies</h2>
+      <ul class="competencies">
+        <li>Product Strategy &amp; Roadmapping</li>
+        <li>AI-Assisted Development &amp; Documentation</li>
+        <li>Agile Methodologies &amp; Scrum Facilitation</li>
+        <li>Cross-Functional Leadership</li>
+        <li>Enterprise Identity &amp; Authentication Design</li>
+        <li>Design Systems &amp; Governance</li>
+        <li>User Research &amp; Usability Testing</li>
+        <li>Front-End Development (HTML, CSS, JavaScript, React)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section">Experience</h2>
+
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="role-title">Director of Product &amp; UX</span>
+            <span class="role-company">Captivated</span>
+          </div>
+          <span class="role-dates">05/2022 &ndash; 05/2026</span>
+        </div>
+        <div class="lenses"><span class="lens">Strategy</span><span class="lens">Design</span></div>
+        <ul class="bullets">
+          <li>Designed and implemented a scalable AI-ready documentation framework, replacing traditional user stories with structured Capability Briefs that improved engineering clarity and accelerated AI-assisted development</li>
+          <li>Owned product roadmap, feature prioritization, and acceptance criteria as Product Owner across multiple initiatives</li>
+          <li>Led enterprise identity and authentication design, including identity-first login flows, SSO, MFA enforcement, multi-org context switching, and activity-based session management</li>
+          <li>Facilitated all Scrum ceremonies as Scrum Master and introduced Agile methodologies to improve delivery predictability</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="role-title">Senior UX Researcher</span>
+            <span class="role-company">Driven Data</span>
+          </div>
+          <span class="role-dates">04/2021 &ndash; 05/2022</span>
+        </div>
+        <div class="lenses"><span class="lens">Research</span><span class="lens">Strategy</span></div>
+        <ul class="bullets">
+          <li>Led end-to-end mixed-methods research strategy including generative interviews, usability testing, and synthesis</li>
+          <li>Expanded into Product Ownership as the company scaled through a funding round and eventual acquisition</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="role-title">Senior UX Designer (Consultant)</span>
+            <span class="role-company">Onebridge</span>
+          </div>
+          <span class="role-dates">03/2020 &ndash; 04/2021</span>
+        </div>
+        <div class="lenses"><span class="lens">Design</span><span class="lens">Strategy</span></div>
+        <ul class="bullets">
+          <li>Designed an AI/ML-powered clinical trial search engine for a Fortune 500 pharmaceutical company, enabling researchers to query a massive document corpus in plain language</li>
+          <li>Designed an executive data visualization dashboard used to evaluate drug trial performance and inform funding decisions across competing research programs</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="role-title">UX Lead</span>
+            <span class="role-company">Brooks Life Sciences</span>
+          </div>
+          <span class="role-dates">04/2019 &ndash; 03/2020</span>
+        </div>
+        <div class="lenses"><span class="lens">Strategy</span><span class="lens">Research</span></div>
+        <ul class="bullets">
+          <li>Hired as the company's first UX employee, established a UX practice from scratch including research operations, usability testing protocols, and design system governance for a life sciences informatics platform</li>
+          <li>Led UX strategy and design for a ground-up LIMS replacement, a complex data entry and sample tracking system managing bio-samples with up to 100 data points each</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="role-title">Senior UX Designer</span>
+            <span class="role-company">Cox Automotive / NextGear Capital</span>
+          </div>
+          <span class="role-dates">03/2017 &ndash; 04/2019</span>
+        </div>
+        <div class="lenses"><span class="lens">Research</span><span class="lens">Design</span></div>
+        <ul class="bullets">
+          <li>Supported 8-10 development teams as a centralized UX resource, gathering requirements, designing workflows, and conducting usability testing</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="role-title">UX Designer III</span>
+            <span class="role-company">Seven Corners</span>
+          </div>
+          <span class="role-dates">12/2015 &ndash; 03/2017</span>
+        </div>
+        <div class="lenses"><span class="lens">Strategy</span><span class="lens">Design</span></div>
+        <ul class="bullets">
+          <li>Hired as the company's first UX employee, led end-to-end experience design for a legacy system spanning policies, groups, members, claims, and adjudications</li>
+          <li>Redesigned the online claims submission workflow end to end, reducing processing time from 30-45 days to under a week</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section">Earlier Experience</h2>
+      <div class="earlier-role">
+        <span class="role-title">Experience Architect / UX Developer, Fusion Alliance</span>
+        <span class="role-dates">02/2014 &ndash; 12/2015</span>
+      </div>
+      <div class="earlier-role">
+        <span class="role-title">UI/UX Designer &amp; Interaction Designer, Dominion Dealer Solutions</span>
+        <span class="role-dates">12/2010 &ndash; 02/2014</span>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section">Independent Product Work</h2>
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="project-name">Dinder</span>
+            <span class="role-company">AI-assisted meal planning app</span>
+          </div>
+          <a class="project-link" href="https://app.jarrodmurray.com">app.jarrodmurray.com</a>
+        </div>
+        <div class="lenses"><span class="lens">Strategy</span><span class="lens">Design</span></div>
+        <ul class="bullets">
+          <li>Designed and built a full-stack product independently, using Claude as a development partner across architecture, front-end, and backend implementation</li>
+          <li>Deployed on Vercel with a Supabase backend, documented using the same Capability Brief framework developed at Captivated</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section">Education &amp; Certifications</h2>
+      <div class="edu-item">
+        <span class="cred">BFA, Graphic Design</span> &mdash; Ball State University
+        <span class="meta">2001</span>
+      </div>
+      <div class="edu-item">
+        <span class="cred">Certified Usability Analyst (CUA)</span> &mdash; Human Factors International, CUA #2014-4937
+        <span class="meta">2014</span>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

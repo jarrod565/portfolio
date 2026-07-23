@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jarrod W. Murray | Resume</title>
+
+<!--
+  PUBLIC SITE VERSION — jarrodmurray.com/resume
+  ================================================
+  This is a variant of resume-template.html, built for live hosting on
+  your site rather than one-off JD tailoring. Two differences from the
+  base template:
+
+  1. PERSONA FILTERING VIA URL PARAM, matching your site's existing
+     pattern (?role=designer). Each bullet carries a data-lens
+     attribute instead of a visible pill. Supported values:
+       ?role=designer     -> shows bullets tagged "design"
+       ?role=researcher   -> shows bullets tagged "research"
+       ?role=strategist   -> shows bullets tagged "strategy"
+       (no param)          -> shows everything, unfiltered
+     A bullet can carry multiple lenses, e.g. data-lens="design strategy".
+
+  2. NO LENS PILLS. The Strategy/Design/Research tags are useful
+     internally when tailoring, but meaningless to a visitor with no
+     context for what they mean, so they're gone here. The filtering
+     script at the bottom does the same job invisibly.
+
+  FALLBACK RULE: a role's header (title, company, dates) always
+  displays. If a persona filter would leave a role with zero visible
+  bullets, the bullet marked data-fallback="true" shows anyway, so no
+  role ever appears as an unexplained gap. This currently only
+  triggers for NextGear Capital under ?role=strategist, since that's
+  the one role with no Strategy-tagged bullet in the bank. That's
+  accurate, not a bug: strategy wasn't part of that role.
+
+  TOKENS: still uses placeholder CSS variables in :root below. Swap in
+  your site's real values before publishing, same as the base template.
+
+  PRINT: the "Save as PDF" button and print stylesheet both still work
+  here, and respect whatever filter is active. Someone viewing
+  ?role=designer and printing gets the designer-filtered version.
+-->
+
+<style>
+  :root {
+    /* ---- REPLACE THESE WITH YOUR PORTFOLIO'S EXACT TOKENS ---- */
+    --ink: #1a1a1a;         /* primary text */
+    --ink-soft: #4a4a4a;    /* secondary text */
+    --muted: #767676;       /* meta text: dates, labels */
+    --paper: #fafaf8;       /* page background */
+    --card: #ffffff;        /* subtle surface, unused in print */
+    --accent: #3b5f7d;      /* links, lens-tag fills, rule accents */
+    --accent-soft: #e8eef2; /* lens-tag background */
+    --line: #dfdfdc;        /* hairline dividers */
+    /* ------------------------------------------------------------ */
+
+    --font-body: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+    --step-0: clamp(0.9rem, 0.86rem + 0.2vw, 0.98rem);
+    --step-1: clamp(1rem, 0.95rem + 0.25vw, 1.1rem);
+    --step-2: clamp(1.2rem, 1.1rem + 0.5vw, 1.4rem);
+    --step-3: clamp(1.8rem, 1.6rem + 1vw, 2.3rem);
+
+    --space-1: calc(0.25rem + 0.1vw);
+    --space-2: calc(0.5rem + 0.2vw);
+    --space-3: calc(1rem + 0.3vw);
+    --space-4: calc(1.75rem + 0.4vw);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: var(--step-0);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 47rem;
+    margin: 0 auto;
+    padding: var(--space-4) var(--space-3) calc(var(--space-4) * 2);
+  }
+
+  /* ---------- Utility toolbar (screen only) ---------- */
+  .toolbar {
+    max-width: 47rem;
+    margin: 0 auto;
+    padding: var(--space-2) var(--space-3) 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .toolbar button {
+    font-family: var(--font-body);
+    font-size: var(--step-0);
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    cursor: pointer;
+  }
+  .toolbar button:hover { background: var(--accent); }
+  .toolbar button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- Header ---------- */
+  header.identity {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-2);
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+  h1 {
+    font-size: var(--step-3);
+    margin: 0;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+  .contact {
+    text-align: right;
+    font-size: var(--step-0);
+    color: var(--ink-soft);
+  }
+  .contact a { color: var(--accent); text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+  .contact .sep { color: var(--line); margin: 0 0.4em; }
+
+  .positioning {
+    font-size: var(--step-2);
+    color: var(--ink-soft);
+    margin: 0 0 var(--space-3);
+    font-weight: 500;
+    max-width: 40rem;
+  }
+
+  .summary {
+    margin: 0 0 var(--space-4);
+    color: var(--ink-soft);
+    max-width: 42rem;
+  }
+
+  /* ---------- Section headings ---------- */
+  h2.section {
+    font-size: var(--step-1);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: var(--space-1);
+    margin: 0 0 var(--space-2);
+  }
+
+  section { margin-bottom: var(--space-4); }
+
+  /* ---------- Competencies ---------- */
+  .competencies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-2);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .competencies li {
+    font-size: var(--step-0);
+    color: var(--ink-soft);
+  }
+  .competencies li:not(:last-child)::after {
+    content: "\2022";
+    color: var(--line);
+    margin-left: var(--space-2);
+  }
+
+  /* ---------- Experience ---------- */
+  .role {
+    margin-bottom: var(--space-3);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .role-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-1);
+  }
+  .role-title-line {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  .role-title { font-weight: 700; font-size: var(--step-1); }
+  .role-company { color: var(--ink-soft); }
+  .role-dates {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  ul.bullets {
+    margin: var(--space-1) 0 0;
+    padding-left: 1.1em;
+  }
+  ul.bullets li {
+    margin-bottom: 0.35em;
+    color: var(--ink-soft);
+  }
+  ul.bullets li::marker {
+    color: var(--accent);
+  }
+
+  /* ---------- Earlier experience (condensed) ---------- */
+  .earlier-role {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-1);
+    padding: 0.4em 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .earlier-role:last-child { border-bottom: none; }
+  .earlier-role .role-title { font-size: var(--step-0); }
+  .earlier-role .role-dates { font-size: 0.8em; }
+
+  /* ---------- Independent project ---------- */
+  .project-name { font-weight: 700; }
+  .project-link { color: var(--accent); font-size: 0.85em; text-decoration: none; }
+  .project-link:hover { text-decoration: underline; }
+
+  /* ---------- Education ---------- */
+  .edu-item { margin-bottom: var(--space-1); }
+  .edu-item .cred { color: var(--ink-soft); }
+  .edu-item .meta { color: var(--muted); font-size: 0.85em; }
+
+  /* ---------- Print ---------- */
+  @media print {
+    .toolbar { display: none; }
+    body { background: #fff; }
+    .sheet { max-width: none; padding: 0 0.4in; }
+    a { color: var(--ink) !important; text-decoration: none; }
+    section { break-inside: avoid-page; }
+  }
+
+  @page {
+    size: letter;
+    margin: 0.5in;
+  }
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button onclick="window.print()">Save as PDF</button>
+  </div>
+
+  <main class="sheet">
+
+    <header class="identity">
+      <h1>Jarrod W. Murray</h1>
+      <div class="contact">
+        317-331-7798<span class="sep">|</span><a href="mailto:jarrod@jarrodmurray.com">jarrod@jarrodmurray.com</a><br>
+        <a href="https://jarrodmurray.com">jarrodmurray.com</a><span class="sep">|</span><a href="https://www.linkedin.com/in/jarrodmurray/">linkedin.com/in/jarrodmurray</a>
+      </div>
+    </header>
+
+    <p class="positioning">I speak Design, Product, and Engineering, and I navigate the gray areas between them</p>
+
+    <p class="summary">
+      Senior product and UX leader with 15+ years spanning UX research, product strategy, and front-end development across
+      B2B SaaS, life sciences, financial services, and healthcare. Design, product, and engineering each have their own
+      language, and most teams split that work across three or four people. I've made a career out of connecting those dots,
+      most recently designing the documentation and workflow patterns that let a team build with AI instead of just talking
+      about it. Certified Usability Analyst (CUA). Full case studies at <a href="https://jarrodmurray.com">jarrodmurray.com</a>.
+    </p>
+
+    <section>
+      <h2 class="section">Core Competencies</h2>
+      <ul class="competencies">
+        <li>Product Strategy &amp; Roadmapping</li>
+        <li>AI-Assisted Development &amp; Documentation</li>
+        <li>Agile Methodologies &amp; Scrum Facilitation</li>
+        <li>Cross-Functional Leadership</li>
+        <li>Enterprise Identity &amp; Authentication Design</li>
+        <li>Design Systems &amp; Governance</li>
+        <li>User Research &amp; Usability Testing</li>
+        <li>Front-End Development (HTML, CSS, JavaScript, React)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section">Experience</h2>
+
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="role-title">Director of Product &amp; UX</span>
+            <span class="role-company">Captivated</span>
+          </div>
+          <span class="role-dates">04/2022 &ndash; 05/2026</span>
+        </div>
+        <ul class="bullets">
+          <li data-lens="design strategy">Led end-to-end product design and UX strategy for a B2B SaaS communications platform, driving information architecture, interaction design, usability testing, and design system governance across a full platform modernization</li>
+          <li data-lens="strategy">Owned product roadmap, feature prioritization, and acceptance criteria as Product Owner across multiple initiatives</li>
+          <li data-lens="strategy design" data-fallback="true">Designed and implemented a scalable AI-ready documentation framework, replacing traditional user stories with structured Capability Briefs that improved engineering clarity and accelerated AI-assisted development</li>
+          <li data-lens="design strategy">Led enterprise identity and authentication design, including identity-first login flows, SSO, MFA enforcement, multi-org context switching, and activity-based session management</li>
+          <li data-lens="strategy design">Conducted competitive analysis, defined naming strategy, and designed a next-generation website conversation entry point, API-first, compliance-aware, with AI-assisted routing</li>
+          <li data-lens="strategy">Facilitated all Scrum ceremonies as Scrum Master and introduced Agile methodologies to improve delivery predictability</li>
+          <li data-lens="research strategy">Built and operationalized a product analytics platform to track user behavior and inform iterative design decisions</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="role-title">Senior UX Researcher</span>
+            <span class="role-company">Driven Data</span>
+          </div>
+          <span class="role-dates">04/2021 &ndash; 04/2022</span>
+        </div>
+        <ul class="bullets">
+          <li data-lens="research design" data-fallback="true">Designed a B2B SaaS analytics platform helping automotive dealerships track and optimize advertising performance, replacing a legacy dashboard with a purpose-built, research-informed tool</li>
+          <li data-lens="research">Led end-to-end mixed-methods research strategy including generative interviews, usability testing, and synthesis</li>
+          <li data-lens="research strategy">Elevated organizational research maturity through documentation, education, and cross-functional collaboration</li>
+          <li data-lens="strategy">Expanded into Product Ownership as the company scaled through a funding round and eventual acquisition</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="role-title">Senior UX Designer (Consultant)</span>
+            <span class="role-company">Onebridge</span>
+          </div>
+          <span class="role-dates">03/2020 &ndash; 04/2021</span>
+        </div>
+        <ul class="bullets">
+          <li data-lens="design strategy" data-fallback="true">Designed an AI/ML-powered clinical trial search engine for a Fortune 500 pharmaceutical company, enabling researchers to query a massive document corpus in plain language</li>
+          <li data-lens="design strategy">Designed an executive data visualization dashboard used to evaluate drug trial performance and inform funding decisions across competing research programs</li>
+          <li data-lens="research">Supported early UX research for a COVID-19 response application</li>
+          <li data-lens="design">Delivered high-fidelity mockups and interactive prototypes that served as the primary handoff artifacts for engineering teams working on accelerated timelines</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="role-title">UX Lead</span>
+            <span class="role-company">Brooks Life Sciences</span>
+          </div>
+          <span class="role-dates">04/2019 &ndash; 03/2020</span>
+        </div>
+        <ul class="bullets">
+          <li data-lens="strategy research">Hired as the company's first UX employee, established a UX practice from scratch including research operations, usability testing protocols, and design system governance for a life sciences informatics platform</li>
+          <li data-lens="design strategy" data-fallback="true">Led UX strategy and design for a ground-up LIMS replacement, a complex data entry and sample tracking system managing bio-samples with up to 100 data points each</li>
+          <li data-lens="design">Created and governed a design system and component library to ensure consistency across modules</li>
+          <li data-lens="research strategy">Conducted qualitative and quantitative research and translated findings into strategic recommendations that shaped product direction</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="role-title">Senior UX Designer</span>
+            <span class="role-company">NextGear Capital by Cox Automotive</span>
+          </div>
+          <span class="role-dates">03/2017 &ndash; 04/2019</span>
+        </div>
+        <ul class="bullets">
+          <li data-lens="research">Conducted field research with independently owned automotive dealerships to inform product decisions for a B2B floor plan financing platform</li>
+          <li data-lens="design">Designed internal tools for title tracking and risk analysis, and a dealer-facing mobile app for purchasing and paying off vehicle titles</li>
+          <li data-lens="research design" data-fallback="true">Supported 8-10 development teams as a centralized UX resource, gathering requirements, designing workflows, and conducting usability testing</li>
+          <li data-lens="design">Documented design system usage guidelines and interaction standards to ensure consistency across the platform</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="role-title">UX Designer III</span>
+            <span class="role-company">Seven Corners</span>
+          </div>
+          <span class="role-dates">12/2015 &ndash; 03/2017</span>
+        </div>
+        <ul class="bullets">
+          <li data-lens="strategy design">Hired as the company's first UX employee, led end-to-end experience design for a legacy system spanning policies, groups, members, claims, and adjudications</li>
+          <li data-lens="design research" data-fallback="true">Redesigned the online claims submission workflow end to end, reducing processing time from 30-45 days to under a week</li>
+          <li data-lens="research">Conducted heuristic evaluations, stakeholder interviews, and usability testing with internal users to surface and resolve systemic workflow issues</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section">Earlier Experience</h2>
+      <div class="earlier-role">
+        <span class="role-title">Experience Architect / UX Developer, Fusion Alliance</span>
+        <span class="role-dates">02/2014 &ndash; 12/2015</span>
+      </div>
+      <div class="earlier-role">
+        <span class="role-title">UI/UX Designer &amp; Interaction Designer, Dominion Dealer Solutions</span>
+        <span class="role-dates">12/2010 &ndash; 01/2014</span>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section">Independent Product Work</h2>
+      <div class="role">
+        <div class="role-head">
+          <div class="role-title-line">
+            <span class="project-name">Dinder</span>
+            <span class="role-company">AI-assisted meal planning app</span>
+          </div>
+          <a class="project-link" href="https://app.jarrodmurray.com">app.jarrodmurray.com</a>
+        </div>
+        <ul class="bullets">
+          <li data-lens="strategy design" data-fallback="true">Designed and built a full-stack product independently, using Claude as a development partner across architecture, front-end, and backend implementation</li>
+          <li data-lens="strategy design">Deployed on Vercel with a Supabase backend, documented using the same Capability Brief framework developed at Captivated</li>
+          <li data-lens="research">Conducted informal user research and iteration with a live household user, refining the workflow based on real usage patterns</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section">Education &amp; Certifications</h2>
+      <div class="edu-item">
+        <span class="cred">BFA, Graphic Design</span> &mdash; Ball State University
+        <span class="meta">2001</span>
+      </div>
+      <div class="edu-item">
+        <span class="cred">Certified Usability Analyst (CUA)</span> &mdash; Human Factors International, CUA #2014-4937
+        <span class="meta">2014</span>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Persona filtering via ?role= param, matching the pattern used
+    // elsewhere on jarrodmurray.com. No param = show everything.
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var role = (params.get('role') || '').toLowerCase();
+      var lensMap = { designer: 'design', researcher: 'research', strategist: 'strategy' };
+      var lens = lensMap[role];
+      if (!lens) return; // no param, or unrecognized value: show everything
+
+      document.querySelectorAll('.role').forEach(function (roleEl) {
+        var bullets = roleEl.querySelectorAll('li[data-lens]');
+        if (!bullets.length) return;
+
+        var anyVisible = false;
+        bullets.forEach(function (li) {
+          var lenses = (li.getAttribute('data-lens') || '').split(' ');
+          if (lenses.indexOf(lens) !== -1) {
+            li.style.display = '';
+            anyVisible = true;
+          } else {
+            li.style.display = 'none';
+          }
+        });
+
+        // Role header always shows at least one bullet, even if this
+        // persona has no matching bullet for this particular role.
+        if (!anyVisible) {
+          var fallback = roleEl.querySelector('li[data-fallback="true"]') || bullets[0];
+          fallback.style.display = '';
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
