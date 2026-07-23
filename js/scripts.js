@@ -253,6 +253,27 @@ if (filterIndicatorClear) {
   });
 }
 
+// Résumé links (nav text link + footer PDF icon): carry the active filter
+// into resume.html via an explicit ?role= param instead of relying on
+// sessionStorage cloning into the new tab (unreliable, especially with
+// target="_blank"). Only set the param when exactly one role is active —
+// resume.html's own filter only understands a single role, same constraint
+// as its sessionStorage fallback.
+function resolveRoleParam() {
+  let roles = activeRoles ? Array.from(activeRoles) : null;
+  if (!roles || !roles.length) {
+    roles = readStoredRoles() || [];
+  }
+  return roles.length === 1 && validRoles.includes(roles[0]) ? roles[0] : null;
+}
+
+document.querySelectorAll('a[href*="resume.html"]').forEach(link => {
+  link.addEventListener('click', () => {
+    const role = resolveRoleParam();
+    link.href = role ? `./resume.html?role=${role}` : './resume.html';
+  });
+});
+
 // Apply on load
 applyFilter();
 
