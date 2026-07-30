@@ -424,3 +424,23 @@ if (cardWrappers.length) {
     });
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const toggles = document.querySelectorAll('.collapsible-toggle');
+
+  document.querySelectorAll('[role="region"]').forEach((panel) => {
+    panel.setAttribute('aria-hidden', 'true');
+  });
+
+  toggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const item = toggle.closest('.collapsible');
+      const panel = item.querySelector('[role="region"]');
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      item.classList.toggle('is-expanded', !expanded);
+      panel.setAttribute('aria-hidden', String(expanded));
+    });
+  });
+});

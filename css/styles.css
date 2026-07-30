@@ -39,23 +39,23 @@ main {
   background-attachment: fixed;
   padding-top: 64px;
 }
-.buffer {
+/* .buffer {
   height: 4vh;
   width: 100%;
-}
+} */
 h1 {font-size: calc(3em + .25vw); font-weight: 300;}
 h2 {font-size: calc(2.25em + .25vw); line-height: calc(1.1em + .4vw);}
-h3 {font-size: calc(1.25em + .25vw); font-weight: 300;}
+h3 {font-size: calc(1.5em + .25vw); font-weight: 300;}
 h3.center {text-align:center;}
 h4 {font-size: calc(1.33em + .25vw); font-weight: 300;}
 h5 {font-size: calc(1em + .25vw); font-weight: 300;}
 h6 {text-align:center; margin: 16px 0px 48px; opacity: .4;}
-p, ul {font-size: calc(1em + .25vw); line-height: calc(1.2em + .66vw); max-width: 60ch;}
+p, ul {font-size: calc(1em + .25vw); line-height: calc(1.2em + .66vw); max-width: 72ch;}
 p + p {margin-top: 24px;}
 a {color: #1D9ED6; color: var(--primary); text-decoration: underline;}
 a:hover {color: #04648E; color: var(--secondary);}
 strong {font-weight: 800;}
-abbr {text-decoration: none; background-color: rgba(255,153,51,0.25);}
+/* abbr {text-decoration: none; background-color: rgba(255,153,51,0.25);} */
 ul {list-style: disc outside none;}
 ul li {
   line-height: 1.5;
@@ -65,18 +65,18 @@ h2.ccicon > i {
   margin-right: 24px;
   box-shadow: 0px 3px 7px rgba(4, 100, 142, 0.8);
 }
-blockquote{margin: 32px;}
+blockquote{margin: 24px 0;}
 blockquote p {
   font:normal 21px/32px Open Sans;
   margin: 1em 0;
   padding: 0 1em;
-  border-left: 6px solid var(--primary);
+  border-left: 4px solid var(--primary);
 }
 blockquote p:before {
   color: var(--baseFour);
   font-family: times;
   content: '“';
-  font-size: 3.2em;
+  font-size: 2.7em;
   line-height: 0em;
   margin-right: 0.05em;
   vertical-align: -0.4em;
@@ -85,7 +85,7 @@ blockquote p:after {
   color: var(--baseFour);
   font-family: times;
   content: '”';
-  font-size: 3.2em;
+  font-size: 2.7em;
   line-height: 0em;
   margin-right: 0.05em;
   vertical-align: -0.4em;
@@ -252,7 +252,8 @@ section div * {margin-bottom: 8px;}
 .bluf h1 {
   text-align: left;
   white-space: normal;
-  margin: 0 0 16px;
+  margin: 0 0 32px;
+  color: var(--primary);
 }
 .bluf-row {
   align-self: flex-start;
@@ -270,12 +271,12 @@ section div * {margin-bottom: 8px;}
   max-width: 100%;
 }
 .bluf-meta {
-  align-self: stretch;
+  align-self: flex-start;
   flex: 0 0 auto;
   display: grid;
   grid-template-columns: auto 1fr;
-  column-gap: 14px;
-  row-gap: 4px;
+  column-gap: 16px;
+  row-gap: 8px;
   align-items: center;
   margin: 4px 0 0;
 }
@@ -355,6 +356,153 @@ section div * {margin-bottom: 8px;}
 }
 
 /* --------------------------- --------- --------------------------- */
+/* -------------------------- Case Challenge ------------------------- */
+/* --------------------------- --------- --------------------------- */
+
+.case-challenge {
+  padding: 0 20vw 2em;
+}
+.case-challenge h3 {
+  color: var(--secondary);
+  margin-bottom: 12px;
+}
+.case-challenge p {
+  max-width: 100%;
+}
+
+/* --------------------------- --------- --------------------------- */
+/* ----------------------- Collapsible Rail --------------------------- */
+/* --------------------------- --------- --------------------------- */
+
+.case-body {
+  padding-top: 16px;
+  width: 100%;
+}
+.collapsible {
+  width: 100%;
+  background-color: var(--base);
+}
+article.collapsible:last-of-type {
+  margin-bottom: 48px;
+}
+.collapsible-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 270px;
+  padding: 4px 16px;
+  border: 0;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--white);
+  position: sticky;
+  top: 64px;
+  z-index: 10;
+}
+.collapsible-strategy .collapsible-toggle {
+  background-color: var(--strategist);
+}
+.collapsible-research .collapsible-toggle {
+  background-color: var(--primary);
+}
+.collapsible-design .collapsible-toggle {
+  background-color: var(--chip);
+}
+.collapsible-outcome .collapsible-toggle {
+  background-color: var(--charcoal);
+}
+.collapsible-chevron {
+  transition: transform 0.2s ease;
+  margin-bottom: 0;
+}
+.collapsible.is-expanded .collapsible-chevron {
+  transform: rotate(90deg);
+}
+[role="region"] {
+  display: none;
+  padding: 32px 20vw;
+}
+.collapsible.is-expanded [role="region"] {
+  display: block;
+}
+.collapsible [role="region"] h3 {
+  color: var(--secondary);
+  margin: 0 auto 8px;
+}
+.collapsible [role="region"] h3 + p {
+  margin: 0 0 32px;
+}
+.collapsible [role="region"] p {
+  font-size: calc(1em + .25vw);
+}
+.collapsible [role="region"] p + p {
+  margin-top: 24px;
+}
+.collapsible [role="region"] figure {
+  margin: 32px 0 8px;
+  width: 100%;
+}
+.collapsible [role="region"] figure img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+.collapsible figure video {
+  flex: 1 1;
+  max-width: 60vw;
+  -webkit-logical-height: auto;
+  -o-object-fit: fill;
+     object-fit: fill;
+  max-height: 600px;
+}
+.collapsible [role="region"] figcaption {
+  margin: 16px 0 32px;
+  opacity: .6;
+  font-size: calc(.8em + .125vw);
+  text-align: center;
+}
+.collapsible [role="region"] ul {
+  max-width: 80ch;
+}
+.collapsible [role="region"] ul li {
+  line-height: 1.5;
+  margin: 8px 0 0 24px;
+}
+.panel-text {
+  max-width: 80ch;
+  margin: 0 auto;
+  padding: 0;
+}
+
+@media only screen and (max-width: 1600px) {
+  .bluf {padding: 40px 16vw 48px;}
+  .case-challenge {padding: 0 16vw 2em;}
+}
+@media only screen and (max-width: 1200px) {
+  .bluf {padding: 40px 10vw 48px;}
+  .case-challenge {padding: 0 10vw 2em;}
+}
+@media only screen and (max-width: 990px) {
+  .case-challenge { padding: 32px 12vw 0; }
+  [role="region"] { padding: 24px 12vw; }
+}
+@media only screen and (max-width: 720px) {
+  .case-challenge { padding: 24px 8vw 0; }
+  [role="region"] { padding: 48px 4vw; }
+  .collapsible-toggle { position: static; width: 100%; }
+  .hero figure img {
+    min-height: 320px;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  .hero figure {margin-bottom: 16px;}
+}
+
+/* --------------------------- --------- --------------------------- */
 /* ---------------------------- CS imgs ---------------------------- */
 /* --------------------------- --------- --------------------------- */
 
@@ -374,14 +522,14 @@ section:nth-child(3) {padding-top: 0px;}
      object-fit: cover;
   max-height: 600px;
 }
-.cases figure video {
+/* .cases figure video {
   flex: 1 1;
   max-width: 60vw;
   -webkit-logical-height: auto;
   -o-object-fit: fill;
      object-fit: fill;
   max-height: 600px;
-}
+} */
 .cases figcaption {
   margin: 16px 0px 32px;
   opacity: .56;
@@ -1095,7 +1243,7 @@ span i.material-icons {
 }
 
 /* --------------------------- --------- --------------------------- */
-/* ----------------------------- Hero ------------------------------ */
+/* ----------------------------- Welcome --------------------------- */
 /* --------------------------- --------- --------------------------- */
 
 #welcome {
