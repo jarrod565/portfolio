@@ -452,12 +452,11 @@ article.collapsible:last-of-type {
   box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
 }
 .collapsible figure video {
-  flex: 1 1;
-  max-width: 60vw;
-  -webkit-logical-height: auto;
-  -o-object-fit: fill;
-     object-fit: fill;
-  max-height: 600px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
 }
 .collapsible [role="region"] figcaption {
   margin: 16px 0 32px;
