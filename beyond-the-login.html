@@ -33,12 +33,12 @@
 	<main>
 		<section class="hero">
 		<figure>
-			<img alt="Log In Issues" src="./img/hero/login.jpg"/>
+			<img alt="Beyond the Login" src="./img/hero/login.jpg"/>
 		</figure>
 		<div class="bluf">
 			<h1>Beyond the Login</h1>
 			<div class="bluf-row">
-				<p class="bluf-summary">Multi-org authentication and SSO meant Captivated could no longer be the one deciding how to verify a user. I architected an email-first system to route each login correctly, and shipped it into production without disruption.</p>
+				<p class="bluf-summary">Modernizing a monolith meant identity had to be rebuilt from the ground up. What looked like a login screen turned out to be nine interconnected capabilities, and I designed all of them before a line of code was written.</p>
 				<dl class="bluf-meta">
 					<dt>Role:</dt>
 					<dd><span class="bluf-chip bluf-chip-strategist">Strategist</span></dd>
@@ -49,111 +49,133 @@
 				</dl>
 			</div>
 		</div>
-	</section>
+		</section>
 
-	<section class="cases halfPad_noTop">
-	<div>
-		<h4>The Challenge</h4>
-		<p>If we wanted to win enterprise clients, we had to stop building for the customers we had and start building for the customers we wanted. Authentication was the foundation that had to be rebuilt first&hellip; and it was more complex than anyone had fully mapped out.</p>
-		<p>This wasn&rsquo;t reactive work. We had a client ready to split into 34 organizations, with two users who needed access to all of them. We knew if we waited for enterprise to arrive before solving for it, we&rsquo;d be in trouble.</p>
-		<h4>Role</h4>
-		<p>As Product Owner and UX Lead, I was responsible for scoping, documenting, and designing the authentication and authorization capabilities for the React modules. What started as a migration became a ground-up enterprise system design.</p>
-	</div>
-	</section>
+		<section class="case-challenge">
+			<h3>The Challenge</h3>
+			<p>Captivated had one login flow and everyone saw the same application. The move to a modular React frontend changed that, because for the first time, what a user could see depended on who they were and what they were authorized to access. Authentication alone wasn&rsquo;t enough anymore.</p>
+		</section>
 
-	<a href="#" class="top_fab">
-	  <i class="material-icons">keyboard_arrow_up</i>
-	</a>
+			<a href="#" class="top_fab">
+			  <i class="material-icons">keyboard_arrow_up</i>
+			</a>
 
-	<section class="primary eighthPad">
-		<h2 class="ccicon"><i>Un</i> Understand</h2>
-	</section>
+		<section class="case-body">
 
-	<section class="white cases halfPad">
-	<div>
-		<h4>The Gaps Were Hiding in Plain Sight</h4>
-		<p>On the surface, authentication was working. Users logged in. The app responded. Nobody was complaining.</p>
-		<p>But underneath, the gaps were real. Sessions lasted 14 days regardless of activity. An email address could only belong to one organization, which meant large accounts required convoluted internal workarounds to function. There was no SSO. MFA was outdated. And user status was determined by a manual Here/Away toggle&hellip; not by whether the user was actually in the system.</p>
-		<p>That last one sounds minor. It wasn&rsquo;t. In a large organization, knowing who is actively available to answer inbound messages is critical. It was entirely possible for a user to be marked as Here while on vacation, because their 14-day session hadn&rsquo;t expired yet.</p>
-	</div>
-		<figure>
-			<img alt="The hero element open" src="./img/cases/login/toggles.jpg" class="caseImg slide-up"/>
-			<figcaption>User status was determined by a manual Here/Away toggle</figcaption>
-		</figure>
-	<div>
-		<h4>Building for the Client We Wanted</h4>
-		<p>We had a real use case driving urgency. An existing client needed to split into 34 organizations, with two administrators who needed access to all of them. Under our existing architecture, that was difficult without internal workarounds that don&rsquo;t scale to enterprise buyers.</p>
-		<p>We knew as a company that doubling revenue meant winning enterprise clients. This work was top-down directive and bottom-up instinct at the same time&hellip; nobody wanted to be in reactive mode when the right client came along.</p>
-	</div>
-	</section>
+			<article class="collapsible collapsible-strategy is-expanded">
+				<button type="button" class="collapsible-toggle" aria-expanded="true" aria-controls="panel-strategy" id="tab-strategy">
+					<span>Strategy</span>
+					<i class="material-icons collapsible-chevron" aria-hidden="true">chevron_right</i>
+				</button>
+				<div id="panel-strategy" role="region" aria-labelledby="tab-strategy">
+					<div class="panel-text">
+					<h3>Building for the Client We Wanted</h3>
+					<p>We had a client ready to split into 34 organizations, with two administrators who needed access to all of them. Under the existing architecture that wasn&rsquo;t possible without internal workarounds that didn&rsquo;t scale. Rather than wait for enterprise to arrive and scramble, we got ahead of it. Authentication and authorization were the foundation that had to be rebuilt first.</p>
+					</div>
+					<div class="panel-text">
+					<h3>Starting in the Right Place</h3>
+					<p>We were using the strangler pattern to modernize the monolith, replacing Ember components and routes with React equivalents one module at a time. Identity was the deliberate starting point. Get it right first and everything built on top of it inherits that foundation. What looked like a login screen turned into nine interconnected capabilities.</p>
+					</div>
+					<div class="panel-text">
+					<h3>Google First, But Not Google Only</h3>
+					<p>SSO was the capability that unlocked enterprise. I started with Google because it&rsquo;s the best documented, the most forgiving to implement, and the most likely to surface edge cases early. But the architecture was designed from day one to support ENTRA and OKTA as well. Not as future additions to bolt on later, but as first-class paths the system was built to accommodate. The difference between designing for one provider and designing for many is the difference between a feature and a foundation.</p>
+					</div>
+					<div class="panel-text">
+					<h3>Authentication Is Not Authorization</h3>
+					<p>Knowing who someone is doesn&rsquo;t tell you what they&rsquo;re allowed to see. That distinction sounds obvious until you&rsquo;re designing the system that has to enforce it. A user could authenticate successfully through Google SSO and still have no authorization to access any organization in Captivated. The system needed to resolve both, in sequence, before routing the user anywhere. Authentication first. Authorization second. Routing third.</p>
+					</div>
+					<div class="panel-text">
+					<h3>The Multi-Org Problem</h3>
+					<p>Once a user could belong to more than one organization, a new question surfaced: where do they land when they log back in? Making them navigate there every time adds friction. Making them designate a primary org puts the burden on them to maintain something they&rsquo;ll forget. The right answer was to return them to wherever they were last. No configuration required, no friction added. The system just remembers.</p>
+					</div>
 
-	<section class="primary eighthPad">
-		<h2 class="ccicon"><i>Si</i> Simplify</h2>
-	</section>
+					<figure>
+						<img alt="The org switcher interface" src="./img/cases/login/org-switching.jpg" class="caseImg slide-up"/>
+						<figcaption>How a user with access to multiple organizations navigates between them</figcaption>
+					</figure>
 
-	<section class="reversed cases halfPad">
-	<div>
-		<h4>Starting in the Right Place</h4>
-		<p>We were using the strangler pattern to modernize a monolith&hellip; replacing Ember components and routes with React equivalents, one module at a time, within a single codebase. Authentication and authorization felt like the right place to start. Get identity right first, and everything built on top of it inherits that foundation.</p>
-		<p>What I thought was a simple login workflow turned into five interconnected Capability Briefs. Each one closing a specific gap.</p>
-		<h4>Identity-First Login</h4>
-		<p>The existing workflow was simple, username and password, every time, for every user. Identity-first changes that. By identifying the user first, we could determine the right authentication path before showing them any inputs.</p>
-		<p>A Google email address? Route them through Google SSO. No reason to show a password field that we&rsquo;d only have to support and secure. It&rsquo;s a cleaner UI, less overhead on our end, and more secure for the user. All three at once.</p>
-		<h4>Session Management</h4>
-		<p>Replaced the 14-day blanket expiration with true activity-based sessions. Defined the full session lifecycle&hellip; creation, expiration, forced termination, and what happens when a session expires mid-request. This was also the brief where I introduced four status states to replace the Here/Away toggle: Green (active), Yellow (idle), Red (away), and Gray (offline). Status is now determined by the system, not by the user remembering to flip a switch.</p>
-		<h4>Single Sign-On (SSO)</h4>
-		<p>Designed for org-level enforcement, not user opt-in. If SSO is required for an org, there&rsquo;s no path around it. Documented grant revocation handling and what happens when SSO is the only allowed path and the provider goes down.</p>
-		<h4>Multi-Org Context Switching</h4>
-		<p>This was the most complex brief, and the most important one for our enterprise ambitions. Allowing an email address to belong to multiple organizations was net-new functionality. The two administrators who needed access to all 34 orgs were the north star for this design.</p>
-		<p>I defined the session isolation model, the UI contract for switching context, and what persists vs. resets across an org change. Multi-org wasn&rsquo;t a migration of existing accounts&hellip; it was a new model designed to make future enterprise setups clean from day one.</p>
-	</div>
-		<figure>
-			<img alt="The hero element open" src="./img/cases/login/org-switching.jpg" class="caseImg slide-up"/>
-			<figcaption>Allowing users to seamlessly switch between organizations</figcaption>
-		</figure>
-	<div>
-		<h4>MFA Enforcement</h4>
-		<p>Designed for org-level policy, not individual preference. Addressed trusted devices, grace periods, and what the system must do when a user&rsquo;s MFA method becomes invalid.</p>
-	</div>
-	</section>
+					<div class="panel-text">
+					<h3>Email-First as the Routing Mechanism</h3>
+					<p>The login screen was the one place all of this complexity had to become invisible to the user. Email-first solved that. By identifying the user before showing any authentication inputs, the system could determine the right path silently, password login, Google SSO, ENTRA, OKTA, and present only what was appropriate. One clean input. No confusing choices. The complexity lives in the system, not in front of the user.</p>
+					</div>
+					<div class="panel-text">
+					<h3>Putting It on Paper</h3>
+					<p>Nine Capability Briefs. One for each interconnected piece of the identity system. Writing them was the next problem to solve.</p>
+					</div>
+				</div>
+			</article>
 
-	<section class="primary eighthPad">
-		<h2 class="ccicon"><i>Al</i> Align</h2>
-	</section>
+			<article class="collapsible collapsible-research is-expanded">
+				<button type="button" class="collapsible-toggle" aria-expanded="true" aria-controls="panel-research" id="tab-research">
+					<span>Research</span>
+					<i class="material-icons collapsible-chevron" aria-hidden="true">chevron_right</i>
+				</button>
+				<div id="panel-research" role="region" aria-labelledby="tab-research">
+					<div class="panel-text">
+					<h3>Working Through It With AI</h3>
+					<p>I used the same collaborative process that produced the AI-Ready Backlog briefs, but this time the problem space was deeper. I sat down with ChatGPT and worked through the identity system question by question. What happens when a user authenticates through Google but has no matching account in Captivated? What does the system show them? What happens when a session expires mid-request? When a user with multiple org memberships logs in for the first time, which org gets the default?</p>
+					<p>The AI would ask clarifying questions. I would answer them. Every answer either resolved an edge case or surfaced a new one. By the time the conversation was done, the brief was done. Nine briefs, nine conversations, every decision made before a line of code was written.</p>
+					</div>
+				</div>
+			</article>
 
-	<section class="cases halfPad">
-	<div>
-		<h4>The Decisions That Needed an Owner</h4>
-		<p>Most of these decisions had never been formally made. The existing system had just accumulated behavior over time.</p>
-		<p>Should sessions expire absolutely or based on activity? What determines a user&rsquo;s status when they haven&rsquo;t touched the app in two hours? If an admin forces a logout across an org, how quickly does it propagate? What happens to notifications and auto-replies when a session expires?</p>
-		<p>These aren&rsquo;t purely UX questions or engineering questions&hellip; they&rsquo;re product decisions with compliance and operational implications. Someone has to own them.</p>
-		<p>I owned them. They&rsquo;re documented in the briefs.</p>
-	</div>
-	</section>
-	<section class="primary eighthPad">
-		<h2 class="ccicon">Takeaways&hellip;</h2>
-	</section>
+			<article class="collapsible collapsible-design is-expanded">
+				<button type="button" class="collapsible-toggle" aria-expanded="true" aria-controls="panel-design" id="tab-design">
+					<span>Design</span>
+					<i class="material-icons collapsible-chevron" aria-hidden="true">chevron_right</i>
+				</button>
+				<div id="panel-design" role="region" aria-labelledby="tab-design">
+					<div class="panel-text">
+					<h3>The Briefs as the Deliverable</h3>
+					<p>Nine Capability Briefs. Not wireframes, not a backlog of tickets. Structured documents that told developers and AI coding tools exactly what the identity system needed to do, in what order, under what constraints, and what was explicitly out of scope. That&rsquo;s the design artifact for this project, and it existed before anyone opened a code editor.</p>
+					</div>
+					<div class="panel-text">
+					<h3>Making the Invisible Visible</h3>
+					<p>The one place the entire identity architecture had to surface as a UI was the login screen. Underneath one clean email input is a branching decision tree: is this a password user, a Google SSO user, an ENTRA user, an OKTA user? Does this email have authorization to any organization? More than one? Where were they last?</p>
+					<p>None of that complexity should be visible to the person logging in. The design job was to make one input that handled all of it silently. Every decision that went into the Capability Briefs existed so the user would never have to make one themselves.</p>
+					</div>
 
-	<section class="white cases halfPad">
-	<div>
-		<p>This is the work that rarely shows up in a portfolio&hellip; but it&rsquo;s the work that determines whether a platform can actually serve enterprise customers.</p>
-		<p>The login screen is the easy part. What sits behind it&hellip; session policy, identity routing, status modeling, multi-org architecture&hellip; those are the decisions that either open the door to enterprise or quietly keep it closed.</p>
-		<p>We made those decisions before a single line of code was written. No surprises mid-sprint. No architectural gaps discovered after the fact.</p>
-	</div>
-	</section>
+					<figure>
+						<img alt="Email-first login screen" src="./img/cases/login/login-email.jpg" class="caseImg slide-up"/>
+						<figcaption>One clean input. The complexity lives in the system, not in front of the user.</figcaption>
+					</figure>
+				</div>
+			</article>
 
-	<section class="reversed centered eighthPad">
-		<h3 class="center">More Case Studies</h3>
-		<article class="flexTrio">
+			<article class="collapsible collapsible-outcome is-expanded">
+				<button type="button" class="collapsible-toggle" aria-expanded="true" aria-controls="panel-outcome" id="tab-outcome">
+					<span>Outcome</span>
+					<i class="material-icons collapsible-chevron" aria-hidden="true">chevron_right</i>
+				</button>
+				<div id="panel-outcome" role="region" aria-labelledby="tab-outcome">
+					<div class="panel-text">
+					<h3>Built and Validated</h3>
+					<p>The identity system was built and validated in QA. What would have taken six months of 3-point stories was designed, documented, and handed to developers in weeks. Every edge case had already been answered. Every constraint had already been declared. The questions that usually surface mid-sprint didn&rsquo;t surface, because they&rsquo;d already been resolved before implementation began.</p>
+					</div>
+					<div class="panel-text">
+					<h3>A Foundation, Not a Feature</h3>
+					<p>Authentication and authorization weren&rsquo;t the end goal. They were the prerequisite. Every React module built on top of this system inherits the identity foundation without having to solve for it again. Multi-org support, SSO, activity-based sessions, email-first routing, solved once, available everywhere.</p>
+					</div>
+
+					<figure>
+						<img alt="Post-authorization navigation" src="./img/cases/login/login-nav.jpg" class="caseImg slide-up"/>
+						<figcaption>The left-hand navigation after authorization, showing what the user is allowed to see</figcaption>
+					</figure>
+				</div>
+			</article>
+
+		</section>
+		<section class="reversed centered eighthPad">
+			<h3 class="center">More Case Studies</h3>
+			<article class="flexTrio">
 		</article>
 	</section>
 
-		</main>
-
-		<footer>
-			<a href="https://www.linkedin.com/in/jarrodmurray/" title="LinkedIn" target="_blank"><svg class="linkedin" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
-			<a href="./resume.html" title="Résumé" target="_blank"><svg class="adobe" viewBox="0 0 384 512"><path d="M184 208c0-4.406-3.594-8-8-8S168 203.6 168 208c0 2.062 .2969 23.31 9.141 50.25C179.1 249.6 184 226.2 184 208zM256 0v128h128L256 0zM80 422.4c0 9.656 10.47 11.97 14.38 6.375C99.27 421.9 108.8 408 120.1 388.6c-14.22 7.969-27.25 17.31-38.02 28.31C80.75 418.3 80 420.3 80 422.4zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM292 312c24.26 0 44 19.74 44 44c0 24.67-18.94 44-43.13 44c-5.994 0-11.81-.9531-17.22-2.805c-20.06-6.758-38.38-15.96-54.55-27.39c-23.88 5.109-45.46 11.52-64.31 19.1c-14.43 26.31-27.63 46.15-36.37 58.41C112.1 457.8 100.8 464 87.94 464C65.92 464 48 446.1 48 424.1c0-11.92 3.74-21.82 11.18-29.51c16.18-16.52 37.37-30.99 63.02-43.05c11.75-22.83 21.94-46.04 30.33-69.14C136.2 242.4 136 208.4 136 208c0-22.05 17.95-40 40-40c22.06 0 40 17.95 40 40c0 24.1-7.227 55.75-8.938 62.63c-1.006 3.273-2.035 6.516-3.082 9.723c7.83 14.46 17.7 27.21 29.44 38.05C263.1 313.4 284.3 312.1 287.6 312H292zM156.5 354.6c17.98-6.5 36.13-11.44 52.92-15.19c-12.42-12.06-22.17-25.12-29.8-38.16C172.3 320.6 164.4 338.5 156.5 354.6zM292.9 368C299 368 304 363 304 356.9C304 349.4 298.6 344 292 344H288c-.3438 .0313-16.83 .9687-40.95 4.75c11.27 7 24.12 13.19 38.84 18.12C288 367.6 290.5 368 292.9 368z"/></svg></a>
-		</footer>
+	</main>
+<footer>
+	<a href="https://www.linkedin.com/in/jarrodmurray/" title="LinkedIn" target="_blank"><svg class="linkedin" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+	<a href="./resume.html" title="Résumé" target="_blank"><svg class="adobe" viewBox="0 0 384 512"><path d="M184 208c0-4.406-3.594-8-8-8S168 203.6 168 208c0 2.062 .2969 23.31 9.141 50.25C179.1 249.6 184 226.2 184 208zM256 0v128h128L256 0zM80 422.4c0 9.656 10.47 11.97 14.38 6.375C99.27 421.9 108.8 408 120.1 388.6c-14.22 7.969-27.25 17.31-38.02 28.31C80.75 418.3 80 420.3 80 422.4zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM292 312c24.26 0 44 19.74 44 44c0 24.67-18.94 44-43.13 44c-5.994 0-11.81-.9531-17.22-2.805c-20.06-6.758-38.38-15.96-54.55-27.39c-23.88 5.109-45.46 11.52-64.31 19.1c-14.43 26.31-27.63 46.15-36.37 58.41C112.1 457.8 100.8 464 87.94 464C65.92 464 48 446.1 48 424.1c0-11.92 3.74-21.82 11.18-29.51c16.18-16.52 37.37-30.99 63.02-43.05c11.75-22.83 21.94-46.04 30.33-69.14C136.2 242.4 136 208.4 136 208c0-22.05 17.95-40 40-40c22.06 0 40 17.95 40 40c0 24.1-7.227 55.75-8.938 62.63c-1.006 3.273-2.035 6.516-3.082 9.723c7.83 14.46 17.7 27.21 29.44 38.05C263.1 313.4 284.3 312.1 287.6 312H292zM156.5 354.6c17.98-6.5 36.13-11.44 52.92-15.19c-12.42-12.06-22.17-25.12-29.8-38.16C172.3 320.6 164.4 338.5 156.5 354.6zM292.9 368C299 368 304 363 304 356.9C304 349.4 298.6 344 292 344H288c-.3438 .0313-16.83 .9687-40.95 4.75c11.27 7 24.12 13.19 38.84 18.12C288 367.6 290.5 368 292.9 368z"/></svg></a>
+</footer>
 
 	<script src="js/scripts.js" defer></script>
 	<script defer>
@@ -161,5 +183,6 @@
 		renderRelatedCaseStudies('beyond-the-login');
 	});
 	</script>
+
 </body>
 </html>
