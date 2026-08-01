@@ -2012,7 +2012,7 @@ blockquote.testimonial span {
 
 @media only screen and (max-width: 501px) {
   .hero h1 {white-space: nowrap;}
-  .hero h3, h3 {font-size: calc(1em + .25vw);}
+  .hero h3 {font-size: calc(1em + .25vw);}
   .chip {
     font-size: calc(100% * .4);
     padding: 1px 8px;
@@ -2021,7 +2021,7 @@ blockquote.testimonial span {
     white-space: nowrap;
   }
   .deliverable h3 {font-size: calc(1.75em + .25vw);}
-  article * {font-size: calc(100% * .8);}
+  article p {font-size: calc(1em + .125vw);}
   section {padding: 24px 0;}
   section p, section ul {line-height: 1.5; font-size: calc(100% * .9);}
   section h1, section h2 {margin: 24px 0px 16px;}
