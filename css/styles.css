@@ -1658,9 +1658,22 @@ footer button#copy-email {
   border: none;
   cursor: pointer;
   padding: 0;
-  color: var(--white);
   display: inline-flex;
   align-items: center;
+  position: relative;
+}
+
+footer .footer-icon {
+  width: 24px;
+  height: 24px;
+  opacity: 0.7;
+  filter: brightness(0) invert(1);
+  transition: opacity 150ms ease;
+}
+
+footer button#copy-email:hover .footer-icon,
+footer a:hover .footer-icon {
+  opacity: 1;
 }
 
 /* --------------------------- --------- --------------------------- */
