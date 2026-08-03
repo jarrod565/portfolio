@@ -1653,6 +1653,16 @@ nav {
   background: transparent !important;
 }
 
+footer button#copy-email {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+}
+
 /* --------------------------- --------- --------------------------- */
 /* ----------------------------- < 1600 ---------------------------- */
 /* --------------------------- --------- --------------------------- */
