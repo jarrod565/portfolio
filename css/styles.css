@@ -1679,19 +1679,10 @@ footer button#copy-email {
   cursor: pointer;
   padding: 0;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
 }
 
 footer a:has(.footer-icon) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
+  line-height: 0;
 }
 
 footer .footer-icon {
