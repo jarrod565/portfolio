@@ -1247,6 +1247,20 @@ span i.material-icons {
   opacity: 1;
 }
 
+/* Show tooltip when set dynamically via JS */
+#copy-email[data-tooltip]:before,
+#copy-email[data-tooltip]:after {
+  visibility: visible;
+  opacity: 1;
+}
+
+#copy-email[data-tooltip]:before {
+  width: auto;
+  white-space: nowrap;
+  padding: 6px 12px;
+  margin-left: -30px;
+}
+
 /* --------------------------- --------- --------------------------- */
 /* ----------------------------- Welcome --------------------------- */
 /* --------------------------- --------- --------------------------- */
@@ -1664,11 +1678,20 @@ footer button#copy-email {
   border: none;
   cursor: pointer;
   padding: 0;
-  line-height: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
 }
 
 footer a:has(.footer-icon) {
-  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
 }
 
 footer .footer-icon {
