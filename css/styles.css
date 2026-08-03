@@ -1218,6 +1218,12 @@ span i.material-icons {
   white-space: normal;
 }
 
+#copy-email[data-tooltip]:before {
+  width: 6ch;
+  padding: 6px 10px;
+  margin-left: -20px;
+}
+
 /* Triangle hack to make tooltip look like a speech bubble */
 [data-tooltip]:after {
   position: absolute;
@@ -1658,16 +1664,10 @@ footer button#copy-email {
   border: none;
   cursor: pointer;
   padding: 0;
-  display: inline-flex;
-  align-items: center;
-  position: relative;
-  vertical-align: middle;
   line-height: 0;
 }
 
 footer a:has(.footer-icon) {
-  display: inline-flex;
-  align-items: center;
   line-height: 0;
 }
 
