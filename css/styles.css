@@ -1681,16 +1681,13 @@ footer button#copy-email {
   position: relative;
 }
 
-footer a:has(.footer-icon) {
-  line-height: 0;
-}
-
 footer .footer-icon {
   width: 24px;
   height: 24px;
   opacity: 0.7;
   filter: brightness(0) invert(1);
   transition: opacity 150ms ease;
+  display: block;
 }
 
 footer button#copy-email:hover .footer-icon,
