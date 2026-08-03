@@ -1661,6 +1661,14 @@ footer button#copy-email {
   display: inline-flex;
   align-items: center;
   position: relative;
+  vertical-align: middle;
+  line-height: 0;
+}
+
+footer a:has(.footer-icon) {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
 }
 
 footer .footer-icon {
