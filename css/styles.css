@@ -1677,15 +1677,41 @@ nav {
   text-align: left;
 }
 
+#consulting-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 72px 10vw;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+#venn-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#venn-diagram {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+}
+
 #consulting-hero h1 {
   margin-bottom: 16px;
+  color: var(--primary);
+  line-height: 1.1;
 }
 
 #consulting-hero h2 {
   margin-bottom: 32px;
-  font-size: calc(1.4em + .5vw);
+  font-size: calc(1.1em + .5vw);
   color: var(--charcoal);
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.4;
 }
 
@@ -1695,7 +1721,7 @@ nav {
 }
 
 #consulting-hero .btn-primary {
-  display: flex;
+  display: inline-block;
   align-self: center;
   margin-top: 32px;
   padding: 16px 56px;
@@ -1838,6 +1864,11 @@ nav {
   #case_studies {
     grid-template-columns: repeat(2, 1fr);
   }
+  #consulting-layout {
+    grid-template-columns: 1fr;
+    padding: 48px 12%;
+    gap: 32px;
+  }
 }
 
 /* --------------------------- --------- --------------------------- */
@@ -1942,6 +1973,9 @@ blockquote.testimonial {
 #about-photo {
 width: min(420px, 50vw);
 height: min(420px, 50vw);
+}
+#consulting-layout {
+  padding: 48px 8%;
 }
 }
 
@@ -2073,6 +2107,9 @@ blockquote.testimonial span {
   width: min(420px, 60vw);
   height: min(420px, 60vw);
   }
+  #consulting-layout {
+    padding: 32px 4%;
+  }
 }
 
 /* --------------------------- --------- --------------------------- */
@@ -2143,4 +2180,7 @@ blockquote.testimonial span {
   }
   #welcome h1 { font-size: calc(1.4em + 3vw); }
   #hero-tagline { font-size: calc(1em + 0.5vw); }
+  #consulting-layout {
+    padding: 24px 2%;
+  }
 }
