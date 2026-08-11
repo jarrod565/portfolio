@@ -1673,6 +1673,47 @@ nav {
   background: transparent !important;
 }
 
+#consulting-hero {
+  text-align: left;
+}
+
+#consulting-hero h1 {
+  margin-bottom: 16px;
+}
+
+#consulting-hero h2 {
+  margin-bottom: 32px;
+  font-size: calc(1.4em + .5vw);
+  color: var(--charcoal);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+#consulting-hero p {
+  max-width: 100%;
+  margin-bottom: 16px;
+}
+
+#consulting-hero .btn-primary {
+  display: flex;
+  align-self: center;
+  margin-top: 32px;
+  padding: 16px 56px;
+  background-color: var(--chip);
+  color: var(--white);
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: calc(1em + .25vw);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background-color 150ms ease;
+}
+
+#consulting-hero .btn-primary:hover {
+  opacity: 0.85;
+}
+
 /* --------------------------- --------- --------------------------- */
 /* ----------------------------- < 1600 ---------------------------- */
 /* --------------------------- --------- --------------------------- */
