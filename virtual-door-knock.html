@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/modernizr.js" defer></script>
+	<script src="https://cdn.counter.dev/script.js" data-id="26424da4-b094-44ac-86be-e75e67dfbcd7" data-utcoffset="-4"></script>
+	<title>Virtual Door Knock | Jarrod Murray</title>
+</head>
+
+<body id="virtual-door-knock" class="static-nav">
+	<nav id="main-nav">
+	  <div class="nav-identity">
+	    <img alt="Jarrod Murray" src="./img/new-profile.jpg" />
+	    <h3><a href="/">Jarrod Murray</a> <span class="slash">/</span> Virtual Door Knock</h3>
+	  </div>
+	  <div class="nav-links" id="nav-links-mobile">
+	    <a href="./about.html">About</a>
+	    <span class="slash">|</span>
+	    <a href="https://www.linkedin.com/in/jarrodmurray/" target="_blank">LinkedIn</a>
+	    <span class="slash">|</span>
+	    <a href="./resume.html" target="_blank">Resume</a>
+	  </div>
+	  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links-mobile">
+	    <i class="material-icons">menu</i>
+	  </button>
+	</nav>
+	<main>
+		<section class="hero">
+		<figure>
+			<img alt="" src="./img/hero/vdk.jpg"/>
+		</figure>
+		<div class="bluf">
+			<h1>Virtual Door Knock</h1>
+			<div class="bluf-row">
+				<p class="bluf-summary">Replacing a knock on the door with a templated text message sounds simple. Building it into a platform that wasn&rsquo;t designed for it wasn&rsquo;t.</p>
+				<dl class="bluf-meta">
+					<dt>Role:</dt>
+					<dd><span class="bluf-chip bluf-chip-designer">Designer</span></dd>
+					<dt>Dates:</dt>
+					<dd>2023 &ndash; 2024</dd>
+					<dt>Client:</dt>
+					<dd>Captivated</dd>
+				</dl>
+			</div>
+		</div>
+		</section>
+
+		<section class="case-challenge">
+			<h3>The Challenge</h3>
+			<p>The idea arrived with a name and not much else. Virtual Door Knock. The pitch was simple: lawn technicians don&rsquo;t like knocking on doors. Dogs bark, kids wake up, and not every tech is the face a franchise owner wants representing their brand. A templated text message could do the job instead.</p>
+			<p>What came with the idea was a direction, not a scope. No data requirements, no technical constraints, no plan for how a feature like this fits into a platform built entirely around phone numbers. Figuring that out was the job.</p>
+		</section>
+
+			<a href="#" class="top_fab">
+			  <i class="material-icons">keyboard_arrow_up</i>
+			</a>
+
+		<section class="case-body">
+
+			<article id="strategy" class="collapsible collapsible-strategy is-expanded">
+				<button type="button" class="collapsible-toggle" aria-expanded="true" aria-controls="panel-strategy" id="tab-strategy">
+					<span>Strategy</span>
+					<i class="material-icons collapsible-chevron" aria-hidden="true">chevron_right</i>
+				</button>
+				<div id="panel-strategy" role="region" aria-labelledby="tab-strategy">
+					<div class="panel-text">
+					<h3>The Prototype Buys the Time</h3>
+					<p>The first move wasn&rsquo;t a spec. It was a Figma prototype.</p>
+					<p>Part of my role was protecting the development team from ideas that weren&rsquo;t ready. A name and a direction isn&rsquo;t a feature. It&rsquo;s a starting point. Building something clickable first let me pressure-test the concept, think through what a real build would actually require, and surface the right questions before anyone was assigned to it.</p>
+					<p>The prototype did two things. It gave the concept something tangible to travel with, animated interactions, a real workflow, something that could be shown at a green industry conference and come back with signal instead of assumptions. And it bought the runway needed to figure out what shipping this would actually take.</p>
+					<p>What came back from the conferences was simple: they loved it. When can we build it? That was enough to get it prioritized. It was also when the real work started.</p>
+					</div>
+
+					<figure class="figure-portrait">
+						<video src="img/cases/vdk/swipe.mp4" autoplay loop muted playsinline></video>
+					</figure>
+
+					<div class="panel-text">
+					<h3>Building the Foundation First</h3>
+					<p>Virtual Door Knock was a geo-location-based feature and Captivated didn&rsquo;t store addresses on Contacts.</p>
+					<p>The platform was built around phone numbers. That was the entire data model. Getting VDK onto the roadmap meant solving a problem that predated the feature: Contacts needed address fields, and not every organization needed them. The solution was a toggle at the organization level. Address fields only appeared if the org had them enabled. A second toggle controlled geo-location specifically, adding lat/long fields to contacts and triggering automatic conversion for any address already in the system. If a client&rsquo;s CRM already had lat/long data, we could import it directly rather than paying a third party to generate what already existed.</p>
+					<p>The import pipeline needed to expand too. Accepting address, city, state, zip, and lat/long fields sounds straightforward. Data validation is not. Partial addresses, inconsistent state codes, missing postal codes, edge cases that couldn&rsquo;t be rushed. Getting the foundation right mattered more than hitting a date.</p>
+					<p>Captivated&rsquo;s mobile apps ran on Capacitor, a framework that bridges web code to native iOS and Android. Relying on the device&rsquo;s geo-location meant the version of Capacitor in production had to support it reliably. That meant an upgrade before testing could even begin. Not glamorous work, but without it nothing else moved.</p>
+					<p>None of this was in the prototype. All of it had to exist before a single line of VDK code was written.</p>
+					</div>
+
+					<div class="panel-text">
+					<h3>Fitting VDK Into a Monolith</h3>
+					<p>With the foundation scoped, the feature still had to work inside an architecture that wasn&rsquo;t designed to support it.</p>
+					<p>Captivated organized its data around Organizations and Accounts. An Organization might be a single lawn care company with one Account, or a franchise with dozens representing individual locations. VDK was the first feature that needed to live at the Account level, which meant solving for a pattern that didn&rsquo;t exist yet in the platform. One location could pay for and enable VDK without it surfacing across every other Account in the org. Access was then designated at the user level too. Not every person on an account was a field technician. Office staff and receptionists didn&rsquo;t need a geo-location tab on their device.</p>
+					<p>Templates presented the same challenge. They lived at the Organization level, available across every account by design. VDK was the first feature that needed templates to belong exclusively to the account using them. Rather than restructure where templates lived across the entire platform, VDK got its own designated template type, scoped to the account, separate from everything else.</p>
+					<p>Every one of these decisions had to be made before the mobile experience could be designed. The feature the tech sees is two swipes and two taps. Everything underneath it took time to get right.</p>
+					</div>
+				</div>
+			</article>
+
+			<article id="research" class="collapsible collapsible-research is-expanded">
+				<button type="button" class="collapsible-toggle" aria-expanded="true" aria-controls="panel-research" id="tab-research">
+					<span>Research</span>
+					<i class="material-icons collapsible-chevron" aria-hidden="true">chevron_right</i>
+				</button>
+				<div id="panel-research" role="region" aria-labelledby="tab-research">
+					<div class="panel-text">
+					<h3>Putting It in Front of the Right People</h3>
+					<p>The prototype wasn&rsquo;t just a scoping tool. It was the research. An animated, clickable workflow traveling to a green industry conference and landing in front of the people who would actually use it was more valuable than anything a survey could have returned at that stage. The concept needed a reaction from the field, not a form.</p>
+					<p>What came back was informal. Word of mouth, conversations at a booth, no session notes or recorded feedback. But the signal was consistent enough to prioritize the build. That was the goal.</p>
+					</div>
+
+					<div class="panel-text">
+					<h3>Trying to Hear From Users</h3>
+					<p>Once VDK shipped I put together a heuristics survey and tracked down every user I could find. Ten, maybe twelve people. The green industry runs hard from early spring through late fall, and asking field technicians to stop and fill out a survey mid-season wasn&rsquo;t realistic. Nobody responded.</p>
+					<p>A second survey went out just before I left. I never got to see what came back.</p>
+					</div>
+				</div>
+			</article>
+
+			<article id="design" class="collapsible collapsible-design is-expanded">
+				<button type="button" class="collapsible-toggle" aria-expanded="true" aria-controls="panel-design" id="tab-design">
+					<span>Design</span>
+					<i class="material-icons collapsible-chevron" aria-hidden="true">chevron_right</i>
+				</button>
+				<div id="panel-design" role="region" aria-labelledby="tab-design">
+					<div class="panel-text">
+					<h3>Designed for the Field</h3>
+					<p>Virtual Door Knock had one user in one context: a lawn technician standing next to a truck, ready to treat a yard. They weren&rsquo;t sitting at a desk. They weren&rsquo;t going to search for a contact, navigate menus, or read instructions. The design had to work with that reality, not around it.</p>
+					<p>The feature surfaces the five closest contacts to the technician&rsquo;s current location. Not a list they build, not a search they run. Five contacts, ranked by distance, ready to act on. That number was deliberate. Enough to account for imprecise geo-location data without overwhelming a screen that needed to stay simple. If none of the five were right, a bad data problem wasn&rsquo;t something a tech should solve in the field.</p>
+					<p>VDK is also mobile-only. There was no version of this feature that made sense on a desktop. Suppressing it on non-mobile devices wasn&rsquo;t a limitation, it was the right call. A geo-location tool for field technicians has no business appearing in an office.</p>
+					</div>
+
+					<div class="panel-text">
+					<h3>The Swipe Interactions</h3>
+					<p>Every interaction was designed to reduce the number of decisions a tech had to make.</p>
+					<p>Swiping a contact reveals three options: remove, message, or template. Selecting template slides a bottom sheet up from the screen with only the VDK templates for that account. A second swipe reveals the send option. Two swipes, two taps. The tech never leaves the flow to find a contact, open a conversation, or navigate to a template library.</p>
+					<p>After the message sends, the app opens the conversation screen. Familiar territory. No new screens to introduce, no confirmation modal to dismiss. If the customer replies, the tech is already where they need to be.</p>
+					</div>
+
+					<figure class="figure-portrait">
+						<video src="img/cases/vdk/template-send.mp4" autoplay loop muted playsinline></video>
+					</figure>
+
+					<div class="panel-text">
+					<h3>The Speed Limit Restriction</h3>
+					<p>A geo-location feature that works while driving is a distracted driving problem. The map won&rsquo;t load contacts if the device is traveling faster than 12 MPH.</p>
+					<p>The idea came from Pokemon Go, borrowed as a way to keep the tool from becoming a distraction behind the wheel. The restriction generated the most immediate feedback after launch, but not for the reason I expected. Users hadn&rsquo;t granted the app precise location access, so their position jumped around on the map even when standing still. The fix was two-part: reduce the MPH threshold to account for location drift, and surface a prompt encouraging precise location permissions on first use.</p>
+					</div>
+
+					<div class="panel-text">
+					<h3>The Radius Setting</h3>
+					<p>Not every technician works in a residential neighborhood. A tech servicing properties in a dense suburb operates in a very different environment than one maintaining ponds and irrigation systems across rural acreage.</p>
+					<p>A fixed radius would have broken one scenario or the other. The default is .2 miles, tight enough for residential use, but configurable up to 20 miles for accounts that need it. The setting lives at the account level, set by the admin, not adjusted by the tech in the field.</p>
+					</div>
+
+					<div class="panel-text">
+					<h3>The Tech Avatar and Geo-Stamp</h3>
+					<p>A templated text message can do more than replace a knock on the door. Two optional toggles on the VDK template let accounts decide how much information travels with the message.</p>
+					<p>The first attaches the technician&rsquo;s profile photo. Some franchise owners want the customer to know who is on their property. Others don&rsquo;t. The second embeds the technician&rsquo;s geo-location at the time of send, a verifiable record that the tech was on site. A virtual equivalent of the &ldquo;just treated&rdquo; sign left in the yard, timestamped and tied to a location.</p>
+					</div>
+
+					<div class="panel-text">
+					<h3>The Non-Happy Paths</h3>
+					<p>Two scenarios required specific design decisions that the swipe interaction alone couldn&rsquo;t handle.</p>
+					<p>The first was missing merge field data. VDK templates could include dynamic fields that pulled in customer information. If that data didn&rsquo;t exist for a contact, the message would send with a blank where the customer&rsquo;s information should have been, reading like an error. A warning surfaced on the template card before the send option appeared. If the tech selected it anyway, a prompt asked them to fill in the missing value before the message could go out.</p>
+					</div>
+
+					<figure class="figure-portrait">
+						<video src="img/cases/vdk/missing-data.mp4" autoplay loop muted playsinline></video>
+					</figure>
+
+					<div class="panel-text">
+					<p>The second was opted-out contacts. An opted-out contact can still appear in the five closest, but they can&rsquo;t receive a message. Rather than hiding them or blocking the swipe entirely, the established opt-out icon, a red ban symbol already used elsewhere in Captivated, appeared next to the contact name. The send and template options were disabled. The tech could see why without needing an explanation.</p>
+					</div>
+
+					<figure class="figure-portrait">
+						<video src="img/cases/vdk/optout.mp4" autoplay loop muted playsinline></video>
+					</figure>
+
+					<div class="panel-text">
+					<p>Neither scenario blocked the workflow. Both guided the tech to the right next step without interrupting the experience for contacts where everything was fine.</p>
+					</div>
+
+					<div class="panel-text">
+					<h3>The Empty State</h3>
+					<p>If a tech dismissed all five contacts, or if no contacts existed within the current radius, the screen returned an empty state. A &ldquo;Search Near Me&rdquo; button reset the view and fetched the five closest contacts again. If the data still wasn&rsquo;t there, it returned empty. The feature doesn&rsquo;t guess. It shows what the system knows.</p>
+					</div>
+
+					<figure class="figure-portrait">
+						<video src="img/cases/vdk/empty-state.mp4" autoplay loop muted playsinline></video>
+					</figure>
+
+					<div class="panel-text">
+					<h3>The Admin Screens</h3>
+					<p>The geo-location tab didn&rsquo;t appear on a technician&rsquo;s device by accident. Before any tech could use VDK, an admin had to enable it at the account level, designate which users and teams had access, configure the search radius, and set up the VDK templates. Every one of those settings lived on a new VDK card added to the organization&rsquo;s admin screen.</p>
+					<p>These screens weren&rsquo;t built after the feature. They were built in tandem with it. The feature and its configuration had to ship together. One without the other wasn&rsquo;t a product.</p>
+					</div>
+				</div>
+			</article>
+
+			<article id="outcome" class="collapsible collapsible-outcome is-expanded">
+				<button type="button" class="collapsible-toggle" aria-expanded="true" aria-controls="panel-outcome" id="tab-outcome">
+					<span>Outcome</span>
+					<i class="material-icons collapsible-chevron" aria-hidden="true">chevron_right</i>
+				</button>
+				<div id="panel-outcome" role="region" aria-labelledby="tab-outcome">
+					<div class="panel-text">
+					<p>Virtual Door Knock shipped as a zero-to-one feature inside a platform that wasn&rsquo;t built for it. No address fields, no geo-location support, no account-level feature toggles, none of that existed before this project. By the time VDK launched, all of it did.</p>
+					<p>Year one adoption was modest. VDK shipped during the green industry&rsquo;s busy season, and asking clients to implement and train on a new feature mid-season wasn&rsquo;t realistic. The product sat on the shelf until the season wound down. By the 2025 season, more accounts were adopting it and the feedback coming back was positive.</p>
+					<p>The survey I sent to early users never made it back to me. But the roadmap was already clear. VDK was next in line to be rebuilt as a proper React module, following the strangler pattern the team had started using to modernize the platform one piece at a time. Its small footprint made it a natural candidate. And with a real authentication and authorization layer in place, the cumbersome account and user-level toggles required in v1 could be replaced with something the system already knew how to do.</p>
+					<p>The feature worked. The process that produced it worked. A vague idea and a name became a shipped, adopted, and already-improving product.</p>
+					</div>
+				</div>
+			</article>
+
+		</section>
+		<section class="reversed centered eighthPad">
+			<h3 class="center">More Case Studies</h3>
+			<article class="flexTrio">
+		</article>
+	</section>
+
+	</main>
+<footer>
+  <a href="#" id="copy-email" role="button" title="Copy email address" aria-label="Copy email address">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-160q-24 0-42-18t-18-42v-520q0-24 18-42t42-18h680q24 0 42 18t18 42v520q0 24-18 42t-42 18H140Zm340-302L140-685v465h680v-465L480-462Zm0-60 336-218H145l335 218ZM140-685v-55 520-465Z"/></svg>
+  </a>
+  <a href="./contact.html" title="Schedule Time">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 3h-1V1h-2v2H7V1H5v2H4C2.9 3 2 3.9 2 5v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13zm0-15H4V5h16v1zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
+  </a>
+  <a href="https://www.linkedin.com/in/jarrodmurray/" title="LinkedIn" target="_blank"><svg class="linkedin" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+  <a href="./resume.html" title="Résumé" target="_blank"><svg class="adobe" viewBox="0 0 384 512"><path d="M184 208c0-4.406-3.594-8-8-8S168 203.6 168 208c0 2.062 .2969 23.31 9.141 50.25C179.1 249.6 184 226.2 184 208zM256 0v128h128L256 0zM80 422.4c0 9.656 10.47 11.97 14.38 6.375C99.27 421.9 108.8 408 120.1 388.6c-14.22 7.969-27.25 17.31-38.02 28.31C80.75 418.3 80 420.3 80 422.4zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM292 312c24.26 0 44 19.74 44 44c0 24.67-18.94 44-43.13 44c-5.994 0-11.81-.9531-17.22-2.805c-20.06-6.758-38.38-15.96-54.55-27.39c-23.88 5.109-45.46 11.52-64.31 19.1c-14.43 26.31-27.63 46.15-36.37 58.41C112.1 457.8 100.8 464 87.94 464C65.92 464 48 446.1 48 424.1c0-11.92 3.74-21.82 11.18-29.51c16.18-16.52 37.37-30.99 63.02-43.05c11.75-22.83 21.94-46.04 30.33-69.14C136.2 242.4 136 208.4 136 208c0-22.05 17.95-40 40-40c22.06 0 40 17.95 40 40c0 24.1-7.227 55.75-8.938 62.63c-1.006 3.273-2.035 6.516-3.082 9.723c7.83 14.46 17.7 27.21 29.44 38.05C263.1 313.4 284.3 312.1 287.6 312H292zM156.5 354.6c17.98-6.5 36.13-11.44 52.92-15.19c-12.42-12.06-22.17-25.12-29.8-38.16C172.3 320.6 164.4 338.5 156.5 354.6zM292.9 368C299 368 304 363 304 356.9C304 349.4 298.6 344 292 344H288c-.3438 .0313-16.83 .9687-40.95 4.75c11.27 7 24.12 13.19 38.84 18.12C288 367.6 290.5 368 292.9 368z"/></svg></a>
+</footer>
+
+<script>
+  document.getElementById('copy-email').addEventListener('click', function (e) {
+    e.preventDefault();
+    navigator.clipboard.writeText('jarrod@jarrodmurray.com').then(function () {
+      const el = document.getElementById('copy-email');
+      el.setAttribute('data-tooltip', 'Copied!');
+      setTimeout(function () {
+        el.removeAttribute('data-tooltip');
+      }, 2000);
+    });
+  });
+</script>
+	<script src="js/scripts.js" defer></script>
+	<script defer>
+	document.addEventListener('DOMContentLoaded', () => {
+		renderRelatedCaseStudies('virtual-door-knock');
+	});
+	</script>
+
+</body>
+</html>

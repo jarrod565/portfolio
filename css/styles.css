@@ -2184,3 +2184,11 @@ blockquote.testimonial span {
     padding: 24px 2%;
   }
 }
+
+/* Portrait video */
+.collapsible [role="region"] figure.figure-portrait {
+  max-width: 375px;
+  margin: 32px auto;
+  display: block;
+  width: auto;
+}
